@@ -7,3 +7,8 @@ A JavaScript library for building user interfaces.
 ## Goals
 * __Theory:__ Understand the main building blocks and know where to fin useful info.
 * __Practice:__ Apply the knowledge by building bunch of cool projects.
+
+## Structure
+* __Tutorial__ Get familiar which all of the major building blocks.
+* __Projects__ After each new topic, build one or few cool projects.
+* __Redux__ Learn the most popular state management library.
