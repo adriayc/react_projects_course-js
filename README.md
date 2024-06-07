@@ -16,3 +16,5 @@ A JavaScript library for building user interfaces.
 ## Requirements
 * __HTML & CSS__ Familiar with common elements - div, section, navbar. Understand primary styling principles.
 * __JAVASCRIP__ Arrow functions, array methods, spread operator, rest operator, destructuring, etc.
+
+## Workflow Info
