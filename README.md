@@ -35,3 +35,8 @@ A JavaScript library for building user interfaces.
     - vscode-styled-components
     - Bracket Pair Colorizer
 * Use a Terminal
+* Install Node.js (Preferably LTS version)
+  ```bash
+  $ node --version
+  $ npm --version
+  ```
