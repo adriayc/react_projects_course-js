@@ -19,3 +19,18 @@ A JavaScript library for building user interfaces.
 
 ## Workflow Info
 * Install Google Chrome
+* Install VS Code
+  Add the following extensions:
+    - Auto Rename Tag
+    - Code Spell Checker
+    - DotENV
+    - ES7 React/Redux/GraphQL/React-Native snippets
+    - Highlinght Matching Tag
+    - indent-rainbow
+    - Live Server
+    - Markdown Preview Enhanced
+    - Prittier - Code formatter
+    - Quokka.js
+    - vscode-icons
+    - vscode-styled-components
+    - Bracket Pair Colorizer
