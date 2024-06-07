@@ -3,3 +3,7 @@
 
 ## What is React?
 A JavaScript library for building user interfaces.
+
+## Goals
+* __Theory:__ Understand the main building blocks and know where to fin useful info.
+* __Practice:__ Apply the knowledge by building bunch of cool projects.
