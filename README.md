@@ -12,3 +12,7 @@ A JavaScript library for building user interfaces.
 * __Tutorial__ Get familiar which all of the major building blocks.
 * __Projects__ After each new topic, build one or few cool projects.
 * __Redux__ Learn the most popular state management library.
+
+## Requirements
+* __HTML & CSS__ Familiar with common elements - div, section, navbar. Understand primary styling principles.
+* __JAVASCRIP__ Arrow functions, array methods, spread operator, rest operator, destructuring, etc.
