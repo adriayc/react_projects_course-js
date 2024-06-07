@@ -15,3 +15,10 @@
 - package-lock-json: A snapshot of the entire dependency tree.
 - README: The markdown file where you can share more info about the project for example build instructions and summary.
 - zoom: 175%
+
+## Remove Boilerplate
+- Remove src folder
+- Create src folder
+  - Create index.js inside src
+- Toggle sidebar CTRL + B (VSCode)
+- Shortcuts settings/keyboard shortcuts (VSCode settings icon -> Keyboard Shurtcuts CTRL + K CTRL + S)
