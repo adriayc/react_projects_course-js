@@ -22,3 +22,54 @@
   - Create index.js inside src
 - Toggle sidebar CTRL + B (VSCode)
 - Shortcuts settings/keyboard shortcuts (VSCode settings icon -> Keyboard Shurtcuts CTRL + K CTRL + S)
+
+## Fist Component
+```js
+function Greeting() {
+  return <h2>My First Component</h2>;
+}
+
+// Arrow function also works
+const Greeting = () => {
+  return <h2>My First Component</h2>;
+};
+```
+- Starts with capital letter
+- Must return JSX (html)
+- Always close tag <Greeting />
+
+### Typical Component
+```js
+// Imports or logic
+
+const Greeting = () => {
+  return <h2>My First Component</h2>;
+};
+
+export default Greeting;
+```
+
+### Root Coponent (only one)
+index.js
+```js
+import React from 'react';
+import ReactDOM form 'react-dom/client';
+
+function Greeting() {
+  return <h2>My First Component</h2>;
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<Greeting />);
+```
+
+### Possible Bug
+If for some reason you still have this error in the terminal
+```
+Module not found: Error: Can't resolve 'path/index.js'
+```
+
+Just restart the server
+- CTRL + C (stop the server)
+- "npm start" (start the dev server)

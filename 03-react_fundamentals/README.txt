@@ -5,3 +5,7 @@
     $ code .          // Open VSCode
     $ npm start
     > Open de URL in the browser: 'http://localhost:3000/'
+
+  - Shortcuts in VSCode
+    + CTRL + C    // Stop the server
+    + npm start   // Start the server 
