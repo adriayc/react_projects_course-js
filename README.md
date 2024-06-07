@@ -18,3 +18,4 @@ A JavaScript library for building user interfaces.
 * __JAVASCRIP__ Arrow functions, array methods, spread operator, rest operator, destructuring, etc.
 
 ## Workflow Info
+* Install Google Chrome
