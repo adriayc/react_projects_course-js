@@ -40,3 +40,24 @@ A JavaScript library for building user interfaces.
   $ node --version
   $ npm --version
   ```
+
+## Create React App
+There are 2 tools for creating apps in React: 
+* [Create React App](https://create-react-app.dev/)
+  ```bash
+  $ npx create-react-app my-app
+  $ cd my-app
+  $ npm start
+  ```
+* [Vite](https://vitejs.dev/)
+  ```bash
+  $ npm create vite@latest my-project
+  $ cd my-project
+  $ npm install
+  $ npm run dev
+  ```
+
+Install packages:
+```bash
+$ npm install packageName
+```
