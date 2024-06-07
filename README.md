@@ -34,3 +34,4 @@ A JavaScript library for building user interfaces.
     - vscode-icons
     - vscode-styled-components
     - Bracket Pair Colorizer
+* Use a Terminal
