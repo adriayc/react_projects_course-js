@@ -73,3 +73,37 @@ Module not found: Error: Can't resolve 'path/index.js'
 Just restart the server
 - CTRL + C (stop the server)
 - "npm start" (start the dev server)
+
+## Extensions and Settings
+- Auto Rename Tag
+- Highlinght Matching Tag
+  - Customize in settings.json
+- Pettier
+  - Format on save
+  - Formate on paste
+  - Default Formatter (Prettier - Code formatter)
+
+settings.json
+```json
+"editor.formatOnPaste": true,
+"editor.formatOnSave": true,
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+"prettier.singleQuote": true,
+"prettier.semi": false,
+```
+
+- Emmet
+settings.json
+```json
+"emmet.includeLanguages": {
+  "javascript": "javascriptreact"
+}
+```
+
+- ES7 Snippets (ES7+ React/Redux/React-Native snippets - dsznajder)
+  - rafce (Arrow func with export)
+  - rfce (Regular func with export)
+    - Same as the file name
+  - React auto import
+    - uncheck
+    - React Snippets > Settings: Import React On Top
