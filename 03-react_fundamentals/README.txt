@@ -8,4 +8,5 @@
 
   - Shortcuts in VSCode
     + CTRL + C    // Stop the server
-    + npm start   // Start the server 
+    + npm start   // Start the server
+    + ALT + Click   // Select multiple items
