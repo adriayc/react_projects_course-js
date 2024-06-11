@@ -958,3 +958,73 @@ const Book = ({ img, title, author }) => {
   // Rest of the code
 };
 ```
+
+## Events - Fundamentals
+- Vanilla JS
+```js
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', function(e) {
+  // Access event object
+  // Do something when event fires
+});
+```
+
+- Similar approach
+- Element, event, function
+- Again camelCase
+```js
+const EventExample = () => {
+  const handleButtonClick = () => {
+    alert('Handle button click');
+  };
+  return (
+    <section>
+      <button onClick={handleButtonClick}>Click me</button>
+    </section>
+  );
+};
+```
+
+- [React Events](https://legacy.reactjs.org/docs/events.html)
+- No need to memorize them (idea is the same)
+- Most common
+  - onClick (click events)
+  - onSubmit (submit form)
+  - onChange (input change)
+```js
+function BookList() {
+  return (
+    <section className='booklist'>
+      <EventExamples />
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />;
+      })}
+    </section>
+  );
+}
+
+const EventExample = () => {
+  const handleFormInput = () => {
+    console.log('Handle form input');
+  };
+  const handleButtonClick = () => {
+    alert('Handle button click');
+  };
+
+  return (
+    <section>
+      <form>
+        <h2>Typical Form</h2>
+        <input
+          type='text'
+          name='example'
+          onChange={handleFormInput}
+          style={{ margin: '1rem 0' }}
+        />
+      </form>
+      <button onClick={handleButtonClick}>Click me</button>
+    </section>
+  );
+};
+```
