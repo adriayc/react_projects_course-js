@@ -139,3 +139,62 @@ const Greeting = () => {
   );
 };
 ```
+
+## JSX Rules
+- Return single element (one parent element)
+  - Semantics section/article
+  - Fragment - Let's us group elements without adding extra nodes
+  ```js
+  return <React.Fragment>...rest of the return</React.Fragment>;
+
+  // Shorthand
+  return <>...rest of the return</>;
+  ```
+- CamelCase property naming convention
+```js
+return (
+  <div tabIndex={1}>
+    <button onClick={myFunction}>Click me</button>
+    <label htmlFor='name'>Name</label>
+    <input readOnly={true} id='name' />
+  </div>
+)
+
+// In HTML
+<div tabindex="1">
+  <button onclick="myFunction()">Click me</button>
+  <label for="name">Name</label>
+  <input readonly id="name" />
+</div>
+```
+- className instead of class
+```js
+return <div className='someValue'>Hello</div>;
+```
+
+- Close every element
+```js
+return <img />;
+// Or
+return <input />;
+```
+- Formatting
+  - Opening tag in the same line as return or ()
+```js
+function Greeting() {
+  return (
+    <>
+      <div className='someValue'>
+        <h3>Hello people</h3>
+        <ul>
+          <li>
+            <a href='#'>Hello world</a>
+          </li>
+        </ul>
+      </div>
+      <h2>Hello world</h2>
+      <input type='text' name='' id='' />
+    </>
+  );
+}
+```  
