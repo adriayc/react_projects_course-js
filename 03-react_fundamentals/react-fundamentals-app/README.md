@@ -107,3 +107,35 @@ settings.json
   - React auto import
     - uncheck
     - React Snippets > Settings: Import React On Top
+
+## Fist Component in Detail
+- Capital letter
+- Must return something
+- JSX syntax (return HTML)
+  - To make our lives easier
+  - Calling function under the hood
+
+index.js
+```js
+cosnt Geeting() => {
+  return React.createElement('h2', {}, 'Hello world!');
+};
+```
+
+```js
+function Greeting() {
+  return (
+    <div>
+      <h2>Hello world!</h2>
+    </div>
+  );
+}
+
+const Greeting = () => {
+  return React.createElement(
+    'div',
+    {},
+    React.createElement('h2', {}, 'Hello world!')
+  );
+};
+```
