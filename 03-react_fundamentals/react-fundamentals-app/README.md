@@ -737,3 +737,55 @@ const Book = (props) => {
   margin: 1rem 0 0.5rem;
 }
 ```
+
+## Simple List
+- [Javascript Nuggets - Map](https://www.youtube.com/watch?v=80KX6aD9R7M&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=1)
+- Refactor
+```js
+const books = [
+  {
+    author: 'Jeffrey Mason',
+    title: 'Dad, I Want to Hear Your Story',
+    img: './images/book-1.jpg',
+  }, {
+    author: 'Michael Crichton, James Patterson',
+    title: 'Eruption',
+    img: 'https://m.media-amazon.com/images/I/81SIQfF-aGL._SL1500_.jpg',
+  }
+];
+
+function BookList() {
+  return <section className='booklist'></section>
+}
+
+const Book = (props) => {
+  const { img, title, author } = props;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+    </article>
+  );
+};
+```
+
+- Can't render objects in React
+```js
+function BookList() {
+  return <section className='booklist'>{books}</section>
+}
+```
+
+- map - creates a new array from calling a function for every array element
+```js
+const names = ['John', 'Peter', 'Susan'];
+const newNames = names.map((name) => {
+  console.log(name);
+  return <h1>{name}</h1>;
+});
+
+function BookList() {
+  return <section className='booklist'>{newNames}</section>;
+}
+```
