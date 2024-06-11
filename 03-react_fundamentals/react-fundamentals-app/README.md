@@ -305,3 +305,77 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<BookList />);
 ```
+
+## CSS
+- Create index.css in src
+```css
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;;
+}
+
+body {
+  color: #222;
+  background: #f1f5f8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+```
+
+- Import file and add classes
+```js
+import './index.css';
+
+const BookList = () => {
+  return (
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+};
+
+const Book = () => {
+  return (
+    <article className="book">
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
+```
+
+- Complete css
+```css
+.booklist {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 5rem auto;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 769px) {
+  .booklist {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.book {
+  background: #fff;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.book img {
+  width: 100%;
+  object-fit: cover;
+}
+.book h2 {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+```
