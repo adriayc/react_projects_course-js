@@ -379,3 +379,26 @@ const Book = () => {
   margin-top: 1rem;
 }
 ```
+
+## Local Images (Public Folder)
+- Optional Video!!!
+
+- External images (hosted on different server) - Just need an url
+- Local images (public folder) - Less performance
+- Local images (src folder) - Better solution for assets, since under the hook they get optimized
+
+- Save image (Save Image As...)
+- Create images folder in public
+- Copy/paste image
+- Rename (optional)
+- Replace url in the src - './images/imageName.extension'
+- './' because assets are on the same server
+
+```js
+const Image = () => (
+  <img src='./images/book-1.jpg' alt='Interenting Facts For Curious Minds' />
+);
+```
+
+- Whatever assets we place in public - Instantly available
+- Domain(localhost)/asset  

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// Import CSS
+
 import './index.css';
 
 const BookList = () => {
@@ -26,7 +26,8 @@ const Book = () => {
 
 const Image = () => (
   <img
-    src="https://m.media-amazon.com/images/I/41kw-B7x7EL._SY445_SX342_.jpg"
+    // Local Image (public folder)
+    src="./images/book-1.jpg"
     alt="Dad, I Want to Hear Your Story"
   />
 );
