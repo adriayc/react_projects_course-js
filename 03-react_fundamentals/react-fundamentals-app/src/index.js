@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
-// Simple List
+// Proper List
 const books = [
   {
     author: 'Jeffrey Mason',
@@ -17,21 +17,18 @@ const books = [
   },
 ];
 
-const names = ['John', 'Peter', 'Susan'];
-// const newNames = names.map((name) => {
-//   console.log(name);
-//   return <h1>{name}</h1>;
-// });
-
 const BookList = () => {
-  // return <section className="booklist">{books}</section>;
-  // return <section className="booklist">{names}</section>;
-  // return <section className="booklist">{newNames}</section>;
   return (
     <section className="booklist">
-      {names.map((name) => {
-        console.log(name);
-        return <h1>{name}</h1>;
+      {books.map((book) => {
+        console.log(book);
+        const { img, title, author } = book;
+        return (
+          // <div>
+          //   <h2>Item</h2>
+          // </div>
+          <Book img={img} title={title} author={author} />
+        );
       })}
     </section>
   );

@@ -789,3 +789,40 @@ function BookList() {
   return <section className='booklist'>{newNames}</section>;
 }
 ```
+
+## Proper List
+- Remove names and newNames
+```js
+function BookList() {
+  return (
+    <section className='booklist'>
+    {books.map((book) => {
+      console.log(book);
+
+      // return 'Hello';
+      return (
+        <div>
+          <h2>{book.title}</h2>
+        </div>
+      );
+    })}
+    </section>
+  );
+}
+```
+
+- Render component
+- Pass properties one by one
+```js
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        console.log(book);
+        const { img, title, author } = book;
+        return <Book img={img} title={title} author={author} />
+      })}
+    </section>
+  );
+}
+```
