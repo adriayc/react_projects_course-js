@@ -39,3 +39,10 @@ body {
   font-size: 1rem;
   margin-top: 1rem;
 }
+
+.book h4 {
+  /* Won't work */
+  color: red;
+  /* Will work */
+  letter-spacing: 2px;
+}

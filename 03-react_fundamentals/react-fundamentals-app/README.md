@@ -402,3 +402,41 @@ const Image = () => (
 
 - Whatever assets we place in public - Instantly available
 - Domain(localhost)/asset  
+
+## JSX - CSS (inline styles)
+- Style prop
+- {} in JSX mean going back to JS Land
+- Value is an object with key/valu paris - Capitalized and with ''
+```js
+const Author = () => (
+  <h4 style={{ color: '#617d98', fontSize='0.75', marginTop: '0.5rem' }}>Jeffrey Mason</h4>
+);
+```
+
+- css rules still apply (inline vs external css)
+
+```css
+.book h4 {
+  /* Won't work */
+  color: red;
+  /* Will work */
+  letter-spacing: 2px;
+}
+```
+
+- External libraries use inline css, so if you want to make some changes, reference the library docs and elements tab
+- Alternative option
+```js
+const Author = () => {
+  const inlineHeadingStyles = {
+    color: '#617d98',
+    fontSize: '0.75rem',
+    marginTop: '0.5rem',
+  };
+
+  return <h4 style={inlineHeadingStyles}>Jeffrey Mason</h4>;
+};
+```
+
+- FOR THE MOST PART, MULTIPLE APPROACHES AVAILABLE!!!
+- AS LONG AS THE RESULT IS THE SAME, REALLY COMES DOWN TO PREFERENCE!!!
