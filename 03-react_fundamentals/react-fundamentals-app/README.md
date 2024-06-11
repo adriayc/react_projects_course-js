@@ -632,3 +632,51 @@ const Book = (props) => {
   );
 };
 ```
+
+## Access Props - Multiple Approaches
+- There is no right or wrong - again preference!!!
+- destructuring (object) [JS Nuggets - Destructuring (object)](https://www.youtube.com/watch?v=i4vhNKihfto&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=9&t=1s)
+- Destructuring in Vanilla JS
+- Saves time/typing
+- Pull out the properties
+- Don't need to reference object anymore
+```js
+const someObject = {
+  name: 'John',
+  job: 'Developer',
+  location: 'Florida',
+};
+
+console.log(someObject.name);
+const { name, job } = someObject;
+console.log(job);
+```
+
+- No need for all the props.propName
+- Destructure inside component
+```js
+const Book = (props) => {
+  const { img, title, author } = props;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+    </article>
+  );
+};
+```
+
+- Destructure in function parameters (in our case props)
+- If you have console.log(props) - it won't be defined
+```js
+const Book = ({ img, title, author }) => {
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+    </article>
+  )
+};
+```
