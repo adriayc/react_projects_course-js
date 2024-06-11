@@ -220,3 +220,88 @@ const Message = () => {
 - Top right corner
 - More tools/Extensions
 - Open chrome web store
+
+## Book List
+- Setup structure
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function BookList() {
+  return (
+    <section>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+}
+
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
+
+const Image = () => <h2>Image placeholder</h2>;
+const Title = () => {
+  return <h2>Book Title</h2>;
+};
+const Author = () => <h4><Author</h4>;
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<BookList />);
+```
+
+- In search engine type - 'amazon best selling books' [Amazon Best Sellers](https://www.amazon.com/Best-Sellers-Books/zgbs/books/)
+- DON'T NEED TO BUY ANITHING!!!
+- NOT AN AFFILIATE LINK!!!
+- Choose a book
+- Copy image, title and author
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function BookList() {
+  return (
+    <section>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+}
+
+const Book = () => {
+  return (
+    <article className='book'>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
+
+const Image = () => (
+  <img
+    src="https://m.media-amazon.com/images/I/41kw-B7x7EL._SY445_SX342_.jpg"
+    alt="Dad, I Want to Hear Your Story"
+  />
+);
+const Title = () => <h2>Dad, I Want to Hear Your Story</h2>;
+const Author = () => {
+  return <h4>Jeffrey Mason</h4>;
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<BookList />);
+```
