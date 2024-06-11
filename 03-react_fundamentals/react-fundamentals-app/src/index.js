@@ -1,26 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// JSX Rules
+// Nest Components
 function Greeting() {
-  return <h2>Hello world!</h2>;
+  return (
+    <div>
+      <Person />
+      <Message />
+    </div>
+  );
 }
-// function Greeting() {
-//   return (
-//     <>
-//       <div className="someValue">
-//         <h2>My First Component</h2>
-//         <ul>
-//           <li>
-//             <a href="#">Hello world</a>
-//           </li>
-//         </ul>
-//       </div>
-//       <h2>Other title</h2>
-//       <input type="text" name="" id="" />
-//     </>
-//   );
-// }
+const Person = () => <h2>Adriano Ayala</h2>;
+const Message = () => {
+  return <p>This is my message</p>;
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
