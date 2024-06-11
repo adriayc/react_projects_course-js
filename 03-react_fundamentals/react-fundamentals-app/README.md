@@ -440,3 +440,48 @@ const Author = () => {
 
 - FOR THE MOST PART, MULTIPLE APPROACHES AVAILABLE!!!
 - AS LONG AS THE RESULT IS THE SAME, REALLY COMES DOWN TO PREFERENCE!!!
+
+## JSX - JavaScript
+- Refactor to single book component (personal preference)
+- Remove inline css
+```js
+const Book = () => {
+  <article className='book'>
+    <img src="./images/book-1.jpg" alt="Dad, I Want to Hear Your Story"/>
+    <h2>Dad, I Want to Hear Your Story</h2>
+    <h4>Jeffrey Mason</h4>
+  </article>
+};
+```
+
+```css
+.book h4 {
+  color: #617d98;
+  font-size: 0.75rem;
+  letter-spacing: 0.5rem;
+  margin-top: 2px;
+}
+```
+
+- {} in JSX means going back to JS Land
+- Value inside must be an expression (return value), can't be a statement
+```js
+const author = 'Jeffrey Mason';
+
+const Book = () => {
+  const title = 'Dad, I Want to Hear Your Story';
+
+  return (
+    <article className='book'>
+      <img src="./images/book-1.jpg" alt="Dad, I Want to Hear Your Story"/>
+      <h2>{title}</h2>
+
+      <h4>{author.toUppercase()}</h4>
+      {/* <p>{let x = 6}</p> */}
+      <p>{6 + 6}</p>
+    </article>
+  );
+};
+```
+
+- Toggle line comment Edit/Toggle Line Comment
