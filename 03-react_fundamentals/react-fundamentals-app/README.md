@@ -872,3 +872,89 @@ function BookList() {
   );
 }
 ```
+
+## Pass The Entire Object
+- Render component
+- Pass entire object
+- Destructuring (object) [JS Nuggets - Destructuring (object)](https://www.youtube.com/watch?v=i4vhNKihfto&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=8&t=1s)
+```js
+function BookList() {
+  <section className='booklist'>
+    {books.map((book) => {
+      console.log(book);
+      const { img, title, author } = book;
+      return <Book book={book} />;
+    })}
+  </section>
+}
+
+const Book = (props) => {
+  const { img, title, author } = props.book;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+    </article>
+  );
+};
+```
+
+- Alternative
+```js
+const Book = ({ book: { img, title, author } }) => {
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+    </article>
+  );
+};
+```
+
+### My Personal Preference
+- Utilize spread operator (...) - copy values
+- Spread Operator
+- [JS Nugget - Spread Operator](https://www.youtube.com/watch?v=4Zyr5a3m0Fc&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=10)
+```js
+const friends = ['John', 'Peter', 'Anna'];
+const newFriends = [...friends, 'Susan'];
+console.log(friends);
+console.log(newFriends);
+
+const someObject = {
+  name: 'John',
+  job: 'Developer',
+};
+// Copy not a reference!!!
+const newObject = { ...someObject, location: 'Florida' };
+console.log(someObject);
+console.log(newObject);
+```
+
+```js
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />
+      })}
+    </section>
+  );
+}
+
+const Book = (props) => {
+  const { img, title, author } = props;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+    </article>
+  );
+};
+const Book = ({ img, title, author }) => {
+  // Rest of the code
+};
+```

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
-// Key Prop
+// Object as a Prop
 const books = [
   {
     author: 'Jeffrey Mason',
@@ -23,19 +23,18 @@ const BookList = () => {
   return (
     <section className="booklist">
       {books.map((book) => {
-        // {books.map((book, index) => {
         console.log(book);
-        const { img, title, author, id } = book;
-        return <Book img={img} title={title} author={author} key={id} />;
-        // return <Book img={img} title={title} author={author} key={index} />;
+        // return <Book book={book} key={book.id} />;
+        return <Book {...book} key={book.id} />;
       })}
     </section>
   );
 };
 
 const Book = (props) => {
-  // const Book = ({ img, title, author }) => {
+  // const Book = ({ book: { img, title, author } }) => {
   console.log(props);
+  // const { img, title, author } = props.book;
   const { img, title, author } = props;
   return (
     <article className="book">
