@@ -826,3 +826,49 @@ function BookList() {
   );
 }
 ```
+
+## Key Prop
+- Typically it's going to be id
+```js
+const books = [
+  {
+    author: 'Jeffrey Mason',
+    title: 'Dad, I Want to Hear Your Story',
+    img: './images/book-1.jpg',
+    id: 1,
+  },
+  {
+    author: 'Michael Crichton, James Patterson',
+    title: 'Eruption',
+    img: 'https://m.media-amazon.com/images/I/81SIQfF-aGL._SL1500_.jpg',
+    id: 2,
+  },
+];
+
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        console.log(book);
+        const { img, title, author, id } = book;
+        return <Book book={book} key={id} />;
+      })}
+    </section>
+  );
+}
+```
+
+- You will seed index, but it's not advised if the list is changing
+```js
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book, index) => {
+        console.log(book);
+        const { img, title, author, id } = book;
+        return <Book book={book} key={index} />
+      })}
+    </section>
+  );
+}
+```
