@@ -1028,3 +1028,48 @@ const EventExample = () => {
   );
 };
 ```
+
+## Events Object and Form Submission
+```js
+const EventsExample = () => {
+  const handleFormInput = (e) => {
+    console.log(e);
+    // e.target -element
+    console.log(`Input Name: ${e.target.name}`);
+    console.log(`Input Value: ${e.target.value}`);
+    //  console.log('Handle form input');
+  };
+  const handleButtonClick = () => {
+    alert('Handle button click');
+  };
+  const handleFormSubmission = (e) => {
+    e.prenventDefault();
+    console.log('Form submitted');
+  };
+  return (
+    <section>
+      {/* Add onSubmit Event Handler */}
+      <form>
+      <form onSubmit={handleFormSubmission}>
+        <h2>Typical Form</h2>
+        <input
+          type='text'
+          name='example'
+          onChange={handleFormInput}
+          style={{ margin: '1rem 0' }}
+        />
+        {/* Add button with type='submit' */}
+        <button type='submit'>Submit form</button>
+      </form>
+      <button onClick={handleButtonClick}>click me</button>
+    </section>
+  );
+};
+```
+
+- Alternative approach
+```js
+<button type='submit' onClick={handleFormSubmission}>
+  Submit form
+</button>
+```
