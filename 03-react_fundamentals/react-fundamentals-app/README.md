@@ -1172,3 +1172,13 @@ const Book = (props) => {
   );
 };
 ```
+
+## More Complex Example
+- Initial setup
+- Create getBook function in booklist
+- Accepts id as an argument and finds the book
+- [JavaScript Nuggets - Filter and Find](https://www.youtube.com/watch?v=KeYxsev737s&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=4)
+- Pass the function down to Book Component and invoke  on the button click
+- In the Book Component destructure id and function
+- Invoke the function when user clicks the button, pass the id
+- The goal: you should see the same book in the console
