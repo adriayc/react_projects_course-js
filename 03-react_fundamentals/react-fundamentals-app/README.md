@@ -1188,7 +1188,7 @@ const BookList = () => {
     const book = books.find((book) => book.id === id);
     console.log(book);
   };
-  
+
   return (
     <section className='booklist'>
       {books.map((book) => {
@@ -1208,6 +1208,44 @@ const Book = (props) => {
       <h2>{title}</h2>
       {/* This is not going to work */}
       <button onClick={getBook(id)}>Display title</button>
+      <h4>{author}</h4>
+    </article>
+  );
+};
+```
+
+- Two fixes
+- First option - setup wrapper
+```js
+const Book = (props) => {
+  // console.log(props);
+  const { img, title, author, id, getBook }  = props;
+  const geSingleBook = () => {
+    getBook(id);
+  };
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <button onClick={getSingleBook}>Display title</button>
+      <h4>{author}</h4>
+    </article>
+  );
+};
+```
+
+- Two fixes
+- Second option - wrap in the anonymous arrow function
+```js
+const Book = (props) => {
+  // console.log(props);
+  const { img, title, author, id, getBook }  = props;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+
+      <button onClick={() => getBook(id)}>Display title</button>
       <h4>{author}</h4>
     </article>
   );
