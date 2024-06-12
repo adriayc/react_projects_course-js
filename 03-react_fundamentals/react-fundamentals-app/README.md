@@ -1182,3 +1182,34 @@ const Book = (props) => {
 - In the Book Component destructure id and function
 - Invoke the function when user clicks the button, pass the id
 - The goal: you should see the same book in the console
+```js
+const BookList = () => {
+  const getBook = (id) => {
+    const book = books.find((book) => book.id === id);
+    console.log(book);
+  };
+  
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        return <Book {...book} key={book.id} getBook=(getBook) />
+      })}
+    </section>
+  );
+};
+
+const Book = (props) => {
+  // console.log(props);
+  const { img, title, author, id, getBook } = props;
+
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      {/* This is not going to work */}
+      <button onClick={getBook(id)}>Display title</button>
+      <h4>{author}</h4>
+    </article>
+  );
+};
+```
