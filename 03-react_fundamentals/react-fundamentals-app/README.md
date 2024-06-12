@@ -1073,3 +1073,37 @@ const EventsExample = () => {
   Submit form
 </button>
 ```
+
+## Mind Grenade
+- Alternative approach
+- Pass anonymous function (in this case arrow function)
+- One linear - less code
+```js
+const EventExample = () => {
+  return (
+    <section>
+      <button onClick={() => console.log('Hello there')}>Click me</button>
+    </section>
+  );
+};
+```
+
+- Also can access event object
+```js
+const EventExample = () => {
+  return (
+    <section>
+      <form>
+        <h2>Typical Form</h2>
+        <input
+          type='text'
+          name='example'
+          onChange={(e) => console.log(e.target.value)}
+          style={{ margin: '1rem 0' }}
+        />
+      </form>
+      <button onClick={() => console.log('You Clicked me')}>Click me</button>
+    </section>
+  );
+};
+```
