@@ -1435,3 +1435,37 @@ index.css
   border-bottom-right-radius: 1rem;
 }
 ```
+
+## Add Title
+- Add a title to our app (css optional)
+- Change page title
+
+index.js
+```js
+function BookList() {
+  return (
+    <>
+      <h1>Amazon best sellers</h1>
+      <section className='booklist'>
+        {books.map((book) => {
+          return <Book {...book} key={book.id} />
+        })}
+      </section>
+    </>
+  );
+}
+```
+
+index.css
+```css
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 4rem;
+}
+```
+
+public/index.html
+```html
+<title>Best Sellers</title>
+```

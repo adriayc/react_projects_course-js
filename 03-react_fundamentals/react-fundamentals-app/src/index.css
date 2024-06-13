@@ -11,6 +11,12 @@ body {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 4rem;
+}
+
 .booklist {
   width: 90vw;
   max-width: 1170px;
