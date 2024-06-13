@@ -1469,3 +1469,8 @@ public/index.html
 ```html
 <title>Best Sellers</title>
 ```
+
+## Build Production Application
+- Stop the dev server "CTRL + C"
+- Run "npm run build"
+- Build folder gets created
