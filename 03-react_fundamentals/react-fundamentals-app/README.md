@@ -1251,3 +1251,97 @@ const Book = (props) => {
   );
 };
 ```
+
+## Import an Export Statements
+- Remove all getBook code
+```js
+function BookList() {
+  return (
+    <section className='booklist'>
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />
+      })}
+    </section>
+  );
+}
+
+const Book = () => {
+  const { img, title, author } = props;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
+    </article>
+  );
+};
+```
+
+- Setup two files in src books.js and Book.js
+- Cut books array form index.js
+- Add to books.js
+
+books.js
+```js
+const books = [
+  {
+    author: 'Jeffrey Mason',
+    title: 'Dad, I Want to Hear Your Story',
+    img: './images/book-1.jpg',
+    id: 1,
+  },
+  {
+    author: 'Michael Crichton, James Patterson',
+    title: 'Eruption',
+    img: 'https://m.media-amazon.com/images/I/81SIQfF-aGL._SL1500_.jpg',
+    id: 2,
+  },
+];
+```
+
+- Two flavors named and default exports
+  - With named exports names MUST match
+  - With default exports, can rename but only one per file
+- Named export
+```js
+export const books = [
+  {
+    author: 'Jeffrey Mason',
+    title: 'Dad, I Want to Hear Your Story',
+    img: './images/book-1.jpg',
+    id: 1,
+  },
+  {
+    author: 'Michael Crichton, James Patterson',
+    title: 'Eruption',
+    img: 'https://m.media-amazon.com/images/I/81SIQfF-aGL._SL1500_.jpg',
+    id: 2,
+  },
+];
+```
+
+index.js
+```js
+import { books } from './books';
+```
+
+- Default export
+```js
+const Book = () => {
+  const { img, title, author } = props;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
+    </article>
+  );
+};
+
+export default Book;
+```
+
+index.js
+```js
+import Book from './Book';
+```
