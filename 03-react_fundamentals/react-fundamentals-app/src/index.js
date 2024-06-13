@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
-import { books } from './books'; // Import
-// import books from './books'; // Import default
-import Book from './Book'; // Import default
+import { books } from './books';
+import Book from './Book';
 
 const BookList = () => {
   return (

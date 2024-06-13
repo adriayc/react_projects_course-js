@@ -1,19 +1,25 @@
-// const books = [
-// Export
+// Import images (src folder)
+import img1 from './images/book-1.jpg';
+import img2 from './images/book-2.jpg';
+import img3 from './images/book-3.jpg';
+
 export const books = [
   {
     author: 'Jeffrey Mason',
     title: 'Dad, I Want to Hear Your Story',
-    img: './images/book-1.jpg',
+    img: img1,
     id: 1,
   },
   {
     author: 'Michael Crichton, James Patterson',
     title: 'Eruption',
-    img: 'https://m.media-amazon.com/images/I/81SIQfF-aGL._SL1500_.jpg',
+    img: img2,
     id: 2,
   },
+  {
+    author: 'Freida McFadden',
+    title: 'The Housemaid Is Watching',
+    img: img3,
+    id: 3,
+  },
 ];
-
-// Export default
-// export default books;

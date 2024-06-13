@@ -1345,3 +1345,38 @@ index.js
 ```js
 import Book from './Book';
 ```
+
+## Local Images (src folder)
+- Better performance because optimized
+- Add one more book to array
+- Download all three images (rename)
+- Setup images folder in the src
+- Import all three images in the books.js
+- Set image property equal to import
+- And yeas each image requires new import
+```js
+import imag1 form './images/book-1.jpg';
+import imag2 form './images/book-2.jpg';
+import imag3 form './images/book-3.jpg';
+
+export const books = [
+  {
+    author: 'Jeffrey Mason',
+    title: 'Dad, I Want to Hear Your Story',
+    img: img1,
+    id: 1,
+  },
+  {
+    author: 'Michael Crichton, James Patterson',
+    title: 'Eruption',
+    img: img2,
+    id: 2,
+  },
+  {
+    author: 'Freida McFadden',
+    title: 'The Housemaid Is Watching',
+    img: img3,
+    id: 3,
+  },
+];
+```

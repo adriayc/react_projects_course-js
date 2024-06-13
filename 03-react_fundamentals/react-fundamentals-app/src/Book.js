@@ -10,5 +10,4 @@ const Book = (props) => {
   );
 };
 
-// Export default
 export default Book;
