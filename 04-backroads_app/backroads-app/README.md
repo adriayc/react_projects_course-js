@@ -62,3 +62,30 @@ function App() {
 - Remove
   - Remove logo.svg
   - App.css
+
+## Setup Structure
+- public/index.html
+  - Change title
+  - Copy/past font-awasome link (from html project)
+- index.css
+  - Copy/paste css (from html project - css/styles.css)
+  - Erro in line 209, just comment out for now
+```css
+@media screen and (min-width: 768px) {
+  /* .hero {
+    background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
+      url('../images/main.jpeg') center/cover no-repeat;
+  } */
+}
+```
+
+- src folder
+  - Copy/paste images folder (from html project)
+  - Move favicon.ico to public
+- App.js
+  - Refactor to <React.Fragment>
+  - Copy/past all the content within body tags, up to <script> (index.html)
+  - Select all "class" instances and refactor to "className" (CTRL + D)
+  - Fix the comment bug (remove or comment out)
+  - Don't worry about - Using target="_blank" without rel="noreferrer" warning, will fix it later
+  - Move README.md from final to current project
