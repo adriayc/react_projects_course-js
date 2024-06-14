@@ -89,3 +89,20 @@ function App() {
   - Fix the comment bug (remove or comment out)
   - Don't worry about - Using target="_blank" without rel="noreferrer" warning, will fix it later
   - Move README.md from final to current project
+
+## Setup Components
+- In src create components folder
+- In the components create following files
+  - Navbar.js
+  - Hero.js
+  - About.js
+  - Services.js
+  - Tours.js
+  - Footer.js
+- Setup components with default export (snippet - rafce)
+- Carefully move the code form App.js into components (files)
+  - hint - look for navbar, footer and section tags
+- App.js should be empty
+- Import and render all components in App.js (try auto imports)
+- Result is going to be the same, it's just easier to manage the code
+- Again, it's just my preference to split up code in such way. You can split it up in any way that makes the most sense to you.
