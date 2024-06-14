@@ -117,3 +117,22 @@ import logo from '../images/logo.svg';
 // JSX
 <img src={logo} className="nav-logo" alt="backroads" />
 ```
+
+## Smooth Scroll
+- html/css feature
+```html
+<!-- link -->
+<a href="#services"> services </a>
+<!-- element -->
+<section id="services"></section>
+```
+
+```css
+html {
+  scroll-behavior: smooth;
+}
+.section {
+  /* navbar height */
+  scroll-margin-top: 4rem;
+}
+```

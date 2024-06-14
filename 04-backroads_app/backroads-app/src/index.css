@@ -142,6 +142,7 @@ p {
 /* section */
 .section {
   padding: 5rem 0;
+  /* navbar height */
   scroll-margin-top: 4rem;
 }
 .section-title {
