@@ -106,3 +106,14 @@ function App() {
 - Import and render all components in App.js (try auto imports)
 - Result is going to be the same, it's just easier to manage the code
 - Again, it's just my preference to split up code in such way. You can split it up in any way that makes the most sense to you.
+
+## Navbar
+- First let's fix the image (logo)
+  - Setup import from images and update source
+```js
+// Import
+import logo from '../images/logo.svg';
+
+// JSX
+<img src={logo} className="nav-logo" alt="backroads" />
+```
