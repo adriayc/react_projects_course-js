@@ -189,3 +189,10 @@ import { pageLinks } from '../data';
   );
 })}
 ```
+
+## Hero
+- Change title or text (optional)
+- Fix the image (path in css)
+
+## About
+- Fix the image (0hint - just like with logo in the navbar)
