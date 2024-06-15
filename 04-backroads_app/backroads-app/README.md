@@ -136,3 +136,40 @@ html {
   scroll-margin-top: 4rem;
 }
 ```
+
+## Page Links
+- Refactor repeating code
+```js
+<li>
+  <a href='#home' className='nav-link'>
+    home
+  </a>
+</li>
+```
+
+- Figure out which data is repeating hint (href, text)
+- In src create data.js and setup a structure
+  - (hint - [{property: value}, {property: value}])
+- Export/import iterate over the list, return elements and inject data
+```js
+export const pageLinks = [
+  { id: 1, href: '#home', text: 'home' },
+  { id: 2, href: '#about', text: 'about' },
+  { id: 3, href: '#services', text: 'services' },
+  { id: 4, href: '#tours', text: 'tours' },
+];
+```
+
+```js
+import { pageLinks } from '../data';
+
+{pageLinks.map((link) => {
+  return (
+    <li key={link.id}>
+      <a href={link.href} className='nav-link'>
+        {link.text}
+      </a>
+    </li>
+  );
+})}
+```
