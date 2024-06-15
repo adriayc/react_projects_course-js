@@ -320,3 +320,17 @@ export default Services;
 ### Benefits
 - Don't need to keep project locally
 - Automatic builds
+
+### Warining "Gotcha"
+- Netlify treats warning as errors
+
+package.json
+```json
+"script": {
+  "start": "react-scripts start",
+  "build": "CI= react-scripts build",
+  "local-build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+}
+```
