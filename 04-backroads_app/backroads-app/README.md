@@ -299,3 +299,20 @@ export default Services;
   - Service.js
   - SocialLink.js
   - PageLink.js
+
+## Continuous Deployment
+- Fix warning (About Section)
+- Netlify account
+- GitHub account
+- Basic git commands:
+  - Remove existing git repo
+    - Mac: rm -rf .git
+    - Windows: rmdir -Force -Recurse .git
+    - Windows: rd /s /q .git
+      Windows commmands were shared by students and I gave not personally tested them.
+  - Setup new repo
+    - git init create an empty git repository
+    - git add adds new or changed files in your working directory to the Git staging area
+    - git add . adds entire project apart form files/directories specified in .gitignore
+    - git commit -m "first commit" A shortcut command that immediately creates a commit with a passed commit message
+    - push to github git remote add origin git@github.com:your-profile/repo-name; git branch -M main; git push -u origin main
