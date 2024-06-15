@@ -173,3 +173,19 @@ import { pageLinks } from '../data';
   );
 })}
 ```
+
+## Nav Icons (social-links)
+- Repeat the same steps (as with page links)
+- Add rel='noreferrer'
+```js
+{socialLinks.map((link) => {
+  const { id, href, text } = link;
+  return (
+    <li key={id}>
+      <a href={href} target='_blank' rel='noreferrer' className='nav-icon'>
+        <i className={icon}></i>
+      </a>
+    </li>
+  );
+})}
+```
