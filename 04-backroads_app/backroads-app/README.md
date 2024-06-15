@@ -277,3 +277,8 @@ export default Services;
 
 ## Tours
 - Refactor repeating code
+
+## Footer
+- Refactor repeating code
+- Re-use page and social links
+- In the provide current year (hint - {})
