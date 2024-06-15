@@ -290,3 +290,12 @@ export default Services;
 - "gotcha"
   - The more "moving parts" you will have the harder it's going to be to manage
   - My personal preference, if possible just use data
+
+## Challenge (optinal)
+- Create more components (essencially, spit up the code more)
+- Fin all map methods and move elements to separate components
+- By the end of the video you should have four additional components
+  - Tour.js
+  - Service.js
+  - SocialLink.js
+  - PageLink.js
