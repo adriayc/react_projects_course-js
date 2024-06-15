@@ -316,3 +316,7 @@ export default Services;
     - git add . adds entire project apart form files/directories specified in .gitignore
     - git commit -m "first commit" A shortcut command that immediately creates a commit with a passed commit message
     - push to github git remote add origin git@github.com:your-profile/repo-name; git branch -M main; git push -u origin main
+
+### Benefits
+- Don't need to keep project locally
+- Automatic builds
