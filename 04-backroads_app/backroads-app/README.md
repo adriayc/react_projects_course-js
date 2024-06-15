@@ -196,3 +196,31 @@ import { pageLinks } from '../data';
 
 ## About
 - Fix the image (0hint - just like with logo in the navbar)
+
+## Section Title
+- In components create Title.js
+- Get the structure form one of the sections
+- Setup two props
+- Replace in About, Service, Tours
+```js
+const Title = ({ title, subTitle }) => {
+  return (
+    <div className='section-title'>
+      <h2>
+        {title} <span>{subTitle}</span>
+      </h2>
+    </div>
+  );
+};
+
+export default Title;
+```
+
+About.js
+```js
+// Import
+import Title form './Title';
+
+// Display
+<Title title='about' subTitle='us' />
+```
