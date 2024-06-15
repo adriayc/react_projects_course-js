@@ -224,3 +224,53 @@ import Title form './Title';
 // Display
 <Title title='about' subTitle='us' />
 ```
+
+## Services
+- Refactor repeating code (hint - just like with page and social links)
+  - Setup data, export/import, iterate
+
+data.js
+```js
+export const services = [
+  {
+    id: 1,
+    icon: 'fas fa-wallet fa-fw',
+    title: 'saving money',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, officia.'
+  },
+  // Rest of the objects
+];
+```
+
+Services.js
+```js
+import Title from './Title';
+import { services } from '../data';
+
+const Services = () => {
+  return (
+    <section className="section services" id="services">
+      <Title title="our" subTitle="services" />
+
+      <div className="section-center services-center">
+        {services.map((service) => {
+          const { id, icon, title, text } = service;
+          return (
+            <article key={id} className="service">
+              <span className="service-icon">
+                <i className={icon}></i>
+              </span>
+              <div className="service-info">
+                <h4 className="service-title">{title}</h4>
+                <p className="service-text">{text}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+export default Services;
+```
