@@ -282,3 +282,11 @@ export default Services;
 - Refactor repeating code
 - Re-use page and social links
 - In the provide current year (hint - {})
+
+## Alternative Approach (optional)
+- In components create PageLinks.js
+- Import pageLinks
+- Retrun the entire list and replace current setup in Navbar, Footer
+- "gotcha"
+  - The more "moving parts" you will have the harder it's going to be to manage
+  - My personal preference, if possible just use data
