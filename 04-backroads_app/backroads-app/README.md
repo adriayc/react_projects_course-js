@@ -274,3 +274,6 @@ const Services = () => {
 
 export default Services;
 ```
+
+## Tours
+- Refactor repeating code
