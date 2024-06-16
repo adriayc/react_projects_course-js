@@ -42,7 +42,7 @@ A JavaScript library for building user interfaces.
   ```
 
 ## Create React App
-There are 2 tools for creating apps in React: 
+There are 2 tools for creating apps in React:
 * [Create React App](https://create-react-app.dev/)
   ```bash
   $ npx create-react-app my-app
@@ -61,3 +61,6 @@ Install packages:
 ```bash
 $ npm install packageName
 ```
+
+## Vite
+[Vite](https://vitejs.dev/) is a build tool that aims to provide a faster and leaner development experience for modern web projects.
