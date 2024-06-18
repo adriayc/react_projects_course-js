@@ -35,3 +35,37 @@ function App() {
 
 export default App;
 ```
+
+## The Need For State
+```js
+import Starter from './tutorial/01-useState/starter/01-error-example.jsx';
+```
+
+- In App.jsx setup import and container div
+  Setup challenge:
+- Create count variable
+- Display value in the JSX
+- Add button increase the value
+- The reason for bug - we don't trigger re-render (reference next lecture)
+```js
+const ErrorExample = () => {
+  let count = 0;
+
+  const handleClick = () => {
+    count = count + 1;
+    console.log(count);
+    // Preserve value between renders
+    // Trigger re-render
+  };
+  return (
+    <div>
+      <h2>{count}</h2>
+      <button type='button' className='btn' onClick={handleClick}>
+        Increment
+      </button>
+    </div>
+  );
+};
+
+export default ErrorExample;
+```
