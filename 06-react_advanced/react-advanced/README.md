@@ -257,3 +257,11 @@ const UseStateObject = () => {
 
 export default UseStateObject;
 ```
+
+## Automatic Batching
+In React, "batching" refers to the process of grouping multiple state updates into a single update. This can be useful in certain cases because it allows React to optimize the rendering of your components by minimizing the number of DOM updates that it has to perform.
+
+By default, react uses a technique called "auto-batching" to group state updates that occur within the same event loop into a single update.
+This means that if you call the state update function multiple times in a short period of time, React will only perform a single re-render for all of the updates.
+
+React 18 ensures that state updates invoked from any location will be batched by default. This will batch state updates, including native event handlers, asynchronous operations, timeouts, and intervals.
