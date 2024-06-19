@@ -1,11 +1,11 @@
-import UseStateArray from './tutorial/01-useState/03-useState-array';
+import UseStateObject from './tutorial/01-useState/04-useState-object';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <UseStateArray />
+      <UseStateObject />
     </div>
   );
 }
