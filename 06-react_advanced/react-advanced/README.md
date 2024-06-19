@@ -344,3 +344,22 @@ const UseStateGotcha = () => {
 
 export default UseStateGotcha;
 ```
+
+If you want to update the state immediately and synchronously, you can pass a function to setState that receives the previous state as an argument and returns the new state. For example:
+```js
+serState((prevState) => {
+  return { ...prevState, value: newValue }
+})
+```
+
+This can be useful if you need to update the state based on the previous state, or if you need to update the state synchronously.
+```js
+cont handleClick = () => {
+  setValue((currentState) => {
+    // Must return otherwise undefined
+    // below is the latest/current state value
+    const newState = currentState + 1;
+    return newState;
+  })
+};
+```
