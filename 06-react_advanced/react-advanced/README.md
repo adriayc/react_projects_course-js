@@ -126,3 +126,43 @@ There are a few ways that you can trigger a re-render in a react component:
 - Invoke inside function/component body
 - Don't call hooks conditionally (cover later)
 - Set functions don't update state immediately (cover later)
+
+## useState with Array
+```js
+import Starter from './tutorial/01-useState/starter/03-useState-array.jsx';
+```
+
+Setup Challenge:
+- Import data
+- Setup a state value
+  - People - default value equal to data
+- Display list (people) in the browser
+- Create two functions
+  - One that removes single item from the list
+  - On that clears entire list
+
+1. Render the list
+```js
+import React from 'react';
+import { data } from '../../data';
+
+const UseStateArray = () => {
+  const [people, setPeople] = React.useState(data);
+
+  return (
+    <div>
+      {people.map((person) => {
+        // console.log(person);
+        const { id, name } = person;
+        return (
+          <div key={id} className='item'>
+            <h4>{name}</h4>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default UseStateArray;
+```
