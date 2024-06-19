@@ -166,3 +166,48 @@ const UseStateArray = () => {
 
 export default UseStateArray;
 ```
+
+2. Remove items
+[Javascript Nuggets - Filter and Find](https://www.youtube.com/watch?v=KeYxsev737s&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=4)
+```js
+import React from 'react';
+import { data } from '../../data';
+
+const UseStateArray = () => {
+  const [people, setPeople] = React.useState(data);
+
+  const removeItem = (id) => {
+    const newPeople = people.filter((person) => person.id !== id);
+    setPeople(newPeople);
+  };
+  const removeAllItem = () => {
+    setPeople([]);
+  };
+
+  return (
+    <div>
+      {people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id} className="item">
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+      <button
+        type="button"
+        style={{ marginTop: '2rem' }}
+        className="btn"
+        onClick={removeAllItem}
+      >
+        Clear items
+      </button>
+    </div>
+  );
+};
+
+export default UseStateArray;
+```
