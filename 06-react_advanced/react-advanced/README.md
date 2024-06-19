@@ -238,9 +238,14 @@ const UseStateObject = () => {
   const [hobby, setHobby] = useState('Read books');
 
   const displayPerson = () => {
-    setName('John');
-    setAge(28);
-    setHobby('Scream at the computer');
+    setPerson({
+      name: 'John',
+      age: 28,
+      hobby: 'Screen at the computer'
+    });
+    // setName('John');
+    // setAge(28);
+    // setHobby('Scream at the computer');
   };
 
   return (
@@ -265,3 +270,41 @@ By default, react uses a technique called "auto-batching" to group state updates
 This means that if you call the state update function multiple times in a short period of time, React will only perform a single re-render for all of the updates.
 
 React 18 ensures that state updates invoked from any location will be batched by default. This will batch state updates, including native event handlers, asynchronous operations, timeouts, and intervals.
+
+## Switch to Object
+```js
+import { useState } from 'react';
+
+const UseStateObject = () => {
+  const [person, setPerson] = useState({
+    name: 'Peter',
+    age: 24,
+    hobby: 'Read books',
+  });
+
+  const displayPerson = () => {
+    setPerson({
+      name: 'John',
+      age: 28,
+      hobby: 'Screen at the computer',
+    });
+    // Be careful, don't overwrite
+    // setPerson('ShakeAndBake');
+    // setPerson({ name: 'Susan' });
+    // setPerson({ ...person, name: 'Susan' });
+  };
+
+  return (
+    <>
+      <h3>{person.name}</h3>
+      <h3>{person.age}</h3>
+      <h3>Enjoys To: {person.hobby}</h3>
+      <button type="button" className="btn" onClick={displayPerson}>
+        Show John
+      </button>
+    </>
+  );
+};
+
+export default UseStateObject;
+```
