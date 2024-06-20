@@ -382,3 +382,55 @@ const handleClick = () => {
 
 - As an example refactor code in /tutorial/01-useState/03-useState-array.jsx
 - Should we use functional update approach for everything?
+
+## Code Example
+```js
+import Starter from './tutorial/02-useEffect/starter/01-code-example.jsx';
+```
+
+```js
+import { useState } from 'react';
+
+const ComponentExample = () => {
+  const [value, setValue] = useState(0);
+
+  const sayHello = () => {
+    console.log('Hello there');
+    // Be careful
+    setValue(value + 1);
+  };
+  sayHello();
+
+  return (
+    <div>
+      <h1>value: {value}</h1>
+      <button className='btn' onClick={() => setValue(value + 1)}>
+        Click me
+      </button>
+    <div>
+  );
+}
+
+export default ComponentExample;
+```
+
+- The problem starts when we update the state
+```js
+const [value, setValue] = useState(0);
+
+const sayHell0 = () => {
+  console.log('Hello there');
+  // Be careful, you will have infinite loop
+  setValue(value + 1);
+};
+sayHello();
+```
+
+- Initial render - setup sate value and invoke sayHello
+- In the sayHello update state, trigger re-render
+- Re-render - setup state value and invoke sayHello
+- In the sayHello update state, trigger re-render
+- repeat
+- repeat
+- repeat .......................
+- But what about fetching data?
