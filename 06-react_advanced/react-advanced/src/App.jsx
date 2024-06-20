@@ -1,11 +1,11 @@
-import CodeExample from './tutorial/02-useEffect/01-code-example';
+import UseEffectBasics from './tutorial/02-useEffect/02-useEffect-basics';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <CodeExample />
+      <UseEffectBasics />
     </div>
   );
 }
