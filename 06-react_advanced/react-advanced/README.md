@@ -363,3 +363,22 @@ cont handleClick = () => {
   })
 };
 ```
+
+- setTimeout Example
+```js
+const handleClick = () => {
+  // setTimeout(() => {
+  //   console.log('Clicked the button');
+  //   setValue(value + 1);
+  // }, 3000);
+  setTimeout(() => {
+    console.log('Clicked the button');
+    setValue((currentState) => {
+      return currentState + 1;
+    });
+  }, 3000);
+};
+```
+
+- As an example refactor code in /tutorial/01-useState/03-useState-array.jsx
+- Should we use functional update approach for everything?
