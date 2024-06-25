@@ -1,11 +1,11 @@
-import MultipleReturnsBasics from './tutorial/03-conditional-rendering/01-multiple-returns-basics';
+import MultipleReturnsFetchData from './tutorial/03-conditional-rendering/02-multiple-returns-fetch-data';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <MultipleReturnsBasics />
+      <MultipleReturnsFetchData />
     </div>
   );
 }

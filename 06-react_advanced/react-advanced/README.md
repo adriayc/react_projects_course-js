@@ -645,3 +645,44 @@ const MultipleReturnsBasics = () => {
 
 export default MultipleReturnsBasics;
 ```
+
+## Multiple Returns - Fetch Data
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data.jsx';
+```
+
+Setup Challenge:
+- Practice on setting up state values and data fetching
+- Create state variable
+  - User - default value null
+- Fetch data from the url (for no just log result)
+- If you see user object in the console, continue with the videos
+```js
+import { useEffect, useState } from 'react';
+
+const url = 'https://api.github.com/users/QuincyLarson';
+
+const MultipleReturnsFetchData = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const resp = await fetch(url);
+        const user = await resp.json();
+
+        console.log(user);
+      } catch (error) {
+        // Fetch only cares about network errors
+        // Will work with axios
+        console.log(error);
+      }
+    };
+    fetchUser();
+  }, []);
+
+  return <h2>Fetch Example</h2>;
+};
+
+export default MultipleReturnsFetchData;
+```
