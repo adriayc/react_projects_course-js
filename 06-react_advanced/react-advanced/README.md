@@ -686,3 +686,62 @@ const MultipleReturnsFetchData = () => {
 
 export default MultipleReturnsFetchData;
 ```
+
+Data Fetching:
+- Usually three options
+  - loading - waiting for data to arrive (display loading state)
+  - error - there was an error (display error message)
+  - success - received data (display data)
+```js
+import { useEffect, useState } from 'react';
+
+const url = 'https://api.github.com/users/QuincyLarson';
+
+const MultipleReturnsFetchData = () => {
+  // Convertion to setup boolean with isSomething
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useSate(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const resp = await fetch(url);
+        const user = await resp.json();
+
+        // console.log(user);
+        setUser(user);
+      } catch (error) {
+        isError(true);
+        console.log(error);
+      }
+      // Hide loading
+      setIsLoading(false);
+    };
+    fetchUser();
+  }, []);
+
+  // Order matters
+  // Don't place user JSX before loading or error
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+  if (isError) {
+    return <h2>Thre was an error...</h2>;
+  }
+  return (
+    <div>
+      <img
+        src={user.avatart_url}
+        alt={user.name}
+        style={{ width: '150px', borderRadius:  '25px' }}
+      />
+      <h2>{user.name}</h2>
+      <h4>Works at {user.company}</h4>
+      <p>{user.bio}
+    </div>
+  );
+};
+
+export default MultipleReturnsFetchData;
+```
