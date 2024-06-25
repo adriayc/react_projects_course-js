@@ -589,3 +589,10 @@ const FetchData = () => {
 
 export default FetchData;
 ```
+
+## Cleanup Function
+```js
+import Starter from './tutorial/02-useEffect/starter/05-cleanup-function.jsx';
+```
+
+Will Cover After 03-conditional-rendering
