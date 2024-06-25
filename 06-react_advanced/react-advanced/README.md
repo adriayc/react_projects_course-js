@@ -522,3 +522,70 @@ const MultipleEffects = () => {
 
 export default MultipleEffects;
 ```
+
+## Fetch Data
+```js
+import Starter from './tutorial/02-useEffect/starter/04-fetch-data.jsx';
+```
+
+[Javascript Nuggets - Fetch API](https://www.youtube.com/watch?v=C_VIKzfpRrg&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=18&t=343s)
+- Later in the course we will use axios
+
+Setup Challenge:
+- Import useSate and useEffect
+- Setup state value
+  - users - default value []
+- Setup useEffect
+- MAKE SURE IT RUNS ONLY ON INITIAL RENDER
+- In the cb, create a function which performs fetch functionality
+  - Use url I provided in the starter file
+  - You can use .then or async
+  - Set users equal to result
+  - Iterate over the list and display image, user name and link
+- DON'T WORRY ABOUT CSS, MOST IMPORTAT LOGIC!!!
+```js
+import { useState, useEffect } from 'react';
+
+const url = 'https://api.github.com/users';
+
+const FetchData = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    // You can also setup function outsite
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const users = await response.json();
+
+        setUsers(users);
+      } catch (error) {
+        consolo.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <section>
+      <h3>Github Users</h3>
+      <ul className='users'>
+        {users.map((user) => {
+          const { id, login, avatart_url, html_url } = use;
+          return (
+            <li key={id}>
+              <img src={avatart_url} alt={login} />
+              <div>
+                <h5>{login}</h5>
+                <a href={html_url}>Profile</a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+};
+
+export default FetchData;
+```
