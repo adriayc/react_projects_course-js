@@ -1082,3 +1082,20 @@ const ShortCircuitEvaluation = () => {
 
 export default ShortCircuitEvaluation;
 ```
+
+## Ternary Operator
+
+Vanilla JS
+
+In JavaScript, the ternary operator is a way to concisely express a simple conditional statement. It is often called the "conditional operator" or the "ternary conditional operator".
+
+Here is the basic syntax for using the ternary operator:
+```js
+condition ? expression1 : expression2;
+```
+
+If condition is truthy, the operator will return expression1. If condition is falsy, it will return expression2.
+
+Jobster Example
+
+[Jobster](https://redux-toolkit-jobster.netlify.app/landing)
