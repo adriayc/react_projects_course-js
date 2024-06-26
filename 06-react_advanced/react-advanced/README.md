@@ -855,3 +855,33 @@ useEffect(() => {
 ```
 - DON'T ADD fetchData to dependency array!!!
 - IT WILL TRIGGER INFINITE LOOK!!!
+
+## DON'T CALL HOOK CONDITIONALLY
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/03-hooks-rule.jsx';
+```
+
+```js
+import { useState, useEffect } from 'react';
+
+const Example = () => {
+  const [condition, setCondition] = useState(true);
+  if (condition) {
+    // Won't work
+    const [state, setState] = useState(false);
+  }
+
+  if (condition) {
+    return <h2>Hello There</h2>;
+  }
+
+  // This will also fail
+  useEffect(() => {
+    console.log('Hello there')
+  }, []);
+
+  return <h2>Example</h2>;
+};
+
+export default Example;
+```
