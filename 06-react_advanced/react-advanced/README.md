@@ -1147,3 +1147,54 @@ Improvements
 ```js
 <button className='btn' onClick={() => setShowAlert(!showAlert)}>Toggle</button>
 ```
+
+## User Challenge
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/07-user-challenge.jsx';
+```
+
+- Create state value
+  - user - default value null
+- Create two functions
+  - login - set's user equal to object with name property
+  - logout - set's user equal to null
+- In jsx use ? to display two different setups
+- h4 with "Hello there, user name" and logout button
+- h4 with "Please login" and login button
+```js
+import { useState } from 'react';
+
+const UserChallenge = () => {
+  const [user, setUser] = useState(null);
+
+  const login = () => {
+    // Normally connect to db or api
+    setUser({ name: 'Vegan food truck' });
+  };
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    <div>
+      {user ? (
+        <div>
+          <h4>Hello there, {user.name}</h4>
+          <button type="button" className="btn" onClick={logout}>
+            Logout
+          </button>
+        </div>
+      ) : (
+        <div>
+          <h4>Please login</h4>
+          <button type="button" className="btn" onClick={login}>
+            Login
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default UserChallenge;
+```
