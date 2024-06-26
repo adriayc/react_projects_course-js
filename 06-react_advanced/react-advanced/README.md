@@ -766,3 +766,79 @@ try {
   setUser(user);
 }
 ```
+
+## Order Matters - Setup
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data.jsx';
+```
+
+Please don't dismiss this topic. A lot of question in course Q&A.
+
+Challenge:
+- Destructure properties and remove user form JSX
+- You might or might not encounter the bug
+```js
+return (
+  <div>
+    <img
+      src={avatar_url}
+      alt={name}
+      style={{ width: '100px', borderRadius: '25px' }}
+    />
+    <h2>{name}</h2>
+    <h4>Works at {company}</h4>
+    <p>{bio}</p>
+  </div>
+);
+```
+
+Order Matters - Solution
+- Before returns
+```js
+const [user, setUser] = useState(null);
+console.log(user); // Still null
+//  We can't pull out properties from null
+const { avatar_url, name, company, bio }  = user;
+```
+
+- After returns
+```js
+console.log(user); // User object
+const { avatar_url, name, company, bio }  = user;
+```
+
+```js
+return (
+  <div>
+    <img
+      src={avatar_url}
+      alt={name}
+      style={{ width: '100px', borderRadius: '25px' }}
+    />
+    <h2>{name}</h2>
+    <h4>Works at {company}</h4>
+    <p>{bio}</p>
+  </div>
+);
+```
+
+Vanilla JS
+```js
+const someObject = {
+  name: 'jo koy',
+};
+// This is cool
+someObject.name; // Return 'jo koy'
+someObject.propertyThatDoesNotExist; // return undefined
+
+// Not cool at all, javascript will scream, yell and complain
+const randomValue = null;
+randomValue.name;
+
+// This is ok
+const randomList = [];
+console.log(removeAllItem[0]); // returns undefined
+
+// Not cool at all, javascript will scream, yell and complain
+console.log(randomList[0].name);
+```
