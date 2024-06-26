@@ -1003,3 +1003,82 @@ const ShortCircuitOverview = () => {
 
 export default ShortCircuitOverview;
 ```
+
+## Short Circuit Evaluation in React - Common Approaches
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/05-short-circuit-examples.jsx';
+```
+
+Vanilla JS (Optional) The ! operator is a logical operator in JavaScript that negates a boolean value. It is equivalent to the not operator in other programming languages.
+
+For example:
+```js
+let isTrue = true;
+let isFalse = true;
+
+console.log(!isTrue); // Output: false
+console.log(!isFalse); // Output: true
+```
+
+You can use the ! operator to test if a value is not truthy or falsy:
+```js
+let val = 0;
+if (!val) {
+  console.log('Val is falsy');
+}
+```
+
+You can also use the ! operator to convert a value to a boolean and negate it:
+```js
+let val = 'Hello';
+let bool = !val; // bool is now false
+
+val = '';
+bool = !val; // bool is now true
+```
+
+```js
+import { useState } from 'react';
+
+const ShortCircuitEvaluation = () => {
+  // falsy
+  const [text, setText] = useState('');
+  // truthy
+  const [name, setName] = useState('Susan');
+  const [user, setUser] = useState({ name: 'John' });
+  const [isEditin, setIsEditing] = useState(false);
+
+  // Can't use if statements
+  return (
+    <div>
+      {text && (
+        <div>
+          <h2>Whatever return</h2>
+          <h2>{name}</h2>
+        </div>
+      )}
+      {/* More info below */}
+      {!text && (
+        <div>
+          <h2>Whatever return</h2>
+          <h2>{name}</h2>
+        </div>
+      )}
+      {user && <SomeComponent name={user.name} />}
+      <h2 style={{ margin: '1rem 0' }}>Ternary Operator</h2>
+      <button className='btn'>{isEditing ? 'edit' : 'add'}</button>
+      {user ? (
+        <div>
+          <h4>Hello there user {user.name}</h4>
+        </div>
+      ) : (
+        <div>
+          <h2>Please login</h2>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ShortCircuitEvaluation;
+```
