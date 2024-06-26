@@ -1,11 +1,11 @@
-import ShortCircuitExamples from './tutorial/03-conditional-rendering/05-short-circuit-examples';
+import ToggleChallenge from './tutorial/03-conditional-rendering/06-toggle-challenge';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <ShortCircuitExamples />
+      <ToggleChallenge />
     </div>
   );
 }
