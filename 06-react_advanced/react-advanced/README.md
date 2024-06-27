@@ -691,6 +691,26 @@ useEffect(() => {
 }, []);
 ```
 
+## You Might Not Need an Effect
+[You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+
+- Will still utilize useEffect
+- There is still plenty of code using useEffect
+- Fetching data replaced by libreries - react query, rtk query, swr or next.js
+```js
+import { useHook } from 'library';
+
+fucntion Example() {
+  const { data, error, isLoading } = useHook('url', fetcher);
+
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
+  return <div>Hello {data.name}!</div>;
+}
+```
+
+- rest of them by refactoring code.
+
 ## Multiple Returns - Basics
 ```js
 import Starter from './tutorial/03-conditional-rendering/starter/01-multiple-returns-basics.jsx';
