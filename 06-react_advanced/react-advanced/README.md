@@ -629,6 +629,48 @@ const RandomComponent = () => {
 export default CleanupFunction;
 ```
 
+Vanilla JS
+```js
+const intID = setInterval(() => {
+  console.log('Hello from interval');
+}, 1000);
+clearInterval(intID);
+```
+
+```js
+import { useEffect, useState } from 'react';
+
+const CleanupFunction = () => {
+  const [toggle, setToggle] = useState(false);
+
+  return (
+    <div>
+      <button type="button" className="btn" onClick={() => setToggle(!toggle)}>
+        Toggle Component
+      </button>
+      {toggle && <RandomComponent />}
+    </div>
+  );
+};
+
+const RandomComponent = () => {
+  useEffect(() => {
+    // console.log('Hmm, this is interesting');
+    const intID = setInterval(() => {
+      console.log('Hello from interval');
+    }, 1000);
+
+    // Does no stop, keeps going
+    // Every time we render component new interval gets created
+    return () => clearInterval(intID);
+  }, []);
+
+  return <h1>Hello there</h1>;
+};
+
+export default CleanupFunction;
+```
+
 ## Multiple Returns - Basics
 ```js
 import Starter from './tutorial/03-conditional-rendering/starter/01-multiple-returns-basics.jsx';
