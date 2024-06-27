@@ -597,6 +597,38 @@ import Starter from './tutorial/02-useEffect/starter/05-cleanup-function.jsx';
 
 Will Cover After 03-conditional-rendering
 
+Setup Challenge:
+- Create state value
+- In jsx return button which toggles state value
+- Based on condition return second component (simple return)
+- Inside second component create useEffect and run it only on initial render
+```js
+import { useEffect, useState } from 'react';
+
+const CleanupFunction = () => {
+  const [toggle, setToggle] = useState(false);
+
+  return (
+    <div>
+      <button type="button" className="btn" onClick={() => setToggle(!toggle)}>
+        Toggle Component
+      </button>
+      {toggle && <RandomComponent />}
+    </div>
+  );
+};
+
+const RandomComponent = () => {
+  useEffect(() => {
+    console.log('Hmm, this is interesting');
+  }, []);
+
+  return <h1>Hello there</h1>;
+};
+
+export default CleanupFunction;
+```
+
 ## Multiple Returns - Basics
 ```js
 import Starter from './tutorial/03-conditional-rendering/starter/01-multiple-returns-basics.jsx';
