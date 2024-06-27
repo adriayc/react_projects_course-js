@@ -17,14 +17,12 @@ const CleanupFunction = () => {
 const RandomComponent = () => {
   useEffect(() => {
     // console.log('Hmm, this is interesting');
-    const intId = setInterval(() => {
-      console.log('Hello from interval');
-    }, 1000);
-
-    return () => {
-      clearInterval(intId);
-      console.log('Cleanup');
+    const someFunc = () => {
+      // Some logic
     };
+    window.addEventListener('scroll', someFunc);
+
+    return () => window.removeEventListener('scroll', someFunc);
   }, []);
 
   return <h1>Hello there</h1>;

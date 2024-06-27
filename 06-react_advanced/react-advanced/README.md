@@ -638,6 +638,14 @@ clearInterval(intID);
 ```
 
 ```js
+const someFunc = () => {
+  // Some logic here
+};
+window.addEventListener('scroll', someFunc);
+window.removeEventListener('scroll', someFunc);
+```
+
+```js
 import { useEffect, useState } from 'react';
 
 const CleanupFunction = () => {
@@ -669,6 +677,18 @@ const RandomComponent = () => {
 };
 
 export default CleanupFunction;
+```
+
+```js
+useEffect(() => {
+  // console.log('Hmm, this is interesting');
+  const someFunc = () => {
+    // Some logic here
+  };
+  window.addEventListener('scroll', someFunc);
+
+  return () => window.removeEventListener('scroll', someFunc);
+}, []);
 ```
 
 ## Multiple Returns - Basics
