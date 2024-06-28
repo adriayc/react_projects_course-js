@@ -1337,3 +1337,26 @@ Works but eventually to many index tabs :):):)
 ```js
 export { default } form './Navbar';
 ```
+
+## Project Structure - Named Exports
+/tutorial/04-project-structure/starter
+
+- Only makes sense if you have quite a few files
+- Create pages directory
+- Setup two components Home.jsx and About.jsx
+- Import both in the App.jsx
+
+import Home form 'pathToFolder/Pages/Home';
+import About from 'pathToFolder/Pages/About';
+
+A lot of work/lines of code
+- Create index.jsx
+```js
+import Home from './Home';
+import About from './About';
+
+export { Home, About };
+```
+
+In App.jsx
+import { Home, About } from 'pathToFolder/Pages';
