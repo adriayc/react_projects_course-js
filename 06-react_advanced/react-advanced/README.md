@@ -1377,3 +1377,71 @@ import { Home, About } from 'pathToFolder/Pages';
 [Javascript Nuggets -Optional Chaining](https://www.youtube.com/watch?v=PuEGrylM1x8&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=12&t=254s)
 
 /tutorial/05-leverage-javascript/starter
+
+Setup Challenge
+- Take a look at the people in array in data.js
+- Create List.jsx component
+- In List.jsx import and iterate over people (data)
+- For now just render name
+- Once you have list setup separate Person.jsx component
+  - Try glean extension
+- In Person render
+  - name, nickname, image
+
+Yes, there will be a bug
+```js
+import { people } from '../../data';
+
+const List = () => {
+  return (
+    <div>
+      {people.map((person) => {
+        return <div key={person.id}>{person.name}</div>;
+      })}
+    </div>
+  );
+};
+
+export default List;
+```
+
+List.jsx
+```js
+import { people } from '../../data';
+import { Person } from './Person';
+
+const List = () => {
+  return (
+    <div>
+      {people.map((person) => {
+        return <Person key={person.id} {...person} />;
+      })}
+    </div>
+  );
+};
+
+export default List;
+```
+
+Person.jsx
+```jsx
+import avatar from '../../assets/default-avatar.svg';
+
+export function Person({ name, nickName = 'ShakeAndBake', images }) {
+  // Before optional chaining
+
+  // const img = (images && images[0] && images[0].small && images[0].small.url) || avatar;
+  // Combining with the nullish coalescing operator ??
+  // const image = images?.[0]?.small?.url ?? avatar;
+  // ?? vs || - please utilize the search engine
+
+  const img = images?.[0]?.small?.url || avatar;
+  return (
+    <div>
+      <img src={img} alt={name} style={{ width: '50px' }} />
+      <h4>{name}</h4>
+      <p>Nickname: {nickName}</p>
+    </div>
+  );
+}
+```
