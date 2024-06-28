@@ -1372,3 +1372,8 @@ import { Home, About } from 'pathToFolder/Pages';
 ### Project Structure - Extra Extensions
 - Code Spell Checked - works well with code and documents
 - glean - easy extract JSX into a new component
+
+## Leverage JavaScript
+[Javascript Nuggets -Optional Chaining](https://www.youtube.com/watch?v=PuEGrylM1x8&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=12&t=254s)
+
+/tutorial/05-leverage-javascript/starter
