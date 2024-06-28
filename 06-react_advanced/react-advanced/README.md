@@ -1312,3 +1312,28 @@ const UserChallenge = () => {
 
 export default UserChallenge;
 ```
+
+## Project Structure - Default Export
+/tutorial/04-project-structure/starter
+
+There are more options
+
+Normally somewhere in the src
+
+/components/componentName.jsx
+/screens/componentName.jsx
+
+- Create navbar folder
+  - Setup Navbar.jsx (component)
+  - Navbar.css (styles)
+- Import in App.jsx
+
+Import Final from 'pathToFolder/Navbar/Navbar'
+- First solution rename to index.jsx (entry point)
+
+Works but eventually to many index tabs :):):)
+- Rename back to Navbar.jsx
+- Create index.jsx
+```js
+export { default } form './Navbar';
+```
