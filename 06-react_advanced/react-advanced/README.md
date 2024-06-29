@@ -1582,3 +1582,80 @@ const ControlledInputs = () => {
 
 export default ControlledInputs;
 ```
+
+## user Challenge
+```js
+import Starter from './tutorial/06-forms/starter/02-user-challenge.jsx';
+```
+
+- Setup controlled input (name, input)
+- Setup onSubmit (for now just placeholder)
+- Import data array (first array) from data
+- Create another state value ( data as default)
+- Iterate over and display right after form (h4)
+- When user submits the form add new person to the list
+- Extra Challenge
+  - Add button and setup functionality to remove user
+```js
+import { useState } from 'react';
+import { data } from '../../data';
+
+const UserChallenge = () => {
+  const [name, setName] = useState('');
+  const [users, setUsers] = useState(data);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Do something
+    console.log(name);
+    // If no value, do nothing
+    if (!name) return;
+    // If value, setup new user and add to current users
+    const fakeId = Date.now();
+    console.log(fakeId);
+    // const newUser = { id: fakeId, name: name };
+    const newUser = { id: fakeId, name };
+    const updatedUsers = [...users, newUser];
+    setUsers(updatedUsers);
+    console.log('Form submitted');
+    // Set back to empty
+    setName('');
+  };
+
+  return (
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <h4>Add User</h4>
+
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="form-input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn btn-block">
+          Submit
+        </button>
+      </form>
+
+      {/* Render users */}
+      <h3>Users</h3>
+      {users.map((user) => {
+        return (
+          <div key={user.id}>
+            <h4>{user.name}</h4>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default UserChallenge;
+```
