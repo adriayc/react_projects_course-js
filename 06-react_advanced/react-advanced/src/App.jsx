@@ -1,11 +1,11 @@
-import List from './tutorial/05-leverage-javascript/List';
+import ControlledInputs from './tutorial/06-forms/01-controlled-inputs';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <List />
+      <ControlledInputs />
     </div>
   );
 }

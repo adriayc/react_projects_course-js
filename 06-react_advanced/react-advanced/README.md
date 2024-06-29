@@ -1482,3 +1482,37 @@ console.log(person?.name?.first);
 ```
 
 Now, if the person.name is null or undefined, this code will simply return undefined instead of throwing an error. This make the code more robust and readable.
+
+## Controlled Inputs - Setup
+```js
+import Starter from './tutorial/06-forms/starter/01-controlled-inputs.jsx';
+```
+
+Setup (for all from videos)
+```js
+const ControlledInputs = () => {
+  return (
+    <form className="form">
+      <h4>Controlled Inputs</h4>
+
+      <div className="form-row">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input type="text" id="name" className="form-input" />
+      </div>
+      <div className="form-row">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input type="email" id="email" className="form-input" />
+      </div>
+      <button type="submit" className="btn btn-block">
+        Submit
+      </button>
+    </form>
+  );
+};
+
+export default ControlledInputs;
+```
