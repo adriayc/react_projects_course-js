@@ -1770,12 +1770,18 @@ import Starter from './tutorial/06-forms/starter/04-other-inputs.jsx';
 ```js
 import { useState } from 'react';
 
+const frameworks = ['React', 'Angular', 'Vue', 'Svelte'];
+
 const OtherInputs = () => {
   const [shipping, setShipping] = useState(false);
 
   const handleShipping = (e) => {
     console.log(e.target.checked);
     setShipping(e.target.checked);
+  };
+
+  const handleFramework = (e) => {
+    setFramework(e.target.value);
   };
 
   return (
@@ -1794,10 +1800,21 @@ const OtherInputs = () => {
             onChange={handleShipping}
           />
         </div>
+        {/* Select */}
         <div className="form-row" style={{ textAlign: 'left' }}>
           <label htmlFor="framework" className="form-label">
             Framework
           </label>
+          <select
+            name="framework"
+            id="framework"
+            value={framework}
+            onChange={handleFramework}
+          >
+            {frameworks.map((framework) => {
+              return <option key={framework}>{framework}</option>;
+            })}
+          </select>
         </div>
         <button type="submit" className="btn btn-block">
           Submit
