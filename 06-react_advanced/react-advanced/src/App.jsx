@@ -1,11 +1,11 @@
-import UserChallenge from './tutorial/06-forms/02-user-challenge';
+import MultipleInputs from './tutorial/06-forms/03-multiple-inputs';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <UserChallenge />
+      <MultipleInputs />
     </div>
   );
 }
