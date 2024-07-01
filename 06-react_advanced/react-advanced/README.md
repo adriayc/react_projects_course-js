@@ -2000,3 +2000,29 @@ const UseRefBasics = () => {
 
 export default UseRefBasics;
 ```
+
+## Custom Hooks
+```js
+import Starter from './tutorial/08-custom-hooks/starter/01-toggle.jsx';
+```
+
+- Same rules as regular hooks
+- Simplify components (less code)
+- Re-use functionality
+
+useToggle.js
+```js
+import { useState } from 'react';
+
+const useToggle = (defaultValue) => {
+  const [show, setShow] = useState(defaultValue);
+
+  const toggle = () => {
+    setShow(!show);
+  };
+
+  return { show, toggle };
+};
+
+export default useToggle;
+```
