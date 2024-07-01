@@ -1925,3 +1925,66 @@ console.log(obj);
 - reset()
 
 The reset() method is a built-in method in HTML that can be used to reset all form controls to their initial values. When this method is called on a form element, it will clean any user-entered data and reset the values of all form elements to their default values.
+
+## useRef
+```js
+import Starter from './tutorial/07-useRef/starter/01-useRef-basics.jsx';
+```
+
+- DOES NOT TRIGGER RE-RENDER
+- Preserves the value between renders
+- Target DOM nodes/elements
+```js
+import {
+  // useEffect,
+  useRef,
+} from 'react';
+import { useState } from 'react';
+
+const UseRefBasics = () => {
+  const [value, setValue] = useState(0);
+  const refContainer = useRef(null);
+  
+  console.log(refContainer);
+  // { current: null }
+  // Set value ourselves or DOM node
+
+  // useEffect(() => {
+  //   console.log(refContainer);
+  // }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = refContainer.current.value;
+    console.log(name);
+  };
+
+  return (
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="form-input"
+            ref={refContainer}
+          />
+        </div>
+        <button type="submit" className="btn btn-blok">
+          Submit
+        </button>
+      </form>
+
+      <h1>Value: {value}</h1>
+      <button type="button" className="btn" onClick={() => setValue(value + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+};
+
+export default UseRefBasics;
+```
