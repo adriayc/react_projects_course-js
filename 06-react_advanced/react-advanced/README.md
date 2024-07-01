@@ -1944,14 +1944,26 @@ import { useState } from 'react';
 const UseRefBasics = () => {
   const [value, setValue] = useState(0);
   const refContainer = useRef(null);
-  
+  const isMounted = useRef(false);
+
   console.log(refContainer);
   // { current: null }
   // Set value ourselves or DOM node
 
-  // useEffect(() => {
-  //   console.log(refContainer);
-  // }, []);
+  useEffect(() => {
+    // console.log(refContainer);
+    refContainer.current.focus();
+  }, []);
+
+  useEffect(() => {
+    // console.log(isMounted);
+
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    console.log('re-render');
+  }, [value]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
