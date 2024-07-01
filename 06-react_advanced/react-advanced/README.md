@@ -2026,3 +2026,47 @@ const useToggle = (defaultValue) => {
 
 export default useToggle;
 ```
+
+Challenge:
+- In App.jsx import 02-fetch-data
+- Take a look at the component
+- And try to setup custom fetch hook
+- hint: hook should return isLoading, isError, user and take url as parameter
+
+useFetchPerson.js
+```js
+import { useEffect, useState } from 'react';
+
+const useFetchPerson = (url) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const resp = await fetch(url);
+        // console.log(resp);
+        if (!resp.ok) {
+          setIsError(true);
+          setIsLoading(false);
+          return;
+        }
+
+        const user = await resp.json();
+        setUser(user);
+      } catch (error) {
+        // console.log(error);
+        setIsError(true);
+      }
+      // Hide loading
+      setIsLoading(false);
+    };
+    fetchUser();
+  }, []);
+
+  return { isLoading, isError, user };
+};
+
+export default useFetchPerson;
+```
