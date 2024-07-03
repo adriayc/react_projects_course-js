@@ -1,25 +1,32 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import { data } from '../../data';
 
+const defaultState = {
+  people: data,
+};
+
+const reducer = () => {};
+
 const ReducerBasics = () => {
-  const [people, setPeople] = useState(data);
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  // console.log(state);
 
   const removeItem = (id) => {
-    let newPeople = people.filter((person) => person.id !== id);
-    setPeople(newPeople);
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
   };
 
   const clearList = () => {
-    setPeople([]);
+    // setPeople([]);
   };
 
   const resetList = () => {
-    setPeople(data);
+    // setPeople(data);
   };
 
   return (
     <div>
-      {people.map((person) => {
+      {state.people.map((person) => {
         const { id, name } = person;
         return (
           <div key={id}>
@@ -31,7 +38,7 @@ const ReducerBasics = () => {
         );
       })}
 
-      {people.length < 1 ? (
+      {state.people.length < 1 ? (
         <button
           type="button"
           className="btn"

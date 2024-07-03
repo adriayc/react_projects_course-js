@@ -2323,3 +2323,80 @@ const ReducerBasics = () => {
 
 export default ReducerBasics;
 ```
+
+### Remove useState
+```js
+import { useReducer, useState } from 'react';
+import { data } from '../../data';
+
+// Default/Initial state
+const defaultState = {
+  people: data,
+};
+
+// Reduce function
+// Whatever state is returned from the function is the new state
+const reducer = (state, action) => {
+  return state;
+};
+
+const ReducerBasics = () => {
+  // dispatch({type: 'SOME_ACTION'}) an action
+  // Handle it in reducer, return new state
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  // console.log(state);
+
+  const removeItem = (id) => {
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
+  };
+
+  const clearList = () => {
+    // setPeople([]);
+  };
+
+  const resetList = () => {
+    // setPeople(data);
+  };
+
+  return (
+    <div>
+      {/* Switch to state */}
+      {state.people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+
+      {/* Switch to state */}
+      {state.people.length < 1 ? (
+        <button
+          type="button"
+          className="btn"
+          onClick={resetList}
+          style={{ marginTop: '2rem' }}
+        >
+          Reset
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn"
+          onClick={clearList}
+          style={{ marginTop: '2rem' }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default ReducerBasics;
+```
