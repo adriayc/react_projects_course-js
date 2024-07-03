@@ -1,6 +1,10 @@
 import { useReducer } from 'react';
 import { data } from '../../data';
 
+const CLEAR_LIST = 'CLEAR_LIST';
+const RESET_LIST = 'RESET_LIST';
+const REMOVE_ITEM = 'REMOVE_ITEM';
+
 const defaultState = {
   people: data,
   isLoading: false,
@@ -8,12 +12,14 @@ const defaultState = {
 
 const reducer = (state, action) => {
   // console.log(action);
-  if (action.type === 'CLEAR_LIST') {
+  if (action.type === CLEAR_LIST) {
     return {
       ...state,
       people: [],
     };
   }
+  //   return state;
+  throw new Error(`No matching "${action.type}" - action type`);
 };
 
 const ReducerBasics = () => {
@@ -27,11 +33,12 @@ const ReducerBasics = () => {
 
   const clearList = () => {
     // dispatch({ type: 'do something' });
-    dispatch({ type: 'CLEAR_LIST' });
+    dispatch({ type: CLEAR_LIST });
     // setPeople([]);
   };
 
   const resetList = () => {
+    dispatch({ type: 'do something' });
     // setPeople(data);
   };
 
