@@ -2326,7 +2326,7 @@ export default ReducerBasics;
 
 ### Remove useState
 ```js
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 import { data } from '../../data';
 
 // Default/Initial state
