@@ -2133,3 +2133,73 @@ Challenge:
 
 - Extra challenge
 - If user null, in UserContainer display ```<p>Please login<p>```
+
+Navbar.jsx
+```js
+import { useState } from 'react';
+import NavLinks from './NavLinks';
+
+const Navbar = () => {
+  const [user, setUser] = useState({ name: 'Adriano' });
+
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    <nav className="navbar">
+      <h5>CONTEXT API</h5>
+
+      <NavLinks user={user} logout={logout} />
+    </nav>
+  );
+};
+
+export default Navbar;
+```
+
+NavLinks.js
+```js
+import UserContainer from './UserContainer';
+
+const NavLinks = ({ user, logout }) => {
+  return (
+    <div className="nav-container no-max-width">
+      <ul className="nav-links">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+      </ul>
+
+      <UserContainer user={user} logout={logout} />
+    </div>
+  );
+};
+
+export default NavLinks;
+```
+
+UserContainer.jsx
+```js
+const UserContainer = ({ user, logout }) => {
+  return (
+    <div className="user-container">
+      {user ? (
+        <>
+          <p>Hello There, {user?.name?.toUpperCase()}</p>
+          <button type="button" className="btn" onClick={logout}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <p>Please Login</p>
+      )}
+    </div>
+  );
+};
+
+export default UserContainer;
+```

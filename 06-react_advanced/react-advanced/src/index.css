@@ -312,6 +312,9 @@ ul {
   justify-content: space-between;
   max-width: 400px;
 }
+.nav-container.no-max-width {
+  max-width: unset;
+}
 .nav-links {
   display: flex;
   gap: 1rem;
