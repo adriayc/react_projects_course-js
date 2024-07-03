@@ -24,6 +24,17 @@ const reducer = (state, action) => {
       people: data,
     };
   }
+  if (action.type === REMOVE_ITEM) {
+    // console.log(action);
+    const newPeople = state.people.filter(
+      (person) => person.id !== action.payload.id
+    );
+
+    return {
+      ...state,
+      people: newPeople,
+    };
+  }
   //   return state;
   throw new Error(`No matching "${action.type}" - action type`);
 };
@@ -33,19 +44,15 @@ const ReducerBasics = () => {
   // console.log(state);
 
   const removeItem = (id) => {
-    // let newPeople = people.filter((person) => person.id !== id);
-    // setPeople(newPeople);
+    dispatch({ type: REMOVE_ITEM, payload: { id } });
   };
 
   const clearList = () => {
-    // dispatch({ type: 'do something' });
     dispatch({ type: CLEAR_LIST });
-    // setPeople([]);
   };
 
   const resetList = () => {
     dispatch({ type: RESET_LIST });
-    // setPeople(data);
   };
 
   return (
