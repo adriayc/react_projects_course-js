@@ -2183,7 +2183,7 @@ export default NavLinks;
 ```
 
 UserContainer.jsx
-```js
+```jsx
 const UserContainer = ({ user, logout }) => {
   return (
     <div className="user-container">
@@ -2203,3 +2203,24 @@ const UserContainer = ({ user, logout }) => {
 
 export default UserContainer;
 ```
+
+## Setup Global Context
+Final code in the repo under w-assets
+- Create new VITE project
+```bash
+$ npm create vite@latest global-context -- --template react
+```
+
+- Install and start the project
+```bash
+$ npm install && npm run dev
+```
+
+- In src create context.jsx
+- Setup a global context - GlobalConext
+- Setup a component (AppContext) with one state value
+- Return GlobalConext.Provider form AppContext
+- Wrap then entire application (main.jsx) - children prop "gotcha"
+- Setup a custom hook
+- Access in App.jsx
+- Log result
