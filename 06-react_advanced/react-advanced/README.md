@@ -2755,3 +2755,13 @@ const ReducerBasics = () => {
 
 export default ReducerBasics;
 ```
+
+### Import/Export
+- Create new file - action.js
+  - Copy/Past all actions
+  - Export/Import actions
+- Create new file - reducer.js
+  - Copy/Paste reducer
+  - Import actions
+  - Import data
+  - Export/Import reducer
