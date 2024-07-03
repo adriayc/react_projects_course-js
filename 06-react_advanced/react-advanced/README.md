@@ -2224,3 +2224,16 @@ $ npm install && npm run dev
 - Setup a custom hook
 - Access in App.jsx
 - Log result
+
+## useReducer
+```js
+import Starter from './tutorial/10-useReducer/starter/01-useReducer.jsx';
+```
+
+- It's the complete file from 03-useState-array
+
+Challenge
+- Let's add reset functionality
+- Create function that set's people back to data array
+- Create another button, similar to clear just for reset
+- Use conditional rendering to toggle between the buttons, depending on people value
