@@ -2110,3 +2110,26 @@ const useFetch = (url) => {
 
 export default useFetch;
 ```
+
+## Context API
+```js
+import Starter from './tutorial/09-context-api/starter';
+```
+
+Challenge:
+- Create three components and nest then in such way:
+- Navbar.jsx
+  - NavLinks.jsx (nested in Navbar)
+    - UserContainer.jsx (nested in NavLinks)
+- Import Navbar.jsx in App.jsx (remove container - CSS)
+- In Navbar.jsx setup
+  - user state value
+    - Default value {name: 'something'}
+  - Logout function
+    - Set user back to null
+- Pass both of them down to UserContainer.jsx
+- Display user and button
+- On button click set user back to null
+
+- Extra challenge
+- If user null, in UserContainer display ```<p>Please login<p>```
