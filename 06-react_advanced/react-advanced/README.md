@@ -2765,3 +2765,5 @@ export default ReducerBasics;
   - Import actions
   - Import data
   - Export/Import reducer
+
+## Performance
