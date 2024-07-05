@@ -1,11 +1,11 @@
-import LowerState from './tutorial/11-performance/01-lower-state';
+import LowerStateChallenge from './tutorial/11-performance/02-lower-state-challenge';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <LowerState />
+      <LowerStateChallenge />
     </div>
   );
 }
