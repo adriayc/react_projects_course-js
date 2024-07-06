@@ -2850,3 +2850,21 @@ const Form = ({ addPerson }) => {
 
 export default Form;
 ```
+
+## React.memo()
+```js
+import Starter from './tutorial/11-performance/starter/03-hooks';
+```
+
+React.memo is a higher-order component (HOC) in React that allows you to memoize a component. This means that if the input props to the component have not changed, the memoized component will return the same result from the previous render, instead of re-rendering. This ca help improve performance by avoiding unnecessary render cycles.
+
+The React. memo function takes a functional component as its argument and returns a new component that has the same behavior, but with the added optimization o f checking if the props have changed. If the props have not changed, the momoized component will return the cached result form the previous render.
+
+Here's an example of using React.memo
+```js
+const MyComponent = React.memo(function MyComponent(prop) {
+  /* Render logic */
+})
+```
+
+React.memo(Component) - returns memoized component
