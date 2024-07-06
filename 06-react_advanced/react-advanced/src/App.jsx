@@ -1,11 +1,11 @@
-import FetchData from './tutorial/11-performance/03-hooks/fetch-data';
+import LowerState from './tutorial/11-performance/03-hooks';
 
 function App() {
   return (
     <div className="container">
       {/* <h1>Advanced React</h1> */}
 
-      <FetchData />
+      <LowerState />
     </div>
   );
 }
