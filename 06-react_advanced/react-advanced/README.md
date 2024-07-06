@@ -2868,3 +2868,14 @@ const MyComponent = React.memo(function MyComponent(prop) {
 ```
 
 React.memo(Component) - returns memoized component
+
+## Function "Gotcha"
+-  Setup remove person function
+```js
+const removePerson = (id) => {
+  const newPeople = people.filter((person) => person.id !== id);
+  setPeople(newPeople);
+};
+```
+
+- Pass it down to List and Person

@@ -6,6 +6,11 @@ const LowerState = () => {
   const [people, setPeople] = useState(data);
   const [count, setCount] = useState(0);
 
+  const removePerson = (id) => {
+    const newPerson = people.filter((person) => person.id !== id);
+    setPeople(newPerson);
+  };
+
   return (
     <section>
       <button
@@ -17,7 +22,7 @@ const LowerState = () => {
         Count {count}
       </button>
 
-      <List people={people} />
+      <List people={people} removePerson={removePerson} />
     </section>
   );
 };
