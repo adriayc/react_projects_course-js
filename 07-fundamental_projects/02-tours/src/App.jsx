@@ -38,7 +38,7 @@ const App = () => {
       </main>
     );
   }
-  // TODO
+
   if (tours.length === 0) {
     return (
       <main>

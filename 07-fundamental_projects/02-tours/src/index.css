@@ -222,21 +222,7 @@ ul {
   text-transform: capitalize;
 }
 /* alert */
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.loading {
-  width: 6rem;
-  height: 6rem;
-  border: 5px solid var(--grey-400);
-  border-radius: 50%;
-  margin: 0 auto;
-  border-top-color: var(--primary-500);
-  animation: spinner 0.3s linear infinite;
-}
 /* title */
 
 .title {
@@ -251,6 +237,22 @@ ul {
   margin-top: 1rem;
 }
 /* ============= PROJECT CSS =============== */
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid var(--grey-400);
+  border-top-color: var(--primary-500);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spinner 0.6s linear infinite;
+}
 
 main {
   width: 90vw;
@@ -271,21 +273,21 @@ main {
   transition: var(--transition);
   position: relative;
 }
-
 .single-tour:hover {
   box-shadow: var(--shadow-3);
 }
 
 .tour-price {
+  color: var(--white);
+  background: var(--primary-500);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.5rem;
+  border-top-right-radius: var(--borderRadius);
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5rem;
-  color: var(--white);
-  letter-spacing: var(--letterSpacing);
-  background: var(--primary-500);
-  border-top-right-radius: var(--borderRadius);
 }
+
 .single-tour .img {
   height: 20rem;
   border-top-right-radius: var(--borderRadius);
@@ -295,37 +297,36 @@ main {
 .tour-info {
   padding: 2rem 1.5rem;
 }
-
 .tour-info h5 {
-  text-align: center;
-  margin-bottom: 1rem;
   font-weight: 500;
+  text-align: center;
   line-height: 1.5;
+  margin-bottom: 1rem;
 }
 .tour-info p {
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
   color: var(--grey-500);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
 }
+
 .info-btn,
 .delete-btn {
   background: transparent;
-  border: transparent;
   text-transform: capitalize;
+  border: transparent;
   cursor: pointer;
 }
 .info-btn {
   color: var(--primary-500);
   font-weight: 600;
 }
-
 .delete-btn {
-  border: 1px solid var(--primary-500);
   color: var(--primary-500);
+  border: 1px solid var(--primary-500);
 }
 .delete-btn:hover {
-  background: var(--primary-500);
   color: var(--white);
+  background: var(--primary-500);
 }
 
 @media screen and (min-width: 768px) {
@@ -334,6 +335,7 @@ main {
     align-items: start;
   }
 }
+
 @media screen and (min-width: 992px) {
   .tours {
     grid-template-columns: 1fr 1fr 1fr;
