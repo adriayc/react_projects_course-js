@@ -38,6 +38,17 @@ const App = () => {
     });
   };
 
+  const randomPerson = () => {
+    // console.log(Math.random());
+    let randomNumber = Math.floor(Math.random() * people.length);
+    // console.log(randomNumber);
+    if (randomNumber === index) {
+      randomNumber = index + 1;
+    }
+    console.log(randomNumber);
+    setIndex(checkNumber(randomNumber));
+  };
+
   return (
     <main>
       <article className="review">
@@ -58,6 +69,13 @@ const App = () => {
             <FaChevronRight />
           </button>
         </div>
+        <button
+          type="button"
+          className="btn btn-hipster"
+          onClick={randomPerson}
+        >
+          Surprise me
+        </button>
       </article>
     </main>
   );
