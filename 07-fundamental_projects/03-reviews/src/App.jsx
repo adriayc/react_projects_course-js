@@ -7,16 +7,34 @@ const App = () => {
   const { name, job, image, text } = people[index];
   // console.log(name);
 
+  const checkNumber = (number) => {
+    if (number < 0) {
+      return people.length - 1;
+    }
+    if (number > people.length - 1) {
+      return 0;
+    }
+    return number;
+  };
+
   const prevPerson = () => {
     setIndex((currentIndex) => {
       const newIndex = currentIndex - 1;
-      return newIndex;
+      // if (newIndex < 0) {
+      //   return people.length - 1;
+      // }
+      // return newIndex;
+      return checkNumber(newIndex);
     });
   };
   const nextPerson = () => {
     setIndex((currentIndex) => {
       const newIndex = currentIndex + 1;
-      return newIndex;
+      // if (newIndex > people.length - 1) {
+      //   return 0;
+      // }
+      // return newIndex;
+      return checkNumber(newIndex);
     });
   };
 
