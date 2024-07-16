@@ -8,6 +8,14 @@
 
 Review data.js and import the questions array from data.js into your project. This array should contain objects that represent the questions and their associated data, such as the question text
 
+#### React Icons (Optional)
+
+[Docs](https://react-icons.github.io/react-icons/)
+
+```sh
+npm install react-icons --save
+```
+
 #### Setup State Value
 
 Next, set up the questions array as a state variable using the useState hook. This will allow you to modify the data and have those changes automatically reflected in the rendered output.
