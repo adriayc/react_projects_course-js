@@ -7,33 +7,46 @@ const App = () => {
   const { name, job, image, text } = people[index];
   // console.log(name);
 
-  // console.log(1 % 4); // 1
-  // console.log(2 % 4); // 2
-  // console.log(3 % 4); // 3
-  // console.log(4 % 4); // 0
-  // console.log(10 % 4); // 2
+  const checkNumber = (number) => {
+    if (number < 0) {
+      return people.length - 1;
+    }
+    if (number > people.length - 1) {
+      return 0;
+    }
+    return number;
+  };
 
   const prevPerson = () => {
     setIndex((currentIndex) => {
-      const newIndex = (currentIndex - 1 + people.length) % people.length;
-      return newIndex;
+      const newIndex = currentIndex - 1;
+      // if (newIndex < 0) {
+      //   return people.length - 1;
+      // }
+      // return newIndex;
+      return checkNumber(newIndex);
     });
   };
   const nextPerson = () => {
     setIndex((currentIndex) => {
-      const newIndex = (currentIndex + 1) % people.length;
-      return newIndex;
+      const newIndex = currentIndex + 1;
+      // if (newIndex > people.length - 1) {
+      //   return 0;
+      // }
+      // return newIndex;
+      return checkNumber(newIndex);
     });
   };
 
   const randomPerson = () => {
+    // console.log(Math.random());
     let randomNumber = Math.floor(Math.random() * people.length);
-    console.log(randomNumber);
+    // console.log(randomNumber);
     if (randomNumber === index) {
       randomNumber = index + 1;
     }
-    const newIndex = randomNumber % people.length;
-    setIndex(newIndex);
+    console.log(randomNumber);
+    setIndex(checkNumber(randomNumber));
   };
 
   return (
