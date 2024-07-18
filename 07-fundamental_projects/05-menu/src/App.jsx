@@ -2,6 +2,7 @@ import { useState } from 'react';
 import menu from './data';
 import Title from './Title';
 import Menu from './Menu';
+import Categories from './Categories';
 
 // const tempCategories = menu.map((item) => item.category);
 // const tempSet = new Set(tempCategories);
@@ -15,12 +16,13 @@ const allCategories = ['all', ...new Set(menu.map((item) => item.category))];
 const App = () => {
   const [menuItems, setMenuItems] = useState(menu);
   const [categories, setCategories] = useState(allCategories);
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <main>
       <section className="menu">
         <Title text="Our Menu" />
+        <Categories categories={categories} />
         <Menu items={menuItems} />
       </section>
     </main>
