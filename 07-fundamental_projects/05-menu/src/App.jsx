@@ -18,11 +18,21 @@ const App = () => {
   const [categories, setCategories] = useState(allCategories);
   // console.log(categories);
 
+  const filterItems = (category) => {
+    // console.log(category);
+    if (category === 'all') {
+      setMenuItems(menu);
+      return;
+    }
+    const newItems = menu.filter((item) => item.category === category);
+    setMenuItems(newItems);
+  };
+
   return (
     <main>
       <section className="menu">
         <Title text="Our Menu" />
-        <Categories categories={categories} />
+        <Categories categories={categories} filterItems={filterItems} />
         <Menu items={menuItems} />
       </section>
     </main>
