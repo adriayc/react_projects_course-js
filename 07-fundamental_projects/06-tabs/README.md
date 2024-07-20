@@ -20,6 +20,14 @@ Create a JobInfo component to display the first job in the list. Use object dest
 
 In the Duties component, iterate over the array of duties and render each item. If you want to use icons, you will need to install the react-icons library.
 
+#### React Icons
+
+[Docs](https://react-icons.github.io/react-icons/)
+
+```sh
+npm install react-icons --save
+```
+
 #### UUID Library
 
 ```sh
@@ -27,7 +35,7 @@ npm install uuid
 ```
 
 ```js
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 ```
 
 Since the job data does not have an id, you can install the uuid library to generate unique ids for each job. Use these ids instead of the index to set the key prop for the JobInfo and Duties components.
