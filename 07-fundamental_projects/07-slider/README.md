@@ -50,6 +50,8 @@ npm install react-icons --save
 
 #### Extra - React Slick Library
 
+The Last React Carousel You'll Ever Need!
+
 [React Slick Docs](https://react-slick.neostack.com/)
 
 ```sh
