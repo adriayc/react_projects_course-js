@@ -261,7 +261,7 @@ ul {
   margin: 0 auto;
   margin-top: 10rem;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .slide {
