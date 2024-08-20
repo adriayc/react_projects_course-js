@@ -9,13 +9,22 @@ const App = () => {
   const [colors, setColors] = useState(new Values('#f15025').all(10));
   // console.log(new Values('#f15025').all(10));
 
-  // Toastify
-  // toast.error('Error ');
-  // toast.success('Success');
+  const addColor = (color) => {
+    // console.log(color);
+
+    try {
+      const newColor = new Values(color).all(10);
+      setColors(newColor);
+    } catch (error) {
+      // console.log(error.message);
+      // Toastify
+      toast.error(error.message);
+    }
+  };
 
   return (
     <main>
-      <Form />
+      <Form addColor={addColor} />
       <ColorList colors={colors} />
 
       {/* Toastify */}
