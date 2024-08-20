@@ -252,23 +252,23 @@ ul {
   margin: 0 auto;
   margin-top: 1rem;
 }
-/* ============= PROJECT CSS =============== */
 
+/* ============= PROJECT CSS =============== */
 .container {
+  height: 160px;
   padding: 2rem;
   display: grid;
   row-gap: 1.5rem;
-  height: 160px;
 }
 
 .color-form {
   display: flex;
 }
 input[type='text'] {
-  border-color: transparent;
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
   max-width: 200px;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-color: transparent;
 }
 input[type='color'] {
   height: 100%;
@@ -276,18 +276,20 @@ input[type='color'] {
   border-color: var(--white);
 }
 .container .btn {
+  letter-spacing: 3px;
   border-radius: 0;
   border-top-right-radius: var(--borderRadius);
   border-bottom-right-radius: var(--borderRadius);
-  letter-spacing: 3px;
   transition-duration: 0s;
 }
+
 @media screen and (min-width: 768px) {
   .container {
     grid-template-columns: auto 1fr;
-    column-gap: 2rem;
     align-items: center;
+    column-gap: 2rem;
   }
+
   .color-form {
     height: 40px;
   }
@@ -299,19 +301,18 @@ input[type='color'] {
   grid-template-columns: repeat(auto-fit, minmax(223.33px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(96px, 1fr));
 }
+
 .color {
+  font-size: 1rem;
   padding: 1rem 2rem;
   cursor: pointer;
-  font-size: 1rem;
 }
 .color p {
   line-height: 1.5;
   margin-bottom: 0.25rem;
 }
 
+.color-light .percent-value,
 .color-light .color-value {
-  color: var(--white);
-}
-.color-light .percent-value {
   color: var(--white);
 }
