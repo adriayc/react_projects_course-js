@@ -11,7 +11,7 @@ const App = () => {
   return (
     <main>
       <Form />
-      <ColorList />
+      <ColorList colors={colors} />
     </main>
   );
 };

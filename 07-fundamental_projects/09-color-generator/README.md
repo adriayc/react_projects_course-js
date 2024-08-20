@@ -40,6 +40,14 @@ In the ColorList component, iterate over the list of colors and render each one 
 
 In the SingleColor component, display the hex value and weight (percent) of each color, and use inline CSS to set the background color of the component.
 
+### Nano ID
+
+A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
+
+```sh
+npm i nanoid
+```
+
 #### React-Toastify
 
 Import and set up the react-toastify library.
