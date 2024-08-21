@@ -18,7 +18,10 @@ const App = () => {
   };
 
   const removeItem = (itemId) => {
-    console.log(itemId);
+    // console.log(itemId);
+
+    const newItems = items.filter((item) => item.id !== itemId);
+    setItems(newItems);
   };
 
   return (
