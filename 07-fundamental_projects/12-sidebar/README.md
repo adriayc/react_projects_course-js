@@ -4,6 +4,12 @@
 
 ## Steps
 
+#### React Icons
+
+```sh
+npm install react-icons --save
+```
+
 #### Explore Data
 
 Navigate to data.jsx and explore arrays
