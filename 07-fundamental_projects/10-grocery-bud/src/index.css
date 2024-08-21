@@ -252,20 +252,20 @@ ul {
   margin: 0 auto;
   margin-top: 1rem;
 }
-/* ============= PROJECT CSS =============== */
 
+/* ============= PROJECT CSS =============== */
 .section-center {
   width: 90vw;
-  margin: 0 auto;
-  margin-top: 8rem;
   max-width: 30rem;
   background: var(--white);
-  border-radius: var(--borderRadius);
   padding: 2rem;
+  margin: 0 auto;
+  margin-top: 8rem;
+  border-radius: var(--borderRadius);
   box-shadow: var(--shadow-1);
   transition: var(--transition);
 }
-.section-center:hover {
+.section-center:hver {
   box-shadow: var(--shadow-3);
 }
 
@@ -296,17 +296,17 @@ form h4 {
 .single-item {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  column-gap: 1rem;
   align-items: center;
+  column-gap: 1rem;
 }
 .single-item p {
   letter-spacing: var(--letterSpacing);
 }
 
 .remove-btn {
-  padding: 0.15rem 0.25rem;
-  font-size: 0.75rem;
   background: var(--black);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.25rem;
 }
 
 .Toastify__toast {
