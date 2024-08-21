@@ -14,6 +14,14 @@ Create a Form component that contains an input field and a submit button. When t
 
 In the handleSubmit function, prevent the default form submission behavior using event.preventDefault(). If the form is submitted with an empty value, log a message and return.
 
+#### Nano ID
+
+A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
+
+```sh
+npm i nanoid
+```
+
 #### Add Item
 
 If the form is submitted with a value, create a new item object that includes a name (taken from the form input), a completed property (default value false), and a unique id (generated using a library like uuid or nanoid).
