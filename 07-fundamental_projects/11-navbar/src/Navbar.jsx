@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { links } from './data';
 import logo from './logo.svg';
@@ -6,8 +6,21 @@ import logo from './logo.svg';
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
 
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
+
   const toggleLinks = () => {
+    // console.log(linksRef.current);
+    // The Element.getBoundClientReact() method return a DOMRect object providing information about the size of an element and its position relative to the viewport.
+    // console.log(linksRef.current.getBoundingClientRect());
+
     setShowLinks(!showLinks);
+  };
+
+  const linkStyles = {
+    height: showLinks
+      ? `${linksRef.current.getBoundingClientRect().height}px`
+      : '0px',
   };
 
   return (
@@ -21,11 +34,11 @@ const Navbar = () => {
         </div>
 
         <div
-          className={
-            showLinks ? 'links-container show-container' : 'links-container'
-          }
+          className="links-container"
+          ref={linksContainerRef}
+          style={linkStyles}
         >
-          <ul className="links">
+          <ul className="links" ref={linksRef}>
             {links.map((link) => {
               const { id, url, text } = link;
               return (
