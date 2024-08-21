@@ -4,6 +4,12 @@
 
 ## Steps
 
+#### React Icons
+
+```sh
+npm install react-icons --save
+```
+
 #### Data
 
 Check the data.jsx file and find two arrays: one for links and one for social icons. Notice how icons from react-icons can be used directly in the data structures. Just make sure in Vite to use .jsx file extension
