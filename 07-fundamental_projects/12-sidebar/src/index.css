@@ -330,3 +330,80 @@ main {
   right: 1rem;
   cursor: pointer;
 }
+
+/* =============== Sidebar =============== */
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  box-shadow: var(--red-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 1rem;
+  transition: var(--transition);
+  /* Toggle logic */
+}
+@media screen and (min-width: 676px) {
+  .sidebar {
+    width: 400px;
+  }
+}
+
+.sidebar-header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  height: 40px;
+}
+.close-btn {
+  color: var(--red-dark);
+  background: transparent;
+  font-size: 1.75rem;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.links a {
+  color: var(--grey-700);
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  letter-spacing: var(--letterSpacing);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+.links a:hover {
+  color: var(--grey-800);
+  background: var(--grey-100);
+}
+.links a svg {
+  color: var(--grey-500);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: var(--transition);
+}
+.links a svg:hover {
+  color: var(--grey-600);
+}
+
+.social-links {
+  padding-bottom: 2rem;
+  display: flex;
+  justify-self: center;
+}
+.social-links a {
+  color: var(--primary-500);
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+}
+.social-links a:hover {
+  color: var(--primary-800);
+}
