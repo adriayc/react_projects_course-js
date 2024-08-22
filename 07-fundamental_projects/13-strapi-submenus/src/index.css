@@ -252,8 +252,42 @@ ul {
   margin: 0 auto;
   margin-top: 1rem;
 }
-/* 
-============= 
-PROJECT CSS 
-=============== 
-*/
+
+/* =============== PROJECT CSS =============== */
+body {
+  background: var(--primary-500);
+}
+
+/* =============== Navbar =============== */
+nav {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-center {
+  width: var(--fluid-width);
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: var(--white);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 3px;
+}
+.toggle-btn {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-700);
+  background: var(--white);
+  border-color: transparent;
+  border-radius: var(--borderRadius);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.toggle-btn:hover {
+  transform: scale(1.05);
+}
