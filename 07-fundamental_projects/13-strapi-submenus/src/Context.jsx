@@ -6,6 +6,7 @@ const AppContext = createContext();
 // Create provider
 export const AppProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [pageId, setPageId] = useState(null);
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -20,6 +21,8 @@ export const AppProvider = ({ children }) => {
         isSidebarOpen,
         openSidebar,
         closeSidebar,
+        pageId,
+        setPageId,
       }}
     >
       {children}
