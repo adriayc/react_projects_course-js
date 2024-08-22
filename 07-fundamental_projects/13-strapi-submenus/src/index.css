@@ -400,13 +400,15 @@ nav {
 @media screen and (min-width: 992px) {
   .nav-links {
     display: flex;
+    align-self: stretch;
     justify-content: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
   .nav-center {
     display: grid;
     grid-template-columns: auto 1fr;
-    border: 2px solid green;
+    align-self: stretch;
+    /* border: 2px solid green; */
   }
   .nav-link {
     color: var(--white);
@@ -417,7 +419,7 @@ nav {
     padding: 0 1rem;
     border-color: transparent;
     cursor: pointer;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
   }
 }
 
