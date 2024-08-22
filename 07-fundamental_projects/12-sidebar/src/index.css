@@ -345,7 +345,13 @@ main {
   row-gap: 1rem;
   transition: var(--transition);
   /* Toggle logic */
+  transform: translateX(-100%);
 }
+
+.show-sidebar {
+  transform: translateX(0);
+}
+
 @media screen and (min-width: 676px) {
   .sidebar {
     width: 400px;
