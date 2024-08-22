@@ -254,3 +254,33 @@ ul {
 }
 
 /* =============== Project CSS =============== */
+main {
+  min-height: 100vh;
+  background: var(--grey-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-toggle {
+  color: var(--primary-500);
+  background: transparent;
+  font-size: 2rem;
+  border-color: transparent;
+  position: fixed;
+  top: 2rem;
+  left: 3rem;
+  animation: bounce 2s ease-in-out, infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
