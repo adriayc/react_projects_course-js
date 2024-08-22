@@ -325,3 +325,69 @@ nav {
     display: none;
   }
 }
+
+/* =============== Sidebar =============== */
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Toggle */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-sidebar {
+  opacity: 1;
+  visibility: visible;
+  transition-property: opacity;
+  transition-duration: 1s;
+}
+
+/* Toggle class */
+
+.sidebar-container {
+  padding: 4rem 2rem;
+  position: relative;
+}
+.close-btn {
+  color: var(--primary-500);
+  background: transparent;
+  font-size: 2rem;
+  border-color: transparent;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.sidebar article {
+  margin-bottom: 2rem;
+}
+.sidebar h4 {
+  color: var(--primary-700);
+  margin-bottom: 1rem;
+}
+
+.sidebar-sublinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.5rem;
+}
+.sidebar-sublinks a {
+  color: var(--grey-900);
+  text-transform: capitalize;
+  /* display: block; */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.sidebar-sublinks svg {
+  color: var(--grey-500);
+}
+
+@media screen and (min-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+}
