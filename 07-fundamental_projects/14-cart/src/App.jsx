@@ -1,5 +1,14 @@
+// Components
+import CartContainer from './CartContainer';
+import Navbar from './Navbar';
+
 const App = () => {
-  return <h2>Cart</h2>;
+  return (
+    <main>
+      <Navbar />
+      <CartContainer />
+    </main>
+  );
 };
 
 export default App;

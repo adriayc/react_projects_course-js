@@ -15,6 +15,12 @@ npm install
 npm run dev
 ```
 
+#### React Icons
+
+```sh
+npm install react-icons --save
+```
+
 #### Explore
 
 Explore the current application and analyze its functionality.
