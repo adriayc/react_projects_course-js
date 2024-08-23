@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const handleSubmenu = (e) => {
     // console.log(e);
-    console.log(!e.target.classList.contains('nav-link'));
+    // console.log(!e.target.classList.contains('nav-link'));
     if (!e.target.classList.contains('nav-link')) {
       setPageId(null);
     }
