@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from 'react';
+import cartItems from './data';
 // Reducer
 import reducer from './reducer';
 // Actions
@@ -17,7 +18,7 @@ const AppContext = createContext();
 // Initial state
 const initialState = {
   loading: false,
-  cart: [],
+  cart: [...cartItems],
 };
 
 // Create provider
