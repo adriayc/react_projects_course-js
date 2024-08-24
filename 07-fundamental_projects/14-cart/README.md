@@ -101,7 +101,7 @@ The downsides of using an object to store shopping cart data include the risk of
 
 For a shopping cart application, using a new Map() to store the cart data is beneficial because it allows for efficient lookups and updates based on unique product IDs. Using a Map can also ensure that each item in the cart has a unique identifier and can easily be updated or removed without affecting other items in the cart.
 
-#### Map
+#### Map (Map Object)
 
 A Map is a built-in data structure in JavaScript that allows you to store key-value pairs, where both the keys and values can be any data type. Here's a simple example:
 
