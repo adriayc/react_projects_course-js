@@ -18,7 +18,7 @@ const AppContext = createContext();
 // Initial state
 const initialState = {
   loading: false,
-  cart: [...cartItems],
+  cart: new Map(cartItems.map((item) => [item.id, item])),
 };
 
 // Create provider

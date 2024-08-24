@@ -1,10 +1,12 @@
+import { useGlobalContext } from './context';
 // Components
 import CartItem from './CartItem';
-// Data
-import cartItems from './data';
 
 const CartContainer = () => {
-  const cartArray = [...cartItems];
+  const { cart } = useGlobalContext();
+
+  // Convert the Map to an array of key-value pairs
+  const cartArray = Array.from(cart.entries());
 
   if (cartArray.length === 0) {
     return (
@@ -26,7 +28,9 @@ const CartContainer = () => {
         {/* Cart items */}
         <div>
           {cartArray.map((cartItem) => {
-            return <CartItem key={cartItem.id} {...cartItem} />;
+            // console.log(cartItem);
+            const [id, item] = cartItem;
+            return <CartItem key={id} {...item} />;
           })}
         </div>
       </header>
