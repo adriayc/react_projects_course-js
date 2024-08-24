@@ -1,3 +1,13 @@
+// Actions
+import {
+  CLEAR_CART,
+  REMOVE,
+  INCREASE,
+  DECREASE,
+  LOADING,
+  DISPLAY_ITEMS,
+} from './actions';
+
 // Reducer
 const reducer = (state, action) => {
   return state;

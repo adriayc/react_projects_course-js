@@ -1,6 +1,15 @@
 import { createContext, useContext, useReducer } from 'react';
 // Reducer
 import reducer from './reducer';
+// Actions
+import {
+  CLEAR_CART,
+  REMOVE,
+  INCREASE,
+  DECREASE,
+  LOADING,
+  DISPLAY_ITEMS,
+} from './actions';
 
 // Define context
 const AppContext = createContext();
