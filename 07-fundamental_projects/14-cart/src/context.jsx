@@ -1,20 +1,22 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useReducer } from 'react';
+// Reducer
+import reducer from './reducer';
 
 // Define context
 const AppContext = createContext();
 
+// Initial state
+const initialState = {
+  loading: false,
+  cart: [],
+};
+
 // Create provider
 export const AppProvider = ({ children }) => {
-  const greeting = 'Hello';
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <AppContext.Provider
-      value={{
-        greeting,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
   );
 };
 
