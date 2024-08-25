@@ -3,7 +3,7 @@ import { useGlobalContext } from './context';
 import CartItem from './CartItem';
 
 const CartContainer = () => {
-  const { cart, clearCart } = useGlobalContext();
+  const { cart, clearCart, totalCost } = useGlobalContext();
 
   // Convert the Map to an array of key-value pairs
   const cartArray = Array.from(cart.entries());
@@ -40,7 +40,7 @@ const CartContainer = () => {
         <hr />
         <div>
           <h5 className="cart-total">
-            Total <span>$10</span>
+            Total <span>${totalCost.toFixed(2)}</span>
           </h5>
         </div>
         <button type="button" className="btn btn-hipster" onClick={clearCart}>
