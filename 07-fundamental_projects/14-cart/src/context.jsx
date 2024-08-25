@@ -20,8 +20,9 @@ const AppContext = createContext();
 
 // Initial state
 const initialState = {
-  loading: true,
-  cart: new Map(cartItems.map((item) => [item.id, item])),
+  loading: false,
+  // cart: new Map(cartItems.map((item) => [item.id, item])),
+  cart: new Map(),
 };
 
 // Create provider
@@ -47,9 +48,11 @@ export const AppProvider = ({ children }) => {
   };
 
   const fetchData = async () => {
+    dispatch({ type: LOADING });
     const response = await fetch(url);
     const cart = await response.json();
-    console.log(cart);
+    // console.log(cart);
+    dispatch({ type: DISPLAY_ITEMS, payload: { cart } });
   };
 
   useEffect(() => {
