@@ -1,5 +1,5 @@
 import Title from './components/Title';
-import Setup from './examples/05-custom-instance';
+import Setup from './examples/06-interceptors';
 // import './axios/global';
 
 const App = () => {
