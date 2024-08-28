@@ -1,5 +1,6 @@
 import Title from './components/Title';
-import Setup from './examples/03-post-request';
+import Setup from './examples/04-global-instance';
+import './axios/global';
 
 const App = () => {
   return (
