@@ -1,5 +1,5 @@
 import Title from './components/Title';
-import Setup from './examples/01-first-request';
+import Setup from './examples/02-headers';
 
 const App = () => {
   return (
