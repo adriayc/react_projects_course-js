@@ -1,5 +1,5 @@
 import Title from './components/Title';
-import Setup from './examples/02-headers';
+import Setup from './examples/03-post-request';
 
 const App = () => {
   return (
