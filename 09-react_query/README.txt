@@ -1,10 +1,12 @@
 * Create React Project (VITE)
-  $ npm create vite@latest my-react-app -- --template react
-  $ cd my-react-app
-  $ code .      // Open VSCode
-  $ npm install
-  $ npm run dev
-  $ npm install && npm run dev
+  - Create app
+    $ npm create vite@latest my-react-app -- --template react
+    $ cd my-react-app
+    $ code .      // Open VSCode
+    $ npm install
+    $ npm run dev
+    $ npm install && npm run dev
+  - NOTE: In the latest version of React Query (V5), the 'isLoading' property has been replaced with 'isPending'.
 
 * Server
   - Copy and paste the 'server' directory
