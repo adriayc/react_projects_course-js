@@ -9,10 +9,27 @@
   - NOTE: In the latest version of React Query (V5), the 'isLoading' property has been replaced with 'isPending'.
 
 * Thunder Client (VSCode)
-  - GET
-    - Click 'New Request'
-      > GET: http://localhost:5000/api/tasks
-      Click 'Send'
+  - Create Env
+    + Create a new Global Environment
+      > Variable Name: URL
+      > Value: http://localhost:5000/api/tasks
+      Click 'Save'
+  - Create Collections
+    > Collection Name: Tasks App
+    NOTE: Create new 'Request' within the collection
+      + GET
+        - Click 'New Request'
+          > GET: http://localhost:5000/api/tasks
+          Click 'Send'
+      +  POST
+        - Click 'New Request'
+          > POST: http://localhost:5000/api/tasks
+          > POST: {{URL}}
+            > Body -> JSON:
+              {
+                "title": "another task"
+              }
+            Click 'Send'
 
 * Server
   - Copy and paste the 'server' directory
