@@ -44,7 +44,7 @@ Explore files and folders
 Create utils.js and setup custom axios instance with
 following base url:'http://localhost:5000/api/tasks'
 
-#### HTTP Methods
+#### HTTP Methods (Front-End)
 
 HTTP (Hypertext Transfer Protocol) methods define the types of actions that can be performed on a web server to retrieve, modify or delete information. The most commonly used HTTP methods are GET, POST, PATCH and DELETE. GET retrieves data, POST sends data to be processed, PATCH update or replace existing data, DELETE removes data.
 
