@@ -218,7 +218,7 @@ const Items = () => {
 export default Items;
 ```
 
-#### Thunder Client Extension
+#### Thunder Client Extension (Rest Client for testing APIs)
 
 Test API endpoints directly in VS CODE
 
