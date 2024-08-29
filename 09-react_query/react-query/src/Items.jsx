@@ -6,11 +6,11 @@ const Items = () => {
   // const result = useQuery({
   // isLoading - V4
   // const { isLoading, data } = useQuery({
-  const { isPending, data } = useQuery({
+  const { isPending, data, error, isError } = useQuery({
     queryKey: ['tasks'],
     // queryFn: () => customFetch.get('/'),
     queryFn: async () => {
-      const { data } = await customFetch.get('/');
+      const { data } = await customFetch.get('/something');
       return data;
     },
   });
@@ -21,6 +21,14 @@ const Items = () => {
     return <p style={{ marginTop: '1rem' }}>Loading...</p>;
   }
   // console.log(data);
+
+  if (isError) {
+    return <p style={{ marginTop: '1rem' }}>There was an error...</p>;
+  }
+  // if (error) {
+  //   // return <p style={{ marginTop: '1rem' }}>{error.message}</p>;
+  //   return <p style={{ marginTop: '1rem' }}>{error.response.data}</p>;
+  // }
 
   return (
     <div className="items">
