@@ -48,3 +48,5 @@
   - Start and run the app
     $ npm install
     $ npm start
+  - Run alternative server
+    $ npm run local-server
