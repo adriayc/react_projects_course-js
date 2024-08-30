@@ -38,6 +38,10 @@
                 "isDone": true
               }
             Click 'Send'
+      + DELETE
+        - Click 'New Request'
+          > DELTE: {{URL}}/WQA3SraMp8YOyhxp_BrfH
+          Click 'Send'
 
 * Server
   - Copy and paste the 'server' directory
