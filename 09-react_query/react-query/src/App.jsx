@@ -1,8 +1,8 @@
+import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { nanoid } from 'nanoid';
 import Form from './Form';
 import Items from './Items';
-import { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
 
 const defaultItems = [
   { id: nanoid(), title: 'walk the dog', isDone: false },
