@@ -30,6 +30,14 @@
                 "title": "another task"
               }
             Click 'Send'
+      + UPDATE
+        - Click 'New Request'
+          > PATCH: {{URL}}/LeK0eVt7qeY7S63I1S3wX
+            > Body -> JSON:
+              {
+                "isDone": true
+              }
+            Click 'Send'
 
 * Server
   - Copy and paste the 'server' directory
