@@ -1,1 +1,10 @@
 UNSPLASH IMAGES PROJECT (WITH REACT QUERY)
+
+* Create React Project (VITE)
+  - Create app
+    $ npm create vite@latest my-react-app -- --template react
+    $ cd my-react-app
+    $ code .      // Open VSCode
+    $ npm install
+    $ npm run dev
+    $ npm install && npm run dev
