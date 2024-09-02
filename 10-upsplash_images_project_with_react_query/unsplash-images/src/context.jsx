@@ -11,6 +11,13 @@ export const AppProvide = ({ children }) => {
     const newDarkTheme = !isDarkTheme;
     setIsDarkTheme(newDarkTheme);
     // setIsDarkTheme(!isDarkTheme);
+
+    // Add/Remove toggle class
+    // const body = document.querySelector('body');
+    // body.classList.toggle('dark-theme', newDarkTheme);
+    // console.log(body);
+    // Alternative
+    document.body.classList.toggle('dark-theme', newDarkTheme);
   };
 
   return (
