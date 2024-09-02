@@ -1,18 +1,20 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 // Define context
 const AppContext = createContext();
 
 // Provider
 export const AppProvide = ({ children }) => {
-  const greeting = 'Hello';
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const toggleDarkTheme = () => {
+    const newDarkTheme = !isDarkTheme;
+    setIsDarkTheme(newDarkTheme);
+    // setIsDarkTheme(!isDarkTheme);
+  };
 
   return (
-    <AppContext.Provider
-      value={{
-        greeting,
-      }}
-    >
+    <AppContext.Provider value={{ isDarkTheme, toggleDarkTheme }}>
       {children}
     </AppContext.Provider>
   );
