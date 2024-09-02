@@ -8,3 +8,7 @@ UNSPLASH IMAGES PROJECT (WITH REACT QUERY)
     $ npm install
     $ npm run dev
     $ npm install && npm run dev
+
+* Unsplash
+  Beautiful, free images and photos that you can download and use for an project. Better than any royalty or stock photos.
+  - Info (URL: https://unsplash.com/)
