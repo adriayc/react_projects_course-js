@@ -1,11 +1,20 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 // Define context
 const AppContext = createContext();
 
+// Get initial dark mode (JS)
+const getInitialDarkMode = () => {
+  const prefersDarkMode = window.matchMedia(
+    '(prefers-color-scheme: dark)'
+  ).matches;
+  // console.log(prefersDarkMode);
+  return prefersDarkMode;
+};
+
 // Provider
 export const AppProvide = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(getInitialDarkMode());
   const [searchTerm, setSearchTerm] = useState('cat');
 
   const toggleDarkTheme = () => {
@@ -18,8 +27,13 @@ export const AppProvide = ({ children }) => {
     // body.classList.toggle('dark-theme', newDarkTheme);
     // console.log(body);
     // Alternative
-    document.body.classList.toggle('dark-theme', newDarkTheme);
+    // document.body.classList.toggle('dark-theme', newDarkTheme);
   };
+
+  useEffect(() => {
+    // Dark mode toggle class
+    document.body.classList.toggle('dark-theme', isDarkTheme);
+  }, [isDarkTheme]);
 
   return (
     <AppContext.Provider
