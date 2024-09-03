@@ -1,14 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+// Custom hook (Context)
+import { useGlobalContext } from './context';
 
 const url =
-  'https://api.unsplash.com/search/photos?client_id={{YOUR_ACCESS_KEY}}&query=cat';
+  'https://api.unsplash.com/search/photos?client_id={{YOUR_ACCESS_KEY}}';
 
 const Gallery = () => {
+  const { searchTerm } = useGlobalContext();
+
   const response = useQuery({
     queryKey: ['images'],
     queryFn: async () => {
-      const result = await axios.get(url);
+      const result = await axios.get(`${url}&query=${searchTerm}`);
       return result.data;
     },
   });
