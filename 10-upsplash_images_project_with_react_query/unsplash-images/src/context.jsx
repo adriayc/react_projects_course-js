@@ -8,8 +8,13 @@ const getInitialDarkMode = () => {
   const prefersDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)'
   ).matches;
-  // console.log(prefersDarkMode);
-  return prefersDarkMode;
+  // console.log(localStorage.getItem('darkTheme'));
+  // console.log(typeof localStorage.getItem('darkTheme'));
+
+  // Get LocalStorage value
+  const storedDarkMode = localStorage.getItem('darkTheme') === 'true';
+
+  return storedDarkMode || prefersDarkMode;
 };
 
 // Provider
@@ -28,6 +33,9 @@ export const AppProvide = ({ children }) => {
     // console.log(body);
     // Alternative
     // document.body.classList.toggle('dark-theme', newDarkTheme);
+
+    // Set LocalStorage value
+    localStorage.setItem('darkTheme', newDarkTheme);
   };
 
   useEffect(() => {
