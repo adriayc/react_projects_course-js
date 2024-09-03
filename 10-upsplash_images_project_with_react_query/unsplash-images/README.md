@@ -94,9 +94,19 @@ After signing up for an Unsplash account, you will need to locate your API key a
 
 Before implementing the API in your application, it is a good practice to test the URL using a tool like Thunder Client VS Code Extension. This will allow you to verify that the URL is correct and that you are able to successfully retrieve images using the API.
 
+#### Axios
+
+```sh
+npm install axios
+```
+
 #### Install and Setup React Query in Gallery Component
 
 React Query is a library that can be used to handle API requests in React applications. To fetch images from the Unsplash API, you will need to install and set up React Query in your Gallery component.
+
+```sh
+npm i @tanstack/react-query
+```
 
 #### Install and Setup React Query Dev Tools
 
