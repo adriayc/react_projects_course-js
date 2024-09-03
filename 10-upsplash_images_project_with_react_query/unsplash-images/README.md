@@ -132,6 +132,24 @@ To provide a better user experience, you can check whether the user prefers dark
 
 To persist the user's preferred theme across sessions, you can store the isDarkTheme state value in local storage. This will allow the theme to be preserved even if the user closes and reopens the application.
 
+#### Important Update!
+
+We will enhance the functionality of the `getInitialDarkMode` function.
+
+```js
+const getInitialDarkMode = () => {
+  const prefersDarkMode = window.matchMedia(
+    '(prefers-color-scheme: dark)'
+  ).matches;
+
+  const storeDarkMode = LocalStorage.getItem('darkTheme');
+  if (storeDarkMode === null) {
+    return prefersDarkMode;
+  }
+  return storeDarkMode === 'true';
+};
+```
+
 #### Setup ENV Variables in VITE
 
 Environment variables can be used to store sensitive information, such as your Unsplash API key. In order to use environment variables in your application, you will need to set them up in VITE, a build tool for modern web development.
