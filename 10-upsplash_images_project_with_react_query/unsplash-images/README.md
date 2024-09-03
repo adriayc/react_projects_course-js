@@ -112,6 +112,10 @@ npm i @tanstack/react-query
 
 React Query dev tools provide a way to inspect and debug React Query data and caching behavior. To use this tool, you will need to install and set up the React Query dev tools in your application.
 
+```sh
+npm i @tanstack/react-query-devtools
+```
+
 #### Create a searchValue State Value in Context.jsx
 
 In order to implement search functionality in your application, you will need to create a state value to store the user's search input. This can be done in a context file, such as context.jsx.

@@ -70,3 +70,6 @@ Axios is a simple promise based HTTP client for the browser and node.js. Axios p
 
 ## React Query
 [React Query](https://tanstack.com/query/latest) is a JavaScript library designed to simplify the complex task of data fetching and caching in React applications.
+
+## React Query Devtools
+Helps visualize all the inner workings of React Query and will likely save you hours of debugging if you find yourself in a pinch.
