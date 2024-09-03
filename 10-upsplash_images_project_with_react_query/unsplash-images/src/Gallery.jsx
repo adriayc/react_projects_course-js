@@ -3,8 +3,11 @@ import axios from 'axios';
 // Custom hook (Context)
 import { useGlobalContext } from './context';
 
-const url =
-  'https://api.unsplash.com/search/photos?client_id={{YOUR_ACCESS_KEY}}';
+const url = `https://api.unsplash.com/search/photos?client_id=${
+  import.meta.env.VITE_API_KEY
+}`;
+// Get the value of the environment variable
+// console.log(import.meta.env.VITE_API_KEY);
 
 const Gallery = () => {
   const { searchTerm } = useGlobalContext();
