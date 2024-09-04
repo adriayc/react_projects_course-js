@@ -28,3 +28,31 @@ UNSPLASH IMAGES PROJECT (WITH REACT QUERY)
   - Thunder Client
     + Search Images
       > GET: https://api.unsplash.com/search/photos?client_id={{YOUR_ACCESS_KEY}}&query=cat
+
+* Deploy Unsplash (Netfly)
+  - Create and push repo to GitHub
+    + Create repo
+      > Repository name: temp-unsplash-images
+      > Public
+      Click 'Create repository'
+    + Push repo
+      $ git init
+      $ git add .
+      $ git commit -m "First commit"
+      $ git remote app origin git@github.com:{{user_name}}/{{repo_name}}.git
+      $ git branch -M main
+      $ git push -u origin main
+  - Netlify
+    + Create and login
+    + Sites -> Click 'Add new site' | 'Import an existing project'
+      > Connect to Git provider -> Click 'GitHub'
+      > Pick a repository form GitHub -> Search repos: {{repo_name}} -> Click Repo
+        > Site settings for {{user_repo}}/{{repo_name}}
+        > Click 'Show Advanced'
+          > Environment variables -> Click 'New variable'
+            > Key: VITE_API_KEY       Value: {{YOUR_ACCESS_KEY}}
+        Click 'Deploy site'
+    +  Deploys
+      - Deploy log
+      - Options -> Clear cache and retry with latest branch commit (Re-deploy)
+    + Site overview -> Click 'URL_NETLIFY'
