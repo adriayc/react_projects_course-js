@@ -41,3 +41,9 @@ CONTENTFUL CMS PROJECT
             > Require field
           Click 'Confirm'
       Click 'Save'
+  - Add entry (Content -> Click '+ Add entry' -> Click 'Create & edit an entry')
+    > title: {{title_text}}
+    > url: {{url_text}}
+    > image: (Click '+ Add new media' -> Open file selector or Drag and drop a file to upload...)
+    Click 'Publish'
+    NOTE: Add more entries...
