@@ -8,3 +8,6 @@ CONTENTFUL CMS PROJECT
     $ npm install
     $ npm run dev
     $ npm install && npm run dev
+
+* Contentful (URL: https://www.contentful.com/)
+  - Create y login
