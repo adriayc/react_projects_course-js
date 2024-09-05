@@ -47,3 +47,10 @@ CONTENTFUL CMS PROJECT
     > image: (Click '+ Add new media' -> Open file selector or Drag and drop a file to upload...)
     Click 'Publish'
     NOTE: Add more entries...
+  - Contentful API Docs
+    + Add API key (Settings -> API keys -> Click '+ Add API key')
+      > Space ID: {{SPACE_ID}}
+      > Content Delivery API (Access token): {{API_KEY}}
+    + API Docs (Docs)
+      > Contentful and JavaScript tutorial
+      > Content Delivery API
