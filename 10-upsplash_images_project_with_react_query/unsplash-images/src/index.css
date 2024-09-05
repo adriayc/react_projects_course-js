@@ -299,35 +299,34 @@ ul {
 PROJECT CSS
 ========
 */
-
 /* 
 ========
 Toggle Container
 ========
 */
-
 .toggle-container {
   width: var(--view-width);
   max-width: var(--max-width);
   padding: 1rem 0;
+  /* border: 2px solid red; */
   margin: 0 auto;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
-
 .dark-toggle {
-  background: transparent;
-  border-color: transparent;
   width: 5rem;
   height: 2rem;
+  background: transparent;
+  border-color: transparent;
   display: grid;
   place-items: center;
   cursor: pointer;
 }
 .toggle-icon {
-  font-size: 1.5rem;
   color: var(--textColor);
+  font-size: 1.5rem;
 }
+
 /* 
 ========
 Search Form
@@ -344,22 +343,18 @@ Search Form
   display: grid;
   grid-template-columns: 1fr auto;
 }
-
 .search-input {
-  border-color: var(--grey-300);
-  transition: var(--darkModeTransition);
   color: var(--textColor);
+  border-color: var(--grey-300);
   border-radius: 0;
-
-  /* border-right: none; */
+  transition: var(--darkModeTransition);
 }
-
 .search-form .btn {
   border-radius: 0;
 }
 .search-form .btn:hover {
-  background: var(--primary-300);
   color: var(--black);
+  background: var(--primary-300);
 }
 
 /* 
@@ -367,7 +362,6 @@ Search Form
 Gallery
 ========
 */
-
 .image-container {
   width: var(--view-width);
   max-width: var(--max-width);
@@ -375,7 +369,6 @@ Gallery
   display: grid;
   gap: 2rem;
 }
-
 .image-container .img {
   height: 10rem;
 }
