@@ -19,6 +19,8 @@ Setup Hero component.
 
 #### Nice Images
 
+The design project with open-source illustration for any idea you can imagine and create.
+
 [Undraw](https://undraw.co/)
 
 #### Data
