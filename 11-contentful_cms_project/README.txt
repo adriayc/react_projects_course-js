@@ -83,3 +83,18 @@ CONTENTFUL CMS PROJECT
       - Deploy log
       - Click 'Trigger deploy' -> 'Clear cache and deploy site' (Re-deploy)
     + Site overview -> Click 'URL_NETLIFY'
+  - Webhooks
+    + Netlify
+      > Site overview -> Site settings -> General | Build & deploy -> Build hooks | Click 'Add build hook'
+        > Build hook name: Contentful CMS
+        > branch to build: main
+        Click 'Save'
+      NOTE: Copy Contentful CMS URL: https://api.netlify.com/build_hooks/xxxx
+    + Contentful
+      > Settings -> Webhooks -> Click '+ Add Webhook'
+        > Name: Netlify Hook
+        > URL:
+          POST - {{CONTENTFUL_CMS_HOOK_URL}}
+        > Trigger for all events
+        Click 'Save'
+    NOTE: Update entry in 'Contentful' and a rebuild is automatically executed in 'Netlify'
