@@ -6,5 +6,5 @@ MIXMASTER (REACT ROUTER 6.4+ AND REACT QUERY)
     $ cd my-react-app
     $ code .      // Open VSCode
     $ npm install
-    $ npm run dev
+    $ npm run dev   // Starter
     $ npm install && npm run dev
