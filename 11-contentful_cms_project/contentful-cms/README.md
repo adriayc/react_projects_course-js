@@ -48,11 +48,13 @@ Get Space ID, Access Token and explore code examples.
 Space ID -
 Access Token -
 
-#### Install SDK
+#### Install SDK (Info)
 
-- npm install contentful
+```sh
+npm install contentful
+```
 
-#### Get Entries
+#### Get Entries (Info)
 
 ```js
 import { createClient } from 'contentful';
