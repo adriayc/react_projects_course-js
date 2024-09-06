@@ -54,3 +54,32 @@ CONTENTFUL CMS PROJECT
     + API Docs (Docs)
       > Contentful and JavaScript tutorial
       > Content Delivery API
+
+* Deploy Contentful (Netfly)
+  - Create and push repo to GitHub
+    + Create repo
+      > Repository name: temp-contenful-app
+      > Public
+      Click 'Create repository'
+    + Push repo
+      $ git init
+      $ git add .
+      $ git commit -m "First commit"
+      $ git remote app origin git@github.com:{{user_name}}/{{repo_name}}.git
+      $ git branch -M main
+      $ git push -u origin main
+  - Netlify
+    + Create and login
+    + Sites -> Click 'Add new site' | 'Import an existing project'
+      > Connect to Git provider -> Click 'GitHub'
+      > Pick a repository form GitHub -> Search repos: {{repo_name}} -> Click Repo
+        > Site settings for {{user_repo}}/{{repo_name}}
+        > Click 'Show Advanced'
+          > Environment variables -> Click 'New variable'
+            > Key: VITE_API_KEY       Value: {{YOUR_API_KEY}}
+            > Key: VITE_SPACE_ID      Value: {{YOUR_SPACE_ID}}
+        Click 'Deploy site'
+    +  Deploys
+      - Deploy log
+      - Click 'Trigger deploy' -> 'Clear cache and deploy site' (Re-deploy)
+    + Site overview -> Click 'URL_NETLIFY'

@@ -3,9 +3,9 @@ import { createClient } from 'contentful';
 import { useEffect } from 'react';
 
 const client = createClient({
-  space: '{{SPACE_ID}}',
+  space: import.meta.env.VITE_SPACE_ID,
   environment: 'master', // defaults to 'master' if not set
-  accessToken: '{{ACCESS_TOKEN}}',
+  accessToken: import.meta.env.VITE_API_KEY,
 });
 
 // client
