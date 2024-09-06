@@ -280,17 +280,16 @@ ul {
 PROJECT CSS
 =============
 */
-
 body {
   background: var(--grey-200);
 }
 .hero {
   min-height: 40vh;
   background: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .img-container {
   display: none;
@@ -300,14 +299,15 @@ body {
   max-width: var(--max-width);
 }
 .hero-title h1 {
-  margin-bottom: 2rem;
   font-weight: 700;
+  margin-bottom: 2rem;
 }
 .hero-title p {
-  line-height: 2;
-  max-width: 35em;
+  max-width: 53em;
   color: var(--grey-600);
+  line-height: 2;
 }
+
 @media (min-width: 992px) {
   .hero-center {
     display: grid;
@@ -319,12 +319,12 @@ body {
     display: block;
   }
 }
+
 /* 
 ============= 
 PROJECTS 
 =============
 */
-
 .projects {
   padding: 5rem 0;
 }
@@ -338,26 +338,24 @@ PROJECTS
 }
 .project {
   background: var(--white);
-  display: block;
   border-radius: var(--borderRadius);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-1);
   transition: var(--transition);
+  display: block;
 }
 .project:hover {
-  transform: scale(1.05);
   box-shadow: var(--shadow-4);
+  transform: scale(1.05);
 }
-
 .project .img {
   height: 15rem;
   border-top-right-radius: var(--borderRadius);
   border-top-left-radius: var(--borderRadius);
 }
-
 .project h5 {
+  color: var(--grey-700);
   text-align: center;
   padding: 1rem 0;
-  color: var(--grey-700);
 }
 
 @media (min-width: 768px) {
