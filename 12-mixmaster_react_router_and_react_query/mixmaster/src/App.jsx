@@ -10,7 +10,10 @@ import {
 } from './pages';
 
 const router = createBrowserRouter([
-  { path: '/', element: <HomeLayout /> },
+  {
+    path: '/',
+    element: <HomeLayout />,
+  },
   {
     path: '/about',
     element: <About />,
