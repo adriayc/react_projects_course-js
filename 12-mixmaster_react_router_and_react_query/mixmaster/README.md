@@ -553,6 +553,12 @@ const router = createBrowserRouter([
 - Lookup full cocktail details by id
   www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
 
+#### Axios
+
+```sh
+npm install axios
+```
+
 #### Landing - Fetch Drinks
 
 Landing.jsx
