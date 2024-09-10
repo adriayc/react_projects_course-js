@@ -544,7 +544,7 @@ const router = createBrowserRouter([
 ]);
 ```
 
-#### TheCocktailDB
+#### TheCocktailDB (Info)
 
 [API](https://www.thecocktaildb.com/)
 
