@@ -492,7 +492,7 @@ useEffect(() => {
 }, []);
 ```
 
-#### Loader
+#### Loader (Info)
 
 Each route can define a "loader" function to provide data to the route element before it renders.
 
