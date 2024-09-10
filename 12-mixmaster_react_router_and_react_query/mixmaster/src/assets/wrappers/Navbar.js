@@ -1,26 +1,25 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.nav`
-  background: var(--white);
+  background: --(white);
   .nav-center {
     width: var(--view-width);
     max-width: var(--max-width);
+    padding: 1.5rem 2rem;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 2rem;
   }
   .logo {
-    font-size: clamp(1.5rem, 3vw, 3rem);
     color: var(--primary-500);
+    font-size: clamp(1.5rem, 3vw, 3rem);
     font-weight: 700;
-    letter-spacing: 2px;
   }
   .nav-links {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-top: 1rem;
   }
   .nav-link {
     color: var(--grey-900);
@@ -41,8 +40,8 @@ const Wrapper = styled.nav`
       align-items: center;
     }
     .nav-links {
-      flex-direction: row;
       margin-top: 0;
+      flex-direction: row;
     }
   }
 `;
