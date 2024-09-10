@@ -200,7 +200,7 @@ export default Navbar;
 
 - setup in HomeLayout
 
-#### Styled Components
+#### Styled Components (Info)
 
 - CSS in JS
 - Styled Components
