@@ -1,12 +1,14 @@
 import styled from 'styled-components';
+
 const Wrapper = styled.article`
+  /* CocktailCard */
   background: var(--white);
+  border-radius: var(--borderRadius);
   box-shadow: var(--shadow-2);
   transition: var(--transition);
   display: grid;
   grid-template-rows: auto 1fr;
-  border-radius: var(--borderRadius);
-  :hover {
+  &:hover {
     box-shadow: var(--shadow-4);
   }
   img {
@@ -24,8 +26,8 @@ const Wrapper = styled.article`
       font-weight: 700;
     }
     p {
-      margin-bottom: 1rem;
       color: var(--grey-500);
+      margin-bottom: 1rem;
     }
   }
 `;
