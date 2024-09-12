@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useLoaderData } from 'react-router-dom';
 // Components
 import CocktailList from '../components/CocktailList';
+import SearchForm from '../components/SearchForm';
 
 const cocktailSearchUrl =
   'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -22,6 +23,7 @@ const Landing = () => {
 
   return (
     <>
+      <SearchForm />
       <CocktailList drinks={drinks} />
     </>
   );
