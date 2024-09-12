@@ -1000,7 +1000,7 @@ const Newsletter = () => {
 export default Newsletter;
 ```
 
-#### Default Behavior
+#### Default Behavior (Info)
 
 The "method" attribute in an HTML form specifies the HTTP method to be used when submitting the form data to the server. The two commonly used values for the "method" attribute are:
 
