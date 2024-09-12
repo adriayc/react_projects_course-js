@@ -1,6 +1,17 @@
+import { Form } from 'react-router-dom';
+
+export const action = async ({ request }) => {
+  // console.log(request);
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+
+  return null;
+};
+
 const Newsletter = () => {
   return (
-    <form className="form" method="POST">
+    <Form className="form" method="POST">
       <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
         Our newsletter
       </h4>
@@ -13,6 +24,7 @@ const Newsletter = () => {
           name="name"
           id="name"
           className="form-input"
+          // required // HTML validation
           defaultValue="john"
         />
       </div>
@@ -48,7 +60,7 @@ const Newsletter = () => {
       >
         Submit
       </button>
-    </form>
+    </Form>
   );
 };
 
