@@ -916,7 +916,11 @@ const Wrapper = styled.div`
 export default Wrapper;
 ```
 
-#### Setup React Toastify
+#### Setup React Toastify (Info)
+
+```sh
+npm i react-toastify
+```
 
 main.jsx
 
