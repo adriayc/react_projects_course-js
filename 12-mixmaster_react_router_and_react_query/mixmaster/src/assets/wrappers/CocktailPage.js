@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  /* CocktailPage */
   header {
     text-align: center;
     margin-bottom: 3rem;
     .btn {
-      margin-bottom: 1rem;
+      margin: 1rem;
     }
   }
   .img {
@@ -21,26 +22,26 @@ const Wrapper = styled.div`
     margin-bottom: 1rem;
   }
   .drink-data {
-    margin-right: 0.5rem;
+    color: var(--primary-700);
     background: var(--primary-300);
+    letter-spacing: var(--letterSpacing);
     padding: 0.25rem 0.5rem;
     border-radius: var(--borderRadius);
-    color: var(--primary-700);
-    letter-spacing: var(--letterSpacing);
+    margin-right: 0.5rem;
   }
   .ing {
-    display: inline-block;
     margin-right: 0.5rem;
+    display: block;
   }
   @media (min-width: 992px) {
     .drink {
       display: grid;
       grid-template-columns: 2fr 3fr;
-      gap: 3rem;
       align-items: center;
+      gap: 3rem;
     }
     .drink-info {
-      padding-top: 0;
+      padding-top: 2rem;
     }
   }
 `;
