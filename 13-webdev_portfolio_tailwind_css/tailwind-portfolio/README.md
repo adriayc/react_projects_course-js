@@ -72,7 +72,7 @@ export default App;
 - images from Undraw
   [Undraw Docs](https://undraw.co/)
 
-#### Install More Libraries
+#### Install More Libraries (Info)
 
 ```sh
 npm i nanoid react-icons
