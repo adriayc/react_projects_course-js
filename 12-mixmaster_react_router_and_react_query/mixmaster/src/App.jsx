@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <Landing />,
         // errorElement: <h2>Something went wrong...</h2>,
         errorElement: <SinglePageError />,
-        loader: landingLoader,
+        loader: landingLoader(queryClient),
       },
       {
         path: 'cocktail/:id',

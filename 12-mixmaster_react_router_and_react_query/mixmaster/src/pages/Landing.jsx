@@ -19,24 +19,24 @@ const searchCocktailsQuery = (searchTerm) => {
   };
 };
 
-export const loader = async ({ request }) => {
-  // Returns an newly created URL object
-  const url = new URL(request.url);
-  // Get search params or default empty string
-  const searchTerm = url.searchParams.get('search') || '';
+export const loader =
+  (queryClient) =>
+  async ({ request }) => {
+    // Returns an newly created URL object
+    const url = new URL(request.url);
+    // Get search params or default empty string
+    const searchTerm = url.searchParams.get('search') || '';
+    // Asynchronous function that ca be used to get an existing query's cached data
+    await queryClient.ensureQueryData(searchCocktailsQuery(searchTerm));
 
-  return { searchTerm };
-};
+    return { searchTerm };
+  };
 
 const Landing = () => {
   const { searchTerm } = useLoaderData();
   // useQuery
-  const { data: drinks, isPending } = useQuery(
-    searchCocktailsQuery(searchTerm)
-  );
+  const { data: drinks } = useQuery(searchCocktailsQuery(searchTerm));
   // console.log(drinks);
-
-  if (isPending) return <h2>Loading...</h2>;
 
   return (
     <>
