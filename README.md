@@ -78,4 +78,7 @@ Helps visualize all the inner workings of React Query and will likely save you h
 SPA is a type of we application that interacts with the user by dynamically rewriting the current page, rather that loading entire new pages for the server.
 
 ## React Router
-React Router is a library for managing navigation and routing in React application. It allows developers to create single-page applications (SPAs) with multiple views or pages while maintaining a seamless user experience without full-page reloads. 
+React Router is a library for managing navigation and routing in React application. It allows developers to create single-page applications (SPAs) with multiple views or pages while maintaining a seamless user experience without full-page reloads.
+
+## Tailwind CSS
+[Tailwind CSS](https://tailwindcss.com/) is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.
