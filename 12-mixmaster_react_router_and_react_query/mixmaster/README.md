@@ -1404,7 +1404,7 @@ const Cocktail = () => {
 };
 ```
 
-#### Redirects
+#### Redirects (Info)
 
 - in public folder create "\_redirects"
 
