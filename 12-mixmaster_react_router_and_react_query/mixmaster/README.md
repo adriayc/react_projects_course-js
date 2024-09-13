@@ -1239,6 +1239,11 @@ export default SearchForm;
 
 #### React Query - Setup
 
+```sh
+npm i @tanstack/react-query
+npm i @tanstack/react-query-devtools
+```
+
 App.jsx
 
 ```js
