@@ -15,7 +15,12 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     clearCart: (state) => {
+      // Updates the attribute and ignore the other attributes (Does not delete)
       state.cartItems = [];
+      // NOTE: Update the cartItems attribute and remove the other attributes
+      //   return {
+      //     cartItems: [],
+      //   };
     },
   },
 });
