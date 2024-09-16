@@ -122,9 +122,11 @@ export const store = configureStore({
 });
 ```
 
-#### Redux DevTools
+#### Redux DevTools (Info)
 
 - extension
+
+NOTE: Install the `React Devtool` extension in your browser
 
 #### Access store value
 
