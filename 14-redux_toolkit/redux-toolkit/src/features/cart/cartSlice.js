@@ -22,12 +22,17 @@ const cartSlice = createSlice({
       //     cartItems: [],
       //   };
     },
+    removeItem: (state, action) => {
+      //   console.log(action);
+      const itemId = action.payload;
+      state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
+    },
   },
 });
 // console.log(cartSlice);
 
 // Export actions
-export const { clearCart } = cartSlice.actions;
+export const { clearCart, removeItem } = cartSlice.actions;
 
 // Export reducer
 export default cartSlice.reducer;
