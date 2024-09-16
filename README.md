@@ -82,3 +82,6 @@ React Router is a library for managing navigation and routing in React applicati
 
 ## Tailwind CSS
 [Tailwind CSS](https://tailwindcss.com/) is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.
+
+## Redux Toolkit
+[Redux Toolkit (RTK)](https://redux-toolkit.js.org/) is a set of tools ans best practices for efficient Redux development. It simplifies the process of managing state in React application, making it easier to write and maintain Redux code.
