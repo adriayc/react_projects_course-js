@@ -156,7 +156,7 @@ const Navbar = () => {
 export default Navbar;
 ```
 
-#### Hero Icons
+#### Hero Icons (Info)
 
 - [Hero Icons](https://heroicons.com/)
 
