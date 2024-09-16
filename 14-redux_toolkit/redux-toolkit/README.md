@@ -12,7 +12,7 @@ Find the App Useful? [You can always buy me a coffee](https://www.buymeacoffee.c
 
 [Redux Toolkit Docs](https://redux-toolkit.js.org/introduction/getting-started)
 
-#### Install Template
+#### Install Template (Info)
 
 ```sh
 npx create-react-app my-app --template redux
@@ -24,7 +24,7 @@ npx create-react-app my-app --template redux
 npx create-react-app@latest my-app --template redux
 ```
 
-#### Existing App
+#### Existing App (Info)
 
 ```sh
 npm install @reduxjs/toolkit react-redux
