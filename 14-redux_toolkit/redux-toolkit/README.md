@@ -602,6 +602,49 @@ const Modal = () => {
 export default Modal;
 ```
 
+#### Important Update!!!
+
+The latest version of Redux-Toolkit no longer supports the "object" form for both `createReducer` and `createSlice.extraReducers` in RTK 2.0. This is because the builder callback form is equally concise in terms of lines of code, and it integrates more effectively with TypeScript.
+
+The following code does not work.
+
+```js
+// WILL NOT WORK!!!
+extraReducers: {
+  [getCartItems.pending]: (state) => {
+    state.isLoading = true;
+  },
+  [getCartItems.fulfilled]: (state, action) => {
+    console.log(action);
+    state.isLoading = false;
+    state.cartItems = action.payload;
+  },
+  [getCartItems.rejected]: (state) => {
+    state.isLoading = false;
+  },
+},
+```
+
+Instead we need to use builder callback form.
+
+```js
+extraReducers: (builder) => {
+  builder
+    .addCase(getCartItems.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(getCartItems.fulfilled, (state, action) => {
+      // console.log(action);
+      state.isLoading = false;
+      state.cartItems = action.payload;
+    })
+    .addCase(getCartItems.rejected, (state, action) => {
+      console.log(action);
+      state.isLoading = false;
+    });
+},
+```
+
 #### async functionality with createAsyncThunk
 
 - [Course API](https://www.course-api.com/)
