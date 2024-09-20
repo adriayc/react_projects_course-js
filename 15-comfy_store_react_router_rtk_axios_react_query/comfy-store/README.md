@@ -87,14 +87,14 @@ export default App;
 
 - get project assets
 
-## Challenge (2) - Setup DaisyUI
+## Challenge (2) - Setup DaisyUI (Info)
 
 - [DaisyUI](https://daisyui.com/)
 
 - add and configure daisyui to our project
 - add TailwindCSS Typography plugin
 
-## Solution (2) - Setup DaisyUI
+## Solution (2) - Setup DaisyUI (Info)
 
 [DaisyUI](https://daisyui.com/)
 
