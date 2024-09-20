@@ -192,7 +192,7 @@ import {
 } from './pages';
 ```
 
-## Challenge (4) - React Router
+## Challenge (4) - React Router (Info)
 
 - configure react router
 - setup initial route structure
