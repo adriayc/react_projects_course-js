@@ -117,6 +117,27 @@ npm i axios@1.4.0 dayjs@1.11.9 @reduxjs/toolkit@1.9.5 @tanstack/react-query@4.32
 
 ```
 
+Or
+
+```sh
+# Axios
+npm install axios
+# Day.js
+npm install dayjs
+# Redux Toolkit
+npm install @reduxjs/toolkit
+npm install react-redux
+# React Query
+npm i @tanstack/react-query
+npm i @tanstack/react-query-devtools
+# React-Icons
+npm install react-icons --save
+# React Router DOM
+npm i react-router-dom
+# React-Toastify
+npm i react-toastify
+```
+
 ## Challenge (3) - Create All Pages
 
 - create pages directory
