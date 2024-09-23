@@ -6,7 +6,11 @@ const HomeLayout = () => {
       <nav>
         <span className="text-4xl text-primary">Comfy</span>
       </nav>
-      <Outlet />
+
+      {/* Use Custom Class */}
+      <section className="align-element py-20">
+        <Outlet />
+      </section>
     </>
   );
 };

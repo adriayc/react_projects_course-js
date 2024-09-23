@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Class */
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-6xl px-8;
+  }
+}
