@@ -1619,7 +1619,7 @@ const SingleProduct = () => {
 export default SingleProduct;
 ```
 
-<!-- EXTRA CREDIT -->
+<!-- EXTRA CREDIT (Info) -->
 
 - rename to index.jsx
 
