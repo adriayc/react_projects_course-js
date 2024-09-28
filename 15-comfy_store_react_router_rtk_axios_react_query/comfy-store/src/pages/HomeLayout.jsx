@@ -1,17 +1,24 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
 // Components
-import { Header, Navbar } from '../components';
+import { Header, Navbar, Loading } from '../components';
 
 const HomeLayout = () => {
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === 'loading';
+
   return (
     <>
       <Header />
       <Navbar />
 
-      {/* Use Custom Class */}
-      <section className="align-element py-20">
-        <Outlet />
-      </section>
+      {isPageLoading ? (
+        <Loading />
+      ) : (
+        // Use Custom Class
+        <section className="align-element py-20">
+          <Outlet />
+        </section>
+      )}
     </>
   );
 };
