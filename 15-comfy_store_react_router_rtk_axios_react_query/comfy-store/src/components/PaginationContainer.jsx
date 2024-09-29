@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
 const PaginationContainer = () => {
   const { meta } = useLoaderData();
@@ -8,8 +8,13 @@ const PaginationContainer = () => {
     return index + 1;
   });
 
+  const { search, pathname } = useLocation();
+  const navigate = useNavigate();
   const handlePageChange = (pageNumber) => {
-    console.log(pageNumber);
+    const searchParams = new URLSearchParams(search);
+    searchParams.set('page', pageNumber);
+    // console.log(searchParams.toString());
+    navigate(`${pathname}?${searchParams.toString()}`);
   };
 
   if (pageCount < 2) return null;
@@ -20,7 +25,11 @@ const PaginationContainer = () => {
         <button
           type="button"
           className="btn btn-xs sm:btn-md join-item"
-          onClick={() => handlePageChange('prev')}
+          onClick={() => {
+            let prevPage = page - 1;
+            if (prevPage < 1) prevPage = pageCount;
+            handlePageChange(prevPage);
+          }}
         >
           Prev
         </button>
@@ -41,7 +50,11 @@ const PaginationContainer = () => {
         <button
           type="button"
           className="btn btn-xs sm:btn-md join-item"
-          onClick={() => handlePageChange('next')}
+          onClick={() => {
+            let nextPage = page + 1;
+            if (nextPage > pageCount) nextPage = 1;
+            handlePageChange(nextPage);
+          }}
         >
           Next
         </button>
