@@ -19,7 +19,7 @@ const SingleProduct = () => {
   const [amount, setAmount] = useState(1);
 
   const handleAmount = (e) => {
-    setAmount(e.target.value);
+    setAmount(parseInt(e.target.value));
   };
 
   return (
