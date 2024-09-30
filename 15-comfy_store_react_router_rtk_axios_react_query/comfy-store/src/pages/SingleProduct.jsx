@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { customFetch, formatPrice, generateAmountOptions } from '../utils';
+// Actions (Redux)
+import { addItem } from '../features/cart/cartSlice';
 
 // Loader
 export const loader = async ({ params }) => {
@@ -20,6 +23,24 @@ const SingleProduct = () => {
 
   const handleAmount = (e) => {
     setAmount(parseInt(e.target.value));
+  };
+
+  // Cart product
+  const cartProduct = {
+    cartID: product.id + productColor,
+    productID: product.id,
+    image,
+    title,
+    price,
+    company,
+    productColor,
+    amount,
+  };
+
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(addItem({ product: cartProduct }));
   };
 
   return (
@@ -93,7 +114,7 @@ const SingleProduct = () => {
             <button
               type="button"
               className="btn btn-secondary btn-md uppercase"
-              onClick={() => console.log('Add to bag')}
+              onClick={addToCart}
             >
               Add to bag
             </button>
