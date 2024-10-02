@@ -3740,7 +3740,7 @@ const Cart = () => {
 };
 ```
 
-## Challenge (43) - Register User
+## Challenge (43) - Register User (Info)
 
 - [API DOCS](https://documenter.getpostman.com/view/18152321/2s9Xy5KpTi)
 - docs - register request
