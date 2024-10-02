@@ -3833,7 +3833,7 @@ const Register = () => {
 export default Register;
 ```
 
-## Challenge (44) - Login Setup
+## Challenge (44) - Login Setup (Info)
 
 - [API DOCS](https://documenter.getpostman.com/view/18152321/2s9Xy5KpTi)
 - docs - login request
