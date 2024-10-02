@@ -70,6 +70,7 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+    // Pass the store as a param
     action: loginAction(store),
     errorElement: <Error />,
   },

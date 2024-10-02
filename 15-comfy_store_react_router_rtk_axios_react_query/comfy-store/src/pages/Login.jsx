@@ -1,13 +1,35 @@
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
+// Utils
+import { customFetch } from '../utils';
+// Actions
+import { loginUser } from '../features/user/userSlice';
 // Components
 import { FormInput, SubmitBtn } from '../components';
 
 // Action
-export const action = (store) => async () => {
-  console.log(store);
+export const action =
+  (store) =>
+  async ({ request }) => {
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData);
 
-  return null;
-};
+    try {
+      const response = await customFetch.post('/auth/local/', data);
+      // Store (Call dispatch)
+      store.dispatch(loginUser(response.data));
+      // Toastify
+      toast.success('Logged in successfully');
+      return redirect('/');
+    } catch (error) {
+      // console.log(error);
+      const errorMessage =
+        error?.response?.data?.error?.message ||
+        'Please double check your credentials';
+      toast.error(errorMessage);
+      return null;
+    }
+  };
 
 const Login = () => {
   return (
@@ -16,7 +38,7 @@ const Login = () => {
         method="post"
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
       >
-        <h className="text-center text-3xl font-bold">Login</h>
+        <h4 className="text-center text-3xl font-bold">Login</h4>
         <FormInput
           type="email"
           label="Email"
