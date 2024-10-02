@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 import { CartItemsList, CartTotals, SectionTitle } from '../components';
 
 const Cart = () => {
-  // Temp
-  const user = null;
+  const user = useSelector((state) => state.userState.user);
 
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 

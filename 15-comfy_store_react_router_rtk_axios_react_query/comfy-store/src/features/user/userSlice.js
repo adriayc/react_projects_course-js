@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const themes = {
   winter: 'winter',
@@ -26,7 +27,11 @@ const userSlice = createSlice({
       console.log('Login');
     },
     logoutUser: (state, action) => {
-      console.log('Logout');
+      state.user = null;
+      // Remove use from LS
+      localStorage.removeItem('user');
+      // Toatify
+      toast.success('Logged out successfully');
     },
     toggleTheme: (state) => {
       const { dracula, winter } = themes;
