@@ -4014,6 +4014,10 @@ const Login = () => {
 </button>;
 ```
 
+## Create Order Request
+
+[Create Order](https://documenter.getpostman.com/view/18152321/2s9Xy5KpTi#eee18e4c-4cda-40e1-a805-3d8dd077f779)
+
 ## Challenge (47) - Checkout Page Setup
 
 - create CheckoutForm component
