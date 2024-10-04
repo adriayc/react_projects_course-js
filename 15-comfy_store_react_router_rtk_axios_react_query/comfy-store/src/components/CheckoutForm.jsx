@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 // Action
 export const action =
-  (store) =>
+  (store, queryClient) =>
   async ({ request }) => {
     const formData = await request.formData();
     const { name, address } = Object.fromEntries(formData);
@@ -38,6 +38,10 @@ export const action =
           },
         }
       );
+
+      // Remove queries
+      queryClient.removeQueries(['orders']);
+
       store.dispatch(clearCart());
       // Toastify
       toast.success('Order placed successfully');
