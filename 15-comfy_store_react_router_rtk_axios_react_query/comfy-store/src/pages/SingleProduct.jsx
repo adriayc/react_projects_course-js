@@ -5,11 +5,21 @@ import { customFetch, formatPrice, generateAmountOptions } from '../utils';
 // Actions (Redux)
 import { addItem } from '../features/cart/cartSlice';
 
+// Query
+const singleProductQuery = (id) => {
+  return {
+    queryKey: ['singleProduct', id],
+    queryFn: () => customFetch.get(`/products/${id}`),
+  };
+};
+
 // Loader
 export const loader =
   (queryClient) =>
   async ({ params }) => {
-    const response = await customFetch.get(`/products/${params.id}`);
+    const response = await queryClient.ensureQueryData(
+      singleProductQuery(params.id)
+    );
     return { product: response.data.data };
   };
 
