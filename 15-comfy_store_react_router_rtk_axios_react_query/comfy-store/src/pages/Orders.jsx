@@ -3,7 +3,11 @@ import { toast } from 'react-toastify';
 // Utils
 import { customFetch } from '../utils';
 // Components
-import { OrdersList, PaginationContainer, SectionTitle } from '../components';
+import {
+  OrdersList,
+  ComplexPaginationContainer,
+  SectionTitle,
+} from '../components';
 
 // Loader
 export const loader =
@@ -52,7 +56,7 @@ const Orders = () => {
     <>
       <SectionTitle text="Your Orders" />
       <OrdersList />
-      <PaginationContainer />
+      <ComplexPaginationContainer />
     </>
   );
 };
