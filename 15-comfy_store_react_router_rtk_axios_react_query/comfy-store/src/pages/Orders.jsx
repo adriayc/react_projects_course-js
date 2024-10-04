@@ -1,7 +1,9 @@
-import { redirect } from 'react-router-dom';
+import { redirect, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 // Utils
 import { customFetch } from '../utils';
+// Components
+import { OrdersList, PaginationContainer, SectionTitle } from '../components';
 
 // Loader
 export const loader =
@@ -17,7 +19,6 @@ export const loader =
     const params = Object.fromEntries([
       ...new URL(request.url).searchParams.entries(),
     ]);
-    console.log(params);
 
     try {
       const response = await customFetch.get('/orders', {
@@ -42,7 +43,18 @@ export const loader =
   };
 
 const Orders = () => {
-  return <h1 className="text-4xl">Orders</h1>;
+  const { meta } = useLoaderData();
+
+  if (meta.pagination.total < 1) {
+    return <SectionTitle text="Please make an order" />;
+  }
+  return (
+    <>
+      <SectionTitle text="Your Orders" />
+      <OrdersList />
+      <PaginationContainer />
+    </>
+  );
 };
 
 export default Orders;
