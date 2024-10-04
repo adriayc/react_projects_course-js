@@ -4669,7 +4669,7 @@ const ComplexPaginationContainer = () => {
 export default ComplexPaginationContainer;
 ```
 
-## Challenge (55) - Setup React Query
+## Challenge (55) - Setup React Query (Info)
 
 - import and setup react query in App.jsx
 - pass query client down to

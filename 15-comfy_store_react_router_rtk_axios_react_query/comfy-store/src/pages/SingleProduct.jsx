@@ -6,10 +6,12 @@ import { customFetch, formatPrice, generateAmountOptions } from '../utils';
 import { addItem } from '../features/cart/cartSlice';
 
 // Loader
-export const loader = async ({ params }) => {
-  const response = await customFetch.get(`/products/${params.id}`);
-  return { product: response.data.data };
-};
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    const response = await customFetch.get(`/products/${params.id}`);
+    return { product: response.data.data };
+  };
 
 const SingleProduct = () => {
   const { product } = useLoaderData();
