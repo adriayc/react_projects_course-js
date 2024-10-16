@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // TYPE INFERENCE
 // String
 let awesomeName: string = 'shakeAndBake';
