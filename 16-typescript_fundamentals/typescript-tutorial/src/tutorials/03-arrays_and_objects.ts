@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // ARRAYS
 let prices: number[] = [100, 75, 42];
 // prices.push('hello'); // Error
