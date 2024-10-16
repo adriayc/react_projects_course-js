@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // FUNCTIONS PARAMS
 // - any
 // - config
