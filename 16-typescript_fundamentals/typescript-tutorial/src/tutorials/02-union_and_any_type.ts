@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // UNION TYPE
 let tax: number | string = 10;
 tax = 100;
