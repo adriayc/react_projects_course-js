@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // OBJECTS AS PARAMETERS
 function createEmployee({ id }: { id: number }): {
   id: number;
