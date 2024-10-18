@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // OPTIONAL PARAMETERS
 function calculatePrice(price: number, discount?: number): number {
   return price - (discount || 0);
