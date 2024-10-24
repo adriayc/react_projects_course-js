@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // TYPES ALIAS
 type User = { id: number; name: string; isActive: boolean };
 // export type User = { id: number; name: string; isActive: boolean };
