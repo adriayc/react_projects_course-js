@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // INTERFACE - FUNDAMENTALS
 interface Book {
   readonly isbn: number; // Read only
