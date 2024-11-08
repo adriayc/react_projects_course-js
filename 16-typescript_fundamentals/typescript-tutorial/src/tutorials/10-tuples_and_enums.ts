@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // TUPLES AND ENUMS
 // Tuples
 let person: [string, number] = ['adrian', 25];
