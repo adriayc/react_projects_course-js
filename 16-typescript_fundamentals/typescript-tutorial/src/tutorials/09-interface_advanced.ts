@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // INTERFACE - ADVANCED
 interface Person {
   name: string;
