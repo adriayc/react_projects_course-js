@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // TYPE ASSERTION, TYPE UNKNOWN AND TYPE NEVER
 // Type Assertion
 let someValue: any = 'this is a string';
