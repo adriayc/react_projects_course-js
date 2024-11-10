@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // TYPE GUARDING - FIRST PART
 // "typeof" guard
 type ValueType = string | number | boolean;
