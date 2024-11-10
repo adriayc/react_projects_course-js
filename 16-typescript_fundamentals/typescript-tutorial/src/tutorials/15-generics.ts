@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // GENERICS
 // let array1: string[] = ['Apple', 'Banana', 'Mango'];
 // let array2: number[] = [1, 2, 3];
