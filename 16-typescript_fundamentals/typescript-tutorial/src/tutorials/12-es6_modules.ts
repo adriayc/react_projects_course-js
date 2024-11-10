@@ -1,7 +1,5 @@
-console.log('TypeScript tutorial');
-
 // ES6 MODULES
-import newStudent, { sayHello, person, type Student } from './actions';
+import newStudent, { sayHello, person, type Student } from './12-actions';
 // import { someValue } from './example.js';
 
 sayHello('TypeScript');
