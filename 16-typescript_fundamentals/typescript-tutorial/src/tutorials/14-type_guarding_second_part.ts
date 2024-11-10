@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // TYPE GUARDING - SECOND PART
 // Type Predicate
 type Student = {
