@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // FETCH DATA AND DECLARATION FILES
 // Fetch data
 import { z } from 'zod';
