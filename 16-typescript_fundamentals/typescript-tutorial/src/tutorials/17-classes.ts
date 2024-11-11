@@ -1,5 +1,3 @@
-console.log('TypeScript tutorial');
-
 // CLASSES
 class Book {
   // Private and Public Modifiers
