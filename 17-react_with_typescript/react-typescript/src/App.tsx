@@ -2,7 +2,9 @@
 // import Component from './tutorials/02-props';
 // import Component from './tutorials/03-state';
 // import Component from './tutorials/04-events';
-import Component from './tutorials/05-challenge';
+// import Component from './tutorials/05-challenge';
+// import Component from './tutorials/06-context';
+import Component from './tutorials/07-reducers';
 
 function App() {
   return (
@@ -21,9 +23,15 @@ function App() {
       {/* Events */}
       {/* <Component /> */}
       {/* Challenge */}
-      <h2>React & TypeScript</h2>
+      {/* <h2>React & TypeScript</h2>
       <Component type="basic" name="susan" />
-      <Component type="advanced" name="anna" email="anna@mail.com" />
+      <Component type="advanced" name="anna" email="anna@mail.com" /> */}
+      {/* Context */}
+      {/* <h2>React & TypeScript</h2> */}
+      {/* <Component /> */}
+      {/* Reducers */}
+      <h2>React & TypeScript</h2>
+      <Component />
     </main>
   );
 }
