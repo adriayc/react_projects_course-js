@@ -4,7 +4,9 @@
 // import Component from './tutorials/04-events';
 // import Component from './tutorials/05-challenge';
 // import Component from './tutorials/06-context';
-import Component from './tutorials/07-reducers';
+// import Component from './tutorials/07-reducers';
+// import Component from './tutorials/08-fetch-data/index-fetch-data';
+import Component from './tutorials/08-fetch-data/index-axios-react-query';
 
 function App() {
   return (
@@ -30,7 +32,9 @@ function App() {
       {/* <h2>React & TypeScript</h2> */}
       {/* <Component /> */}
       {/* Reducers */}
-      <h2>React & TypeScript</h2>
+      {/* <h2>React & TypeScript</h2>
+      <Component /> */}
+      {/* Fetch Data */}
       <Component />
     </main>
   );

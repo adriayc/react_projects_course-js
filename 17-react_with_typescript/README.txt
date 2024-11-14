@@ -7,3 +7,10 @@
     $ npm install                 // Install dependencies
     $ npm run dev                 // Starter
     $ npm install && npm run dev  // Install dependencies and starter
+  - Install dependencies
+    + Zod (Schema validation)
+      $ npm install zod
+    + Axios
+      $ npm install axios
+    + React Query
+      $ npm i @tanstack/react-query
