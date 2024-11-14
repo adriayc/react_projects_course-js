@@ -7,7 +7,8 @@
 // import Component from './tutorials/07-reducers';
 // import Component from './tutorials/08-fetch-data/index-fetch-data';
 // import Component from './tutorials/08-fetch-data/index-axios-react-query';
-import Component from './tutorials/09-rtk';
+// import Component from './tutorials/09-rtk';
+import Component from './tutorials/10-tasks';
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
       {/* Fetch Data */}
       {/* <Component /> */}
       {/* RTK */}
+      {/* <Component /> */}
+      {/* Tasks */}
       <Component />
     </main>
   );
