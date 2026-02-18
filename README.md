@@ -88,3 +88,9 @@ React Router is a library for managing navigation and routing in React applicati
 
 ## daisyUI
 [daisyUI](https://daisyui.com/) the most popular component library for Tailwind CSS. daisyUI adds component class names to Tailwind CSS so you can make beautiful websites faster than ever.
+
+## TypeScript
+[TypeScript](https://www.typescriptlang.org/) is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale
+- Try TypeScript Now
+  - In your browser | via the Playground
+  - On your computer | via npm
