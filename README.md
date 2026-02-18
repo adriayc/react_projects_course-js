@@ -16,3 +16,48 @@ A JavaScript library for building user interfaces.
 ## Requirements
 * __HTML & CSS__ Familiar with common elements - div, section, navbar. Understand primary styling principles.
 * __JAVASCRIP__ Arrow functions, array methods, spread operator, rest operator, destructuring, etc.
+
+## Workflow Info
+* Install Google Chrome
+* Install VS Code
+  Add the following extensions:
+    - Auto Rename Tag
+    - Code Spell Checker
+    - DotENV
+    - ES7 React/Redux/GraphQL/React-Native snippets
+    - Highlinght Matching Tag
+    - indent-rainbow
+    - Live Server
+    - Markdown Preview Enhanced
+    - Prittier - Code formatter
+    - Quokka.js
+    - vscode-icons
+    - vscode-styled-components
+    - Bracket Pair Colorizer
+* Use a Terminal
+* Install Node.js (Preferably LTS version)
+  ```bash
+  $ node --version
+  $ npm --version
+  ```
+
+## Create React App
+There are 2 tools for creating apps in React: 
+* [Create React App](https://create-react-app.dev/)
+  ```bash
+  $ npx create-react-app my-app
+  $ cd my-app
+  $ npm start
+  ```
+* [Vite](https://vitejs.dev/)
+  ```bash
+  $ npm create vite@latest my-project
+  $ cd my-project
+  $ npm install
+  $ npm run dev
+  ```
+
+Install packages:
+```bash
+$ npm install packageName
+```
