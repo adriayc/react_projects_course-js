@@ -73,3 +73,9 @@ Axios is a simple promise based HTTP client for the browser and node.js. Axios p
 
 ## React Query Devtools
 Helps visualize all the inner workings of React Query and will likely save you hours of debugging if you find yourself in a pinch.
+
+## Single Page Application (SPA)
+SPA is a type of we application that interacts with the user by dynamically rewriting the current page, rather that loading entire new pages for the server.
+
+## React Router
+React Router is a library for managing navigation and routing in React application. It allows developers to create single-page applications (SPAs) with multiple views or pages while maintaining a seamless user experience without full-page reloads. 
