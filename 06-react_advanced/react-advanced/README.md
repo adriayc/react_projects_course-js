@@ -1,0 +1,3137 @@
+# React - Advanced Concepts
+
+## Run App
+```bash
+$ npm install && npm run dev
+```
+
+## Setup
+- Traditional Vite App
+  - Removed boilerplate
+  - Provided some assets (css, data)
+    - Just so we can focus on important stuff
+  - Removed, so it's less logs
+
+## Advanced Topics
+- /tutorial directory
+- Work in the start folder
+- Complete code in the final folder
+- In order to work on topic import component from 'starter'
+- In order to test final import component from 'final'
+- Setup challenges
+- In the beginning examples with numbers and buttons
+```js
+import Starter from './tutorial/1-useState/starter/1-error-example';
+import Final from './tutorial/1-useState/final/1-error-example';
+
+function App() {
+  return (
+    <div className='container'>
+      <Starter />
+      <Final />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## The Need For State
+```js
+import Starter from './tutorial/01-useState/starter/01-error-example.jsx';
+```
+
+- In App.jsx setup import and container div
+  Setup challenge:
+- Create count variable
+- Display value in the JSX
+- Add button increase the value
+- The reason for bug - we don't trigger re-render (reference next lecture)
+```js
+const ErrorExample = () => {
+  let count = 0;
+
+  const handleClick = () => {
+    count = count + 1;
+    console.log(count);
+    // Preserve value between renders
+    // Trigger re-render
+  };
+  return (
+    <div>
+      <h2>{count}</h2>
+      <button type='button' className='btn' onClick={handleClick}>
+        Increment
+      </button>
+    </div>
+  );
+};
+
+export default ErrorExample;
+```
+
+## useState Basics
+```js
+import Starter from './tutorial/01-useState/starter/02-useState-basics.jsx';
+```
+
+[Javascript Nuggets - Destructuring (Array)](https://www.youtube.com/watch?v=qhECs40xMec&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=7&t=9s)
+- useState hook
+- Return an array with two elements: the current state value, and a function that we can use to update the state
+- Accepts default value as an argument
+- State update triggers re-render
+```js
+import { useState } from 'react';
+
+const UseStateBasics = () => {
+  //   console.log(useState(1));
+  //   const value = useState('Hello')[0];
+  //   const func = useState('Hello')[1];
+  //   console.log(value);
+  //   console.log(func);
+
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    setCount(count + 1);
+    // Be careful, we can set any value
+    // setCount('pants');
+  };
+
+  return (
+    <div>
+      <h4>you clicked {count} times</h4>
+      <button type="button" className="btn" onClick={handleClick}>
+        Click me
+      </button>
+    </div>
+  );
+};
+
+export default UseStateBasics;
+```
+
+## Initial Render and Re-Renders
+In a React application, the initial render is the first time that the component tree is rendered to the DOM. It happens when the application first loads, or when the root component is first rendered. This is also known as "mounting" the components.
+
+Re-renders, on the other hand, happen when the component's state or props change, and the component needs to be updated in the DOM to reflect these changes. React uses a virtual DOM to optimize the process of updating the actual DOM, so that only the necessary changes are made.
+
+There are a few ways that you can trigger a re-render in a react component:
+- By changing the component's state or props. When the component's state or props change, React will re-render the component to reflect these changes.
+- When the parent element re-renders, even if the component's state or props have not changed.
+
+## General Rules of Hooks
+- Start with "use" (both - react and custom hooks)
+- Component must be uppercase
+- Invoke inside function/component body
+- Don't call hooks conditionally (cover later)
+- Set functions don't update state immediately (cover later)
+
+## useState with Array
+```js
+import Starter from './tutorial/01-useState/starter/03-useState-array.jsx';
+```
+
+Setup Challenge:
+- Import data
+- Setup a state value
+  - People - default value equal to data
+- Display list (people) in the browser
+- Create two functions
+  - One that removes single item from the list
+  - On that clears entire list
+
+1. Render the list
+```js
+import React from 'react';
+import { data } from '../../data';
+
+const UseStateArray = () => {
+  const [people, setPeople] = React.useState(data);
+
+  return (
+    <div>
+      {people.map((person) => {
+        // console.log(person);
+        const { id, name } = person;
+        return (
+          <div key={id} className='item'>
+            <h4>{name}</h4>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default UseStateArray;
+```
+
+2. Remove items
+[Javascript Nuggets - Filter and Find](https://www.youtube.com/watch?v=KeYxsev737s&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=4)
+```js
+import React from 'react';
+import { data } from '../../data';
+
+const UseStateArray = () => {
+  const [people, setPeople] = React.useState(data);
+
+  const removeItem = (id) => {
+    const newPeople = people.filter((person) => person.id !== id);
+    setPeople(newPeople);
+  };
+  const removeAllItem = () => {
+    setPeople([]);
+  };
+
+  return (
+    <div>
+      {people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id} className="item">
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+      <button
+        type="button"
+        style={{ marginTop: '2rem' }}
+        className="btn"
+        onClick={removeAllItem}
+      >
+        Clear items
+      </button>
+    </div>
+  );
+};
+
+export default UseStateArray;
+```
+
+- Should we updated backroads app project?
+
+## useState with Object
+```js
+import Starter from './tutorial/01-useState/starter/04-useState-object.jsx';
+```
+
+Setup Challenge
+- Setup three state values
+  - name (string)
+  - age (number)
+  - hobby (string)
+- render in the browser
+- Create a button
+  - Setup a function
+    - Update all three state values
+- As a result once the user clicks the button , new person in displayed in the browser
+```js
+import { useState } from 'react';
+
+const UseStateObject = () => {
+  const [name, setName] = useState('Peter');
+  const [age, setAge] = useState(24);
+  const [hobby, setHobby] = useState('Read books');
+
+  const displayPerson = () => {
+    setPerson({
+      name: 'John',
+      age: 28,
+      hobby: 'Screen at the computer'
+    });
+    // setName('John');
+    // setAge(28);
+    // setHobby('Scream at the computer');
+  };
+
+  return (
+    <>
+      <h3>{name}</h3>
+      <h3>{age}</h3>
+      <h3>Enjoys To: {hobby}</h3>
+      <button type="button" className="btn" onClick={displayPerson}>
+        Show John
+      </button>
+    </>
+  );
+};
+
+export default UseStateObject;
+```
+
+## Automatic Batching
+In React, "batching" refers to the process of grouping multiple state updates into a single update. This can be useful in certain cases because it allows React to optimize the rendering of your components by minimizing the number of DOM updates that it has to perform.
+
+By default, react uses a technique called "auto-batching" to group state updates that occur within the same event loop into a single update.
+This means that if you call the state update function multiple times in a short period of time, React will only perform a single re-render for all of the updates.
+
+React 18 ensures that state updates invoked from any location will be batched by default. This will batch state updates, including native event handlers, asynchronous operations, timeouts, and intervals.
+
+## Switch to Object
+```js
+import { useState } from 'react';
+
+const UseStateObject = () => {
+  const [person, setPerson] = useState({
+    name: 'Peter',
+    age: 24,
+    hobby: 'Read books',
+  });
+
+  const displayPerson = () => {
+    setPerson({
+      name: 'John',
+      age: 28,
+      hobby: 'Screen at the computer',
+    });
+    // Be careful, don't overwrite
+    // setPerson('ShakeAndBake');
+    // setPerson({ name: 'Susan' });
+    // setPerson({ ...person, name: 'Susan' });
+  };
+
+  return (
+    <>
+      <h3>{person.name}</h3>
+      <h3>{person.age}</h3>
+      <h3>Enjoys To: {person.hobby}</h3>
+      <button type="button" className="btn" onClick={displayPerson}>
+        Show John
+      </button>
+    </>
+  );
+};
+
+export default UseStateObject;
+```
+
+## Setup Challenge
+- Setup a state value and the button
+- Add functionality to increase value by 1
+- log a state value, right after setFunction
+
+Keep in mind that the state update function setState does not immediately mutate the state. Instead, it schedules an update to the state and tells React that it needs to re-render the component. The actual state update will be performed as part of the next rendering cycle. Be mindful when you need to set state value based on a different state value.
+
+Trivial example
+```js
+import { useState } from 'react';
+
+const UseStateGotcha = () => {
+  const [value, setValue] = useState(0);
+
+  const handleClick = () => {
+    setValue(value + 1);
+    // Be carefull it's the old value
+    console.log(value);
+    // So if you have any functionality
+    // that relies on the latest value
+    // it will the wrong!!!
+  };
+
+  return (
+    <div>
+      <h1>{value}</h1>
+      <button type="button" className="btn" onClick={handleClick}>
+        Increase
+      </button>
+    </div>
+  );
+};
+
+export default UseStateGotcha;
+```
+
+If you want to update the state immediately and synchronously, you can pass a function to setState that receives the previous state as an argument and returns the new state. For example:
+```js
+serState((prevState) => {
+  return { ...prevState, value: newValue }
+})
+```
+
+This can be useful if you need to update the state based on the previous state, or if you need to update the state synchronously.
+```js
+cont handleClick = () => {
+  setValue((currentState) => {
+    // Must return otherwise undefined
+    // below is the latest/current state value
+    const newState = currentState + 1;
+    return newState;
+  })
+};
+```
+
+- setTimeout Example
+```js
+const handleClick = () => {
+  // setTimeout(() => {
+  //   console.log('Clicked the button');
+  //   setValue(value + 1);
+  // }, 3000);
+  setTimeout(() => {
+    console.log('Clicked the button');
+    setValue((currentState) => {
+      return currentState + 1;
+    });
+  }, 3000);
+};
+```
+
+- As an example refactor code in /tutorial/01-useState/03-useState-array.jsx
+- Should we use functional update approach for everything?
+
+## Code Example
+```js
+import Starter from './tutorial/02-useEffect/starter/01-code-example.jsx';
+```
+
+```js
+import { useState } from 'react';
+
+const ComponentExample = () => {
+  const [value, setValue] = useState(0);
+
+  const sayHello = () => {
+    console.log('Hello there');
+    // Be careful
+    setValue(value + 1);
+  };
+  sayHello();
+
+  return (
+    <div>
+      <h1>value: {value}</h1>
+      <button className='btn' onClick={() => setValue(value + 1)}>
+        Click me
+      </button>
+    <div>
+  );
+}
+
+export default ComponentExample;
+```
+
+- The problem starts when we update the state
+```js
+const [value, setValue] = useState(0);
+
+const sayHell0 = () => {
+  console.log('Hello there');
+  // Be careful, you will have infinite loop
+  setValue(value + 1);
+};
+sayHello();
+```
+
+- Initial render - setup sate value and invoke sayHello
+- In the sayHello update state, trigger re-render
+- Re-render - setup state value and invoke sayHello
+- In the sayHello update state, trigger re-render
+- repeat
+- repeat
+- repeat .......................
+- But what about fetching data?
+
+## useEffect Basics
+```js
+import Starter from './tutorial/02-useEffect/starter/02-useEffect-basics.jsx';
+```
+
+useEffect is a hook in React that allows you to perform side effects in function components. there is no need for urban dictionary - basically any work outside of the component. Some examples of side effects are: subscriptions, fetching data, directly updating the DOM, event listeners, timers, etc.
+
+- useEffect hook
+- Accepts two argument (second optional)
+- First argument - cb function
+- Second argument - dependency array
+- By default runs on each render (initial and re-render)
+- cb can't return primise (so can't make it async)
+- If dependency array empty [] runs only on initial render
+```js
+import { useState, useEffect } from 'react';
+
+const UseEffectBasics = () => {
+  const [value, setValue] = useState(0);
+
+  const sayHello = () => {
+    console.log('Hello there');
+  };
+  sayHello();
+
+  // useEffect(() => {
+  //   console.log('Hello from useEffect');
+  // });
+  useEffect(() => {
+    console.log('Hello from useEffect');
+  }, []);
+
+  return (
+    <div>
+      <h1>value: {value}</value>
+      <button type='button' className='btn' onClick={() => setValue(value + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+};
+
+export default UseEffectBasics;
+```
+
+## Multiple Effects
+```js
+import Starter from './tutorial/02-useEffect/starter/03-multiple-effects.jsx';
+```
+
+```js
+import { useEffect } from 'react';
+import { useState } from 'react';
+
+const MultipleEffects = () => {
+  const [value, setValue] = useState(0);
+  const [secondValue, setSecondValue] = useState(0);
+
+  useEffect(() => {
+    console.log('Hello from first useEffect');
+  }, [value]);
+
+  useEffect(() => {
+    console.log('Hello from second useEffect');
+  }, [secondValue]);
+
+  return (
+    <div>
+      <h1>value: {value}</h1>
+      <button type="button" className="btn" onClick={() => setValue(value + 1)}>
+        Value
+      </button>
+
+      <h1>Second value: {secondValue}</h1>
+      <button
+        type="button"
+        className="btn"
+        onClick={() => setSecondValue(secondValue + 1)}
+      >
+        Second Value
+      </button>
+    </div>
+  );
+};
+
+export default MultipleEffects;
+```
+
+## Fetch Data
+```js
+import Starter from './tutorial/02-useEffect/starter/04-fetch-data.jsx';
+```
+
+[Javascript Nuggets - Fetch API](https://www.youtube.com/watch?v=C_VIKzfpRrg&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=18&t=343s)
+- Later in the course we will use axios
+
+Setup Challenge:
+- Import useSate and useEffect
+- Setup state value
+  - users - default value []
+- Setup useEffect
+- MAKE SURE IT RUNS ONLY ON INITIAL RENDER
+- In the cb, create a function which performs fetch functionality
+  - Use url I provided in the starter file
+  - You can use .then or async
+  - Set users equal to result
+  - Iterate over the list and display image, user name and link
+- DON'T WORRY ABOUT CSS, MOST IMPORTAT LOGIC!!!
+```js
+import { useState, useEffect } from 'react';
+
+const url = 'https://api.github.com/users';
+
+const FetchData = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    // You can also setup function outsite
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const users = await response.json();
+
+        setUsers(users);
+      } catch (error) {
+        consolo.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <section>
+      <h3>Github Users</h3>
+      <ul className='users'>
+        {users.map((user) => {
+          const { id, login, avatart_url, html_url } = use;
+          return (
+            <li key={id}>
+              <img src={avatart_url} alt={login} />
+              <div>
+                <h5>{login}</h5>
+                <a href={html_url}>Profile</a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+};
+
+export default FetchData;
+```
+
+## Cleanup Function
+```js
+import Starter from './tutorial/02-useEffect/starter/05-cleanup-function.jsx';
+```
+
+Will Cover After 03-conditional-rendering
+
+Setup Challenge:
+- Create state value
+- In jsx return button which toggles state value
+- Based on condition return second component (simple return)
+- Inside second component create useEffect and run it only on initial render
+```js
+import { useEffect, useState } from 'react';
+
+const CleanupFunction = () => {
+  const [toggle, setToggle] = useState(false);
+
+  return (
+    <div>
+      <button type="button" className="btn" onClick={() => setToggle(!toggle)}>
+        Toggle Component
+      </button>
+      {toggle && <RandomComponent />}
+    </div>
+  );
+};
+
+const RandomComponent = () => {
+  useEffect(() => {
+    console.log('Hmm, this is interesting');
+  }, []);
+
+  return <h1>Hello there</h1>;
+};
+
+export default CleanupFunction;
+```
+
+Vanilla JS
+```js
+const intID = setInterval(() => {
+  console.log('Hello from interval');
+}, 1000);
+clearInterval(intID);
+```
+
+```js
+const someFunc = () => {
+  // Some logic here
+};
+window.addEventListener('scroll', someFunc);
+window.removeEventListener('scroll', someFunc);
+```
+
+```js
+import { useEffect, useState } from 'react';
+
+const CleanupFunction = () => {
+  const [toggle, setToggle] = useState(false);
+
+  return (
+    <div>
+      <button type="button" className="btn" onClick={() => setToggle(!toggle)}>
+        Toggle Component
+      </button>
+      {toggle && <RandomComponent />}
+    </div>
+  );
+};
+
+const RandomComponent = () => {
+  useEffect(() => {
+    // console.log('Hmm, this is interesting');
+    const intID = setInterval(() => {
+      console.log('Hello from interval');
+    }, 1000);
+
+    // Does no stop, keeps going
+    // Every time we render component new interval gets created
+    return () => clearInterval(intID);
+  }, []);
+
+  return <h1>Hello there</h1>;
+};
+
+export default CleanupFunction;
+```
+
+```js
+useEffect(() => {
+  // console.log('Hmm, this is interesting');
+  const someFunc = () => {
+    // Some logic here
+  };
+  window.addEventListener('scroll', someFunc);
+
+  return () => window.removeEventListener('scroll', someFunc);
+}, []);
+```
+
+## You Might Not Need an Effect
+[You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+
+- Will still utilize useEffect
+- There is still plenty of code using useEffect
+- Fetching data replaced by libreries - react query, rtk query, swr or next.js
+```js
+import { useHook } from 'library';
+
+fucntion Example() {
+  const { data, error, isLoading } = useHook('url', fetcher);
+
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
+  return <div>Hello {data.name}!</div>;
+}
+```
+
+- rest of them by refactoring code.
+
+## Multiple Returns - Basics
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/01-multiple-returns-basics.jsx';
+```
+
+Vanilla JS
+```js
+const sayHello = (name) => {
+  if (name) {
+    return `Hello, ${name}`;
+    // Exit the function, skip rest of the code
+  }
+  // So if name provided, won't get to this line
+  return 'Hello there';
+};
+
+const firstResp = sayHello('John');
+console.log('firstResp'); // Hello, John
+const secondResp = sayHello();
+console.log(secondResp); // Hello, there
+```
+
+- If no explicit return by default function returns 'undefined'
+```js
+import { useEffect, useState } from 'react';
+
+const MultipleReturnsBasics = () => {
+  // While fetching data
+  // Convention with boolean values "isSomething"
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      // Done fetching data
+      setIsLoading(false);
+    }, 3000);
+  }, [])
+
+  // Can return entire app
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
+  return <h2>My App</h2>;
+};
+
+export default MultipleReturnsBasics;
+```
+
+## Multiple Returns - Fetch Data
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data.jsx';
+```
+
+Setup Challenge:
+- Practice on setting up state values and data fetching
+- Create state variable
+  - User - default value null
+- Fetch data from the url (for no just log result)
+- If you see user object in the console, continue with the videos
+```js
+import { useEffect, useState } from 'react';
+
+const url = 'https://api.github.com/users/QuincyLarson';
+
+const MultipleReturnsFetchData = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const resp = await fetch(url);
+        const user = await resp.json();
+
+        console.log(user);
+      } catch (error) {
+        // Fetch only cares about network errors
+        // Will work with axios
+        console.log(error);
+      }
+    };
+    fetchUser();
+  }, []);
+
+  return <h2>Fetch Example</h2>;
+};
+
+export default MultipleReturnsFetchData;
+```
+
+Data Fetching:
+- Usually three options
+  - loading - waiting for data to arrive (display loading state)
+  - error - there was an error (display error message)
+  - success - received data (display data)
+```js
+import { useEffect, useState } from 'react';
+
+const url = 'https://api.github.com/users/QuincyLarson';
+
+const MultipleReturnsFetchData = () => {
+  // Convertion to setup boolean with isSomething
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useSate(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const resp = await fetch(url);
+        const user = await resp.json();
+
+        // console.log(user);
+        setUser(user);
+      } catch (error) {
+        isError(true);
+        console.log(error);
+      }
+      // Hide loading
+      setIsLoading(false);
+    };
+    fetchUser();
+  }, []);
+
+  // Order matters
+  // Don't place user JSX before loading or error
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+  if (isError) {
+    return <h2>Thre was an error...</h2>;
+  }
+  return (
+    <div>
+      <img
+        src={user.avatart_url}
+        alt={user.name}
+        style={{ width: '150px', borderRadius:  '25px' }}
+      />
+      <h2>{user.name}</h2>
+      <h4>Works at {user.company}</h4>
+      <p>{user.bio}
+    </div>
+  );
+};
+
+export default MultipleReturnsFetchData;
+```
+
+## Fetch Errors "Gotcha" (optional)
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data.jsx';
+```
+
+Unlike for example Axios, by default, the fetch() API does not consider HTTP status codes in the 4xx or 5xx range to be errors. Instead, it considers these status codes to be indicative of a successful request.
+```js
+try {
+  const resp = await fetch(url);
+  // console.log(resp);
+  if (!resp.ok) {
+    setIsError(true);
+    setIsLoading(false);
+    return;
+  }
+
+  const user = await resp.json();
+  setUser(user);
+}
+```
+
+## Order Matters - Setup
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data.jsx';
+```
+
+Please don't dismiss this topic. A lot of question in course Q&A.
+
+Challenge:
+- Destructure properties and remove user form JSX
+- You might or might not encounter the bug
+```js
+return (
+  <div>
+    <img
+      src={avatar_url}
+      alt={name}
+      style={{ width: '100px', borderRadius: '25px' }}
+    />
+    <h2>{name}</h2>
+    <h4>Works at {company}</h4>
+    <p>{bio}</p>
+  </div>
+);
+```
+
+Order Matters - Solution
+- Before returns
+```js
+const [user, setUser] = useState(null);
+console.log(user); // Still null
+//  We can't pull out properties from null
+const { avatar_url, name, company, bio }  = user;
+```
+
+- After returns
+```js
+console.log(user); // User object
+const { avatar_url, name, company, bio }  = user;
+```
+
+```js
+return (
+  <div>
+    <img
+      src={avatar_url}
+      alt={name}
+      style={{ width: '100px', borderRadius: '25px' }}
+    />
+    <h2>{name}</h2>
+    <h4>Works at {company}</h4>
+    <p>{bio}</p>
+  </div>
+);
+```
+
+Vanilla JS
+```js
+const someObject = {
+  name: 'jo koy',
+};
+// This is cool
+someObject.name; // Return 'jo koy'
+someObject.propertyThatDoesNotExist; // return undefined
+
+// Not cool at all, javascript will scream, yell and complain
+const randomValue = null;
+randomValue.name;
+
+// This is ok
+const randomList = [];
+console.log(removeAllItem[0]); // returns undefined
+
+// Not cool at all, javascript will scream, yell and complain
+console.log(randomList[0].name);
+```
+
+## Fetch Function Location
+```js
+cosnt fetchData = async () => {
+  // Fetch data
+};
+
+useEffect(() => {
+  fetchData();
+}, []);
+```
+- DON'T ADD fetchData to dependency array!!!
+- IT WILL TRIGGER INFINITE LOOK!!!
+
+## DON'T CALL HOOK CONDITIONALLY
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/03-hooks-rule.jsx';
+```
+
+```js
+import { useState, useEffect } from 'react';
+
+const Example = () => {
+  const [condition, setCondition] = useState(true);
+  if (condition) {
+    // Won't work
+    const [state, setState] = useState(false);
+  }
+
+  if (condition) {
+    return <h2>Hello There</h2>;
+  }
+
+  // This will also fail
+  useEffect(() => {
+    console.log('Hello there')
+  }, []);
+
+  return <h2>Example</h2>;
+};
+
+export default Example;
+```
+
+## Truthy and Falsy Values (optional)
+Vanilla JS
+
+In JavaScript, a value is considered "truthy" if it is evaluated to true when used in a boolean context. A value is considered "falsy" if it is evaluated to false when used in a boolean context.
+
+Here is a list of values that are considered falsy in JavaScript:
+
+false, 0 (zero), "" (empthy string), null, undefined, NaN (Not a Number). All other values, including objects and arrays, are considered truthy.
+
+For example:
+```js
+const x = 'Hello';
+const y = '';
+const z = 0;
+
+if (x) {
+  console.log('x is truthy');
+}
+
+if (y) {
+  console.log('y is truthy');
+} else {
+  console.log('y is falsy');
+}
+
+if (z) {
+  console.log('z is truthy');
+} else {
+  console.log('z is falsy');
+}
+
+// Output:
+// "x is truthy"
+// "y is falsy"
+// "z is falsy"
+```
+
+In this example, the variable x is a no-empty string, which is considered truthy, so the first if statement is executed. The variable y is an empty string, which is considered falsy, so the else block of the second if statement is executed. The variable z is the number 0, which is considered falsy, so the else block of the third is statement is executed.
+
+## Short Circuit Evaluation (optional)
+
+Vanilla JS
+
+In JavaScript, short-circuit evaluation is a technique that allows you to use logical operators (such as && and ||) to perform conditional evaluation is a concise way.
+
+The && operator (logical AND) return the first operand if it is "falsy", or the second operand if the fist operand is "truthy".
+
+For example:
+```js
+const x = 0;
+const y = 1;
+
+console.log(x && y); // Output: 0 (the first operand is falsy, so it is returned)
+console.log(y && x); // Output: 0 (the second operand is falsy, so it is returned)
+```
+
+The || operator (logical OR) returns the first operand if it is "truthy", or the second operand if the first operand is "falsy".
+```js
+const x = 0;
+const y = 0;
+
+console.log(x || y); // Output: 1 (the first operand is falsy, so the second operand is returned)
+console.log(y || y); // Output: 1 (the first operand is truthy, so it is returned)
+```
+
+Short-circuit evaluation can be useful in cases where you want to perform a certain action only if a certain condition is met, or you want to return a default value if a certain condition is not met.
+
+For example:
+```js
+function displayName(name) {
+  return name || 'Anonymous';
+}
+
+console.log(displayName('Pizza')); // Output: "Pizza"
+console.log(displayName()); // Output: "Anonymous"
+```
+
+In this example, the displayName() function returns the name property of the user object if it exists, or "Anonymous" if the name property is not present. This is done using the || operator and short-circuit evaluation.
+
+## Short Circuit Evaluation React - Basics
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/04-short-circuit-overview.jsx';
+```
+
+Setup Challenge:
+- Create two state values
+- One "falsy" and second "truthy"
+- Setup both conditions for each operator is JSX - hint {}
+  - || OR
+  - && AND
+```js
+import { useState } from 'react';
+
+const ShortCircuitOverview = () => {
+  // falsy
+  const [text, setText] = useState('');
+  // truthy
+  const [name, setName] = useState('Susan');
+
+  cosnt codeExample = text || 'Hello world';
+
+  // Can't use if statements
+  return (
+    <div>
+      {/* {if (someCondition) {"Won't work"}} */}
+
+      <h4>Falsy OR: {text || 'Hello wold'}</h4>
+      <h4>Falsy AND: {text && 'Hello wold'}</h4>
+      <h4>Truthy OR: {name || 'Hello wold'}</h4>
+      <h4>Truthy AND: {name && 'Hello wold'}</h4>
+      {codeExample}
+    </div>
+  );
+};
+
+export default ShortCircuitOverview;
+```
+
+## Short Circuit Evaluation in React - Common Approaches
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/05-short-circuit-examples.jsx';
+```
+
+Vanilla JS (Optional) The ! operator is a logical operator in JavaScript that negates a boolean value. It is equivalent to the not operator in other programming languages.
+
+For example:
+```js
+let isTrue = true;
+let isFalse = true;
+
+console.log(!isTrue); // Output: false
+console.log(!isFalse); // Output: true
+```
+
+You can use the ! operator to test if a value is not truthy or falsy:
+```js
+let val = 0;
+if (!val) {
+  console.log('Val is falsy');
+}
+```
+
+You can also use the ! operator to convert a value to a boolean and negate it:
+```js
+let val = 'Hello';
+let bool = !val; // bool is now false
+
+val = '';
+bool = !val; // bool is now true
+```
+
+```js
+import { useState } from 'react';
+
+const ShortCircuitEvaluation = () => {
+  // falsy
+  const [text, setText] = useState('');
+  // truthy
+  const [name, setName] = useState('Susan');
+  const [user, setUser] = useState({ name: 'John' });
+  const [isEditin, setIsEditing] = useState(false);
+
+  // Can't use if statements
+  return (
+    <div>
+      {text && (
+        <div>
+          <h2>Whatever return</h2>
+          <h2>{name}</h2>
+        </div>
+      )}
+      {/* More info below */}
+      {!text && (
+        <div>
+          <h2>Whatever return</h2>
+          <h2>{name}</h2>
+        </div>
+      )}
+      {user && <SomeComponent name={user.name} />}
+      <h2 style={{ margin: '1rem 0' }}>Ternary Operator</h2>
+      <button className='btn'>{isEditing ? 'edit' : 'add'}</button>
+      {user ? (
+        <div>
+          <h4>Hello there user {user.name}</h4>
+        </div>
+      ) : (
+        <div>
+          <h2>Please login</h2>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ShortCircuitEvaluation;
+```
+
+## Ternary Operator
+
+Vanilla JS
+
+In JavaScript, the ternary operator is a way to concisely express a simple conditional statement. It is often called the "conditional operator" or the "ternary conditional operator".
+
+Here is the basic syntax for using the ternary operator:
+```js
+condition ? expression1 : expression2;
+```
+
+If condition is truthy, the operator will return expression1. If condition is falsy, it will return expression2.
+
+Jobster Example
+
+[Jobster](https://redux-toolkit-jobster.netlify.app/landing)
+
+## Toggle Challenge
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/06-toggle-challenge.jsx';
+```
+
+- Create state value (boolean)
+- Return a button and a component/element
+- When user clicks the button
+  - Toggle state value
+  - Conditionally render component/element
+
+Initial Setup
+```js
+import { useState } from 'react';
+
+const ToggleChallenge = () => {
+  const [showAlert, setShowAlert] = useState(false);
+
+  const toggleAlert = () => {
+    if (showAlert) {
+      setShowAlert(false);
+      return;
+    }
+    setShowAlert(true);
+  };
+
+  return (
+    <div>
+      <button type="button" className="btn" onClick={toggleAlert}>
+        Toggle alert
+      </button>
+      {showAlert && <Alert />}
+    </div>
+  );
+};
+
+const Alert = () => {
+  return <div className="alert alert-danger">Hello world</div>;
+};
+
+export default ToggleChallenge;
+```
+
+Improvements
+```js
+<button className='btn' onClick={() => setShowAlert(!showAlert)}>Toggle</button>
+```
+
+## User Challenge
+```js
+import Starter from './tutorial/03-conditional-rendering/starter/07-user-challenge.jsx';
+```
+
+- Create state value
+  - user - default value null
+- Create two functions
+  - login - set's user equal to object with name property
+  - logout - set's user equal to null
+- In jsx use ? to display two different setups
+- h4 with "Hello there, user name" and logout button
+- h4 with "Please login" and login button
+```js
+import { useState } from 'react';
+
+const UserChallenge = () => {
+  const [user, setUser] = useState(null);
+
+  const login = () => {
+    // Normally connect to db or api
+    setUser({ name: 'Vegan food truck' });
+  };
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    <div>
+      {user ? (
+        <div>
+          <h4>Hello there, {user.name}</h4>
+          <button type="button" className="btn" onClick={logout}>
+            Logout
+          </button>
+        </div>
+      ) : (
+        <div>
+          <h4>Please login</h4>
+          <button type="button" className="btn" onClick={login}>
+            Login
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default UserChallenge;
+```
+
+## Project Structure - Default Export
+/tutorial/04-project-structure/starter
+
+There are more options
+
+Normally somewhere in the src
+
+/components/componentName.jsx
+/screens/componentName.jsx
+
+- Create navbar folder
+  - Setup Navbar.jsx (component)
+  - Navbar.css (styles)
+- Import in App.jsx
+
+Import Final from 'pathToFolder/Navbar/Navbar'
+- First solution rename to index.jsx (entry point)
+
+Works but eventually to many index tabs :):):)
+- Rename back to Navbar.jsx
+- Create index.jsx
+```js
+export { default } form './Navbar';
+```
+
+## Project Structure - Named Exports
+/tutorial/04-project-structure/starter
+
+- Only makes sense if you have quite a few files
+- Create pages directory
+- Setup two components Home.jsx and About.jsx
+- Import both in the App.jsx
+
+import Home form 'pathToFolder/Pages/Home';
+import About from 'pathToFolder/Pages/About';
+
+A lot of work/lines of code
+- Create index.jsx
+```js
+import Home from './Home';
+import About from './About';
+
+export { Home, About };
+```
+
+In App.jsx
+import { Home, About } from 'pathToFolder/Pages';
+
+## Project Structure - Export Group
+/tutorial/04-project-structure/starter
+
+- Create Example directory
+- Setup two components (setup simple returns) and index.jsx file
+- In index.jsx setup return and render both components (import)
+- import/render index.jsx in App.jsx
+
+### Project Structure - Extra Extensions
+- Code Spell Checked - works well with code and documents
+- glean - easy extract JSX into a new component
+
+## Leverage JavaScript
+[Javascript Nuggets -Optional Chaining](https://www.youtube.com/watch?v=PuEGrylM1x8&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=12&t=254s)
+
+/tutorial/05-leverage-javascript/starter
+
+Setup Challenge
+- Take a look at the people in array in data.js
+- Create List.jsx component
+- In List.jsx import and iterate over people (data)
+- For now just render name
+- Once you have list setup separate Person.jsx component
+  - Try glean extension
+- In Person render
+  - name, nickname, image
+
+Yes, there will be a bug
+```js
+import { people } from '../../data';
+
+const List = () => {
+  return (
+    <div>
+      {people.map((person) => {
+        return <div key={person.id}>{person.name}</div>;
+      })}
+    </div>
+  );
+};
+
+export default List;
+```
+
+List.jsx
+```js
+import { people } from '../../data';
+import { Person } from './Person';
+
+const List = () => {
+  return (
+    <div>
+      {people.map((person) => {
+        return <Person key={person.id} {...person} />;
+      })}
+    </div>
+  );
+};
+
+export default List;
+```
+
+Person.jsx
+```jsx
+import avatar from '../../assets/default-avatar.svg';
+
+export function Person({ name, nickName = 'ShakeAndBake', images }) {
+  // Before optional chaining
+
+  // const img = (images && images[0] && images[0].small && images[0].small.url) || avatar;
+  // Combining with the nullish coalescing operator ??
+  // const image = images?.[0]?.small?.url ?? avatar;
+  // ?? vs || - please utilize the search engine
+
+  const img = images?.[0]?.small?.url || avatar;
+  return (
+    <div>
+      <img src={img} alt={name} style={{ width: '50px' }} />
+      <h4>{name}</h4>
+      <p>Nickname: {nickName}</p>
+    </div>
+  );
+}
+```
+
+## Defualt Values - Vanilla JS (Optional)
+In JavaScript, when defining a function, you can specify default values for its parameters. This means that if a caller of the function does not provide a value for a particular parameter, the default value will be used instead. Default parameters are defined by assigning a value to the parameter in the function definition.
+
+For example, consider the following function, which takes two parameters, x and y, and returns their sum:
+```js
+function add(x, y) {
+  return x + y;
+}
+```
+
+If we call this function with only one argument it will return NaN because y is undefined.
+
+We can set default values for x, y as:
+```js
+function add (x = 0, y = 0) {
+  return x + y;
+}
+```
+
+Now, if we call add(3), the function will return 3, because the default value of 0 is used for the y parameter.
+
+## Optional Chaining - Vanilla JS (Optional)
+In JavaScript, the optional chaining operator (?.) is a new feature that allows you to access properties of an object without worrying about whether the object or the property is null or undefined. It's a shorthand for a common pattern of checking for null or undefined before accessing an object's property.
+
+For example, consider the following code, which accesses the firstName property of an object:
+```js
+const person = { name: { first: 'John', last: 'Doe' } };
+console.log(person.name.first);
+```
+
+If the name property is null or undefined, this code will throw an error. To prevent this, we can use the optional chaining operator:
+```jsx
+console.log(person?.name?.first);
+```
+
+Now, if the person.name is null or undefined, this code will simply return undefined instead of throwing an error. This make the code more robust and readable.
+
+## Controlled Inputs - Setup
+```js
+import Starter from './tutorial/06-forms/starter/01-controlled-inputs.jsx';
+```
+
+Setup (for all from videos)
+```js
+const ControlledInputs = () => {
+  return (
+    <form className="form">
+      <h4>Controlled Inputs</h4>
+
+      <div className="form-row">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input type="text" id="name" className="form-input" />
+      </div>
+      <div className="form-row">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input type="email" id="email" className="form-input" />
+      </div>
+      <button type="submit" className="btn btn-block">
+        Submit
+      </button>
+    </form>
+  );
+};
+
+export default ControlledInputs;
+```
+
+## Controlled Inputs - Complete
+```js
+import Starter from './tutorial/06-forms/starter/01-controlled-inputs.jsx';
+```
+
+- Setup state values
+- Add value  and onChange to each input
+- Setup on Submit
+```js
+import { useState } from 'react';
+
+const ControlledInputs = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  //   const handleChange = (e) => {
+  //     // console.log(e.target.name);
+  //     // console.log(e.target.value);
+  //     setName(e.target.value);
+  //   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Do something
+    console.log(name, email);
+  };
+
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <h4>Controlled Inputs</h4>
+
+      <div className="form-row">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          className="form-input"
+          value={name}
+          //   onChange={handleChange}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div className="form-row">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          className="form-input"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <button type="submit" className="btn btn-block">
+        Submit
+      </button>
+    </form>
+  );
+};
+
+export default ControlledInputs;
+```
+
+## user Challenge
+```js
+import Starter from './tutorial/06-forms/starter/02-user-challenge.jsx';
+```
+
+- Setup controlled input (name, input)
+- Setup onSubmit (for now just placeholder)
+- Import data array (first array) from data
+- Create another state value ( data as default)
+- Iterate over and display right after form (h4)
+- When user submits the form add new person to the list
+- Extra Challenge
+  - Add button and setup functionality to remove user
+```js
+import { useState } from 'react';
+import { data } from '../../data';
+
+const UserChallenge = () => {
+  const [name, setName] = useState('');
+  const [users, setUsers] = useState(data);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Do something
+    console.log(name);
+    // If no value, do nothing
+    if (!name) return;
+    // If value, setup new user and add to current users
+    const fakeId = Date.now();
+    console.log(fakeId);
+    // const newUser = { id: fakeId, name: name };
+    const newUser = { id: fakeId, name };
+    const updatedUsers = [...users, newUser];
+    setUsers(updatedUsers);
+    console.log('Form submitted');
+    // Set back to empty
+    setName('');
+  };
+
+  const removeUser = (id) => {
+    const updatedUsers = users.filter((user) => user.id !== id);
+    setUsers(updatedUsers);
+  };
+
+  return (
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <h4>Add User</h4>
+
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="form-input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn btn-block">
+          Submit
+        </button>
+      </form>
+
+      {/* Render users */}
+      <h3>Users</h3>
+      {users.map((user) => {
+        return (
+          <div key={user.id}>
+            <h4>{user.name}</h4>
+            <button
+              type="button"
+              className="btn"
+              onClick={() => removeUser(user.id)}
+            >
+              Remove
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default UserChallenge;
+```
+
+## Multiple Inputs
+```js
+import Starter from './tutorial/06-forms/starter/03-multiple-inputs.jsx';
+```
+
+[Javascript Nuggets - Dynamic Object Keys](https://www.youtube.com/watch?v=_qxCYtWm0tw&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=3&t=97s)
+
+- Inputs must have name attribute
+```js
+import { useState } from 'react';
+
+const MultipleInputs = () => {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    // console.log(e.target.name);
+    // console.log(e.target.value);
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+  };
+
+  return (
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <h4>Multiple Inputs</h4>
+
+        {/* Name */}
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="form-input"
+            value={user.name}
+            onChange={handleChange}
+            name="name"
+          />
+        </div>
+        {/* Email */}
+        <div className="form-row">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="form-input"
+            value={user.email}
+            onChange={handleChange}
+            name="email"
+          />
+        </div>
+        {/* Password */}
+        <div className="form-row">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            type="text"
+            id="password"
+            className="form-input"
+            value={user.password}
+            onChange={handleChange}
+            name="password"
+          />
+        </div>
+        <button type="submit" className="btn btn-block">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default MultipleInputs;
+```
+
+## Other Inputs
+```js
+import Starter from './tutorial/06-forms/starter/04-other-inputs.jsx';
+```
+
+```js
+import { useState } from 'react';
+
+const frameworks = ['React', 'Angular', 'Vue', 'Svelte'];
+
+const OtherInputs = () => {
+  const [shipping, setShipping] = useState(false);
+
+  const handleShipping = (e) => {
+    console.log(e.target.checked);
+    setShipping(e.target.checked);
+  };
+
+  const handleFramework = (e) => {
+    setFramework(e.target.value);
+  };
+
+  return (
+    <div>
+      <form className="form">
+        <h4>Other Inputs</h4>
+
+        {/* Checkbox */}
+        <div className="form-row" style={{ textAlign: 'left' }}>
+          <label htmlFor="shipping">Free Shipping </label>
+          <input
+            type="checkbox"
+            name="shipping"
+            id="shipping"
+            checked={shipping}
+            onChange={handleShipping}
+          />
+        </div>
+        {/* Select */}
+        <div className="form-row" style={{ textAlign: 'left' }}>
+          <label htmlFor="framework" className="form-label">
+            Framework
+          </label>
+          <select
+            name="framework"
+            id="framework"
+            value={framework}
+            onChange={handleFramework}
+          >
+            {frameworks.map((framework) => {
+              return <option key={framework}>{framework}</option>;
+            })}
+          </select>
+        </div>
+        <button type="submit" className="btn btn-block">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default OtherInputs;
+```
+
+## FormData API
+```js
+import Starter from './tutorial/06-forms/starter/05-form-data.jsx';
+```
+
+[JS Nuggets - FormData API](https://www.youtube.com/watch?v=5-x4OUM-SP8&feature=youtu.be)
+
+- A great solution when youu have buch of inputs
+- Inputs must have name attribute
+
+The FormData interface provides a way to construct a set of key/value pairs representing form fields and their values, which can be sent using the fetch() or XMLHttpRequest.send() method. It uses the same format a from would use if the encoding type were set to "multipart/form-data".
+```js
+import { useState } from 'react';
+
+const UncontrolledInputs = () => {
+  const [value, setValue] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // console.log(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
+    // console.log(formData);
+    // const name = formData.get('name');
+    // console.log(name);
+    // console.log([...formData.entries()]);
+    const newUser = Object.fromEntries(formData);
+    // Do something (post request, add to list, etc)
+    console.log(newUser);
+    // Gotch - re-render won't clear out the values
+    setValue(value + 1);
+    // Reset values
+    e.currentTarget.reset();
+  };
+
+  return (
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <h4>Form Data API</h4>
+
+        {/* Name */}
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input type="text" name="name" id="name" className="form-input" />
+        </div>
+        {/* Email */}
+        <div className="form-row">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input type="email" name="email" id="email" className="form-input" />
+        </div>
+        {/* Password */}
+        <div className="form-row">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            className="form-input"
+          />
+        </div>
+        <button type="submit" className="btn btn-block">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default UncontrolledInputs;
+```
+
+- e.currentTarget
+
+In React, e.currentTarget return the DOM element that triggered the event.
+- Object From Entries
+
+The Object.fromEntries() static method transforms a list of key-value pairs into an object.
+```js
+const entries = new Map([
+  ['foo', 'bar'],
+  ['baz', 42],
+]);
+
+const obj = Object.fromEntries(entries);
+
+console.log(obj);
+// Expected output: Object ( foo: "baz", baz: 42 )
+```
+
+- reset()
+
+The reset() method is a built-in method in HTML that can be used to reset all form controls to their initial values. When this method is called on a form element, it will clean any user-entered data and reset the values of all form elements to their default values.
+
+## useRef
+```js
+import Starter from './tutorial/07-useRef/starter/01-useRef-basics.jsx';
+```
+
+- DOES NOT TRIGGER RE-RENDER
+- Preserves the value between renders
+- Target DOM nodes/elements
+```js
+import {
+  // useEffect,
+  useRef,
+} from 'react';
+import { useState } from 'react';
+
+const UseRefBasics = () => {
+  const [value, setValue] = useState(0);
+  const refContainer = useRef(null);
+  const isMounted = useRef(false);
+
+  console.log(refContainer);
+  // { current: null }
+  // Set value ourselves or DOM node
+
+  useEffect(() => {
+    // console.log(refContainer);
+    refContainer.current.focus();
+  }, []);
+
+  useEffect(() => {
+    // console.log(isMounted);
+
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    console.log('re-render');
+  }, [value]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = refContainer.current.value;
+    console.log(name);
+  };
+
+  return (
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="form-input"
+            ref={refContainer}
+          />
+        </div>
+        <button type="submit" className="btn btn-blok">
+          Submit
+        </button>
+      </form>
+
+      <h1>Value: {value}</h1>
+      <button type="button" className="btn" onClick={() => setValue(value + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+};
+
+export default UseRefBasics;
+```
+
+## Custom Hooks
+```js
+import Starter from './tutorial/08-custom-hooks/starter/01-toggle.jsx';
+```
+
+- Same rules as regular hooks
+- Simplify components (less code)
+- Re-use functionality
+
+useToggle.js
+```js
+import { useState } from 'react';
+
+const useToggle = (defaultValue) => {
+  const [show, setShow] = useState(defaultValue);
+
+  const toggle = () => {
+    setShow(!show);
+  };
+
+  return { show, toggle };
+};
+
+export default useToggle;
+```
+
+Challenge:
+- In App.jsx import 02-fetch-data
+- Take a look at the component
+- And try to setup custom fetch hook
+- hint: hook should return isLoading, isError, user and take url as parameter
+
+useFetchPerson.js
+```js
+import { useEffect, useState } from 'react';
+
+const useFetchPerson = (url) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const resp = await fetch(url);
+        // console.log(resp);
+        if (!resp.ok) {
+          setIsError(true);
+          setIsLoading(false);
+          return;
+        }
+
+        const user = await resp.json();
+        setUser(user);
+      } catch (error) {
+        // console.log(error);
+        setIsError(true);
+      }
+      // Hide loading
+      setIsLoading(false);
+    };
+    fetchUser();
+  }, []);
+
+  return { isLoading, isError, user };
+};
+
+export default useFetchPerson;
+```
+
+Generic Fetch
+
+useFetch.js
+```js
+import { useEffect, useState } from 'react';
+
+const useFetch = (url) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resp = await fetch(url);
+        // console.log(resp);
+        if (!resp.ok) {
+          setIsError(true);
+          setIsLoading(false);
+          return;
+        }
+
+        const result = await resp.json();
+        setData(result);
+      } catch (error) {
+        // console.log(error);
+        setIsError(true);
+      }
+      // Hide loading
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  return { isLoading, isError, data };
+};
+
+export default useFetch;
+```
+
+## Context API
+```js
+import Starter from './tutorial/09-context-api/starter';
+```
+
+Challenge:
+- Create three components and nest then in such way:
+- Navbar.jsx
+  - NavLinks.jsx (nested in Navbar)
+    - UserContainer.jsx (nested in NavLinks)
+- Import Navbar.jsx in App.jsx (remove container - CSS)
+- In Navbar.jsx setup
+  - user state value
+    - Default value {name: 'something'}
+  - Logout function
+    - Set user back to null
+- Pass both of them down to UserContainer.jsx
+- Display user and button
+- On button click set user back to null
+
+- Extra challenge
+- If user null, in UserContainer display ```<p>Please login<p>```
+
+Navbar.jsx
+```js
+import { useState } from 'react';
+import NavLinks from './NavLinks';
+
+const Navbar = () => {
+  const [user, setUser] = useState({ name: 'Adriano' });
+
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    <nav className="navbar">
+      <h5>CONTEXT API</h5>
+
+      <NavLinks user={user} logout={logout} />
+    </nav>
+  );
+};
+
+export default Navbar;
+```
+
+NavLinks.js
+```js
+import UserContainer from './UserContainer';
+
+const NavLinks = ({ user, logout }) => {
+  return (
+    <div className="nav-container no-max-width">
+      <ul className="nav-links">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+      </ul>
+
+      <UserContainer user={user} logout={logout} />
+    </div>
+  );
+};
+
+export default NavLinks;
+```
+
+UserContainer.jsx
+```jsx
+const UserContainer = ({ user, logout }) => {
+  return (
+    <div className="user-container">
+      {user ? (
+        <>
+          <p>Hello There, {user?.name?.toUpperCase()}</p>
+          <button type="button" className="btn" onClick={logout}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <p>Please Login</p>
+      )}
+    </div>
+  );
+};
+
+export default UserContainer;
+```
+
+## Setup Global Context
+Final code in the repo under w-assets
+- Create new VITE project
+```bash
+$ npm create vite@latest global-context -- --template react
+```
+
+- Install and start the project
+```bash
+$ npm install && npm run dev
+```
+
+- In src create context.jsx
+- Setup a global context - GlobalConext
+- Setup a component (AppContext) with one state value
+- Return GlobalConext.Provider form AppContext
+- Wrap then entire application (main.jsx) - children prop "gotcha"
+- Setup a custom hook
+- Access in App.jsx
+- Log result
+
+## useReducer
+```js
+import Starter from './tutorial/10-useReducer/starter/01-useReducer.jsx';
+```
+
+- It's the complete file from 03-useState-array
+
+Challenge
+- Let's add reset functionality
+- Create function that set's people back to data array
+- Create another button, similar to clear just for reset
+- Use conditional rendering to toggle between the buttons, depending on people value
+```js
+const resetList = () => {
+  setPeople(data);
+};
+
+// JSX
+{people.length < 1 ? (
+  <button
+    type="button"
+    className="btn"
+    onClick={resetList}
+    style={{ marginTop: '2rem' }}
+  >
+    Reset
+  </button>
+) : (
+  <button
+    type="button"
+    className="btn"
+    onClick={clearList}
+    style={{ marginTop: '2rem' }}
+  >
+    Clear
+  </button>
+)}
+```
+
+```js
+import { useState } from 'react';
+import { data } from '../../data';
+
+const ReducerBasics = () => {
+  const [people, setPeople] = useState(data);
+
+  const removeItem = (id) => {
+    let newPeople = people.filter((person) => person.id !== id);
+    setPeople(newPeople);
+  };
+
+  const clearList = () => {
+    setPeople([]);
+  };
+
+  const resetList = () => {
+    setPeople(data);
+  };
+
+  return (
+    <div>
+      {people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+
+      {people.length < 1 ? (
+        <button
+          type="button"
+          className="btn"
+          onClick={resetList}
+          style={{ marginTop: '2rem' }}
+        >
+          Reset
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn"
+          onClick={clearList}
+          style={{ marginTop: '2rem' }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default ReducerBasics;
+```
+
+### Remove useState
+```js
+import { useReducer } from 'react';
+import { data } from '../../data';
+
+// Default/Initial state
+const defaultState = {
+  people: data,
+};
+
+// Reduce function
+// Whatever state is returned from the function is the new state
+const reducer = (state, action) => {
+  return state;
+};
+
+const ReducerBasics = () => {
+  // dispatch({type: 'SOME_ACTION'}) an action
+  // Handle it in reducer, return new state
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  // console.log(state);
+
+  const removeItem = (id) => {
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
+  };
+
+  const clearList = () => {
+    // setPeople([]);
+  };
+
+  const resetList = () => {
+    // setPeople(data);
+  };
+
+  return (
+    <div>
+      {/* Switch to state */}
+      {state.people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+
+      {/* Switch to state */}
+      {state.people.length < 1 ? (
+        <button
+          type="button"
+          className="btn"
+          onClick={resetList}
+          style={{ marginTop: '2rem' }}
+        >
+          Reset
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn"
+          onClick={clearList}
+          style={{ marginTop: '2rem' }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default ReducerBasics;
+```
+
+### First Dispatch
+```js
+import { useReducer } from 'react';
+import { data } from '../../data';
+
+const defaultState = {
+  people: data,
+  isLoading: false,
+};
+
+const reducer = (state, action) => {
+  // console.log(action);
+  if (action.type === 'CLEAR_LIST') {
+    return {
+      ...state,
+      people: [],
+    };
+  }
+};
+
+const ReducerBasics = () => {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  // console.log(state);
+
+  const removeItem = (id) => {
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
+  };
+
+  const clearList = () => {
+    // dispatch({ type: 'do something' });
+    dispatch({ type: 'CLEAR_LIST' });
+    // setPeople([]);
+  };
+
+  const resetList = () => {
+    // setPeople(data);
+  };
+
+  return (
+    <div>
+      {state.people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+
+      {state.people.length < 1 ? (
+        <button
+          type="button"
+          className="btn"
+          onClick={resetList}
+          style={{ marginTop: '2rem' }}
+        >
+          Reset
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn"
+          onClick={clearList}
+          style={{ marginTop: '2rem' }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default ReducerBasics;
+```
+
+### Actions and Default State
+```js
+import { useReducer } from 'react';
+import { data } from '../../data';
+
+const CLEAR_LIST = 'CLEAR_LIST';
+const RESET_LIST = 'RESET_LIST';
+const REMOVE_ITEM = 'REMOVE_ITEM';
+
+const defaultState = {
+  people: data,
+  isLoading: false,
+};
+
+const reducer = (state, action) => {
+  if (action.type === CLEAR_LIST) {
+    return {
+      ...state,
+      people: [],
+    };
+  }
+  //   return state;
+  throw new Error(`No matching "${action.type}" - action type`);
+};
+
+const ReducerBasics = () => {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+
+  const removeItem = (id) => {
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
+  };
+
+  const clearList = () => {
+    dispatch({ type: CLEAR_LIST });
+  };
+
+  const resetList = () => {
+    dispatch({ type: 'do something' });
+    // setPeople(data);
+  };
+
+  return (
+    <div>
+      {state.people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+
+      {state.people.length < 1 ? (
+        <button
+          type="button"
+          className="btn"
+          onClick={resetList}
+          style={{ marginTop: '2rem' }}
+        >
+          Reset
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn"
+          onClick={clearList}
+          style={{ marginTop: '2rem' }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default ReducerBasics;
+```
+
+### Reset List Challenge
+- Setup a dispatch and handle action in the reducer
+```js
+import { useReducer } from 'react';
+import { data } from '../../data';
+
+const CLEAR_LIST = 'CLEAR_LIST';
+const RESET_LIST = 'RESET_LIST';
+const REMOVE_ITEM = 'REMOVE_ITEM';
+
+const defaultState = {
+  people: data,
+  isLoading: false,
+};
+
+const reducer = (state, action) => {
+  // console.log(action);
+  if (action.type === CLEAR_LIST) {
+    return {
+      ...state,
+      people: [],
+    };
+  }
+  if (action.type === RESET_LIST) {
+    return {
+      ...state,
+      people: data,
+    };
+  }
+  //   return state;
+  throw new Error(`No matching "${action.type}" - action type`);
+};
+
+const ReducerBasics = () => {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  // console.log(state);
+
+  const removeItem = (id) => {
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
+  };
+
+  const clearList = () => {
+    // dispatch({ type: 'do something' });
+    dispatch({ type: CLEAR_LIST });
+    // setPeople([]);
+  };
+
+  const resetList = () => {
+    dispatch({ type: RESET_LIST });
+    // setPeople(data);
+  };
+
+  return (
+    <div>
+      {state.people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+
+      {state.people.length < 1 ? (
+        <button
+          type="button"
+          className="btn"
+          onClick={resetList}
+          style={{ marginTop: '2rem' }}
+        >
+          Reset
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn"
+          onClick={clearList}
+          style={{ marginTop: '2rem' }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default ReducerBasics;
+```
+
+### Remove Person Challenge
+- Remove single person
+- Hint extra property in the object
+```js
+import { useReducer } from 'react';
+import { data } from '../../data';
+
+const CLEAR_LIST = 'CLEAR_LIST';
+const RESET_LIST = 'RESET_LIST';
+const REMOVE_ITEM = 'REMOVE_ITEM';
+
+const defaultState = {
+  people: data,
+  isLoading: false,
+};
+
+const reducer = (state, action) => {
+  // console.log(action);
+  if (action.type === CLEAR_LIST) {
+    return {
+      ...state,
+      people: [],
+    };
+  }
+  if (action.type === RESET_LIST) {
+    return {
+      ...state,
+      people: data,
+    };
+  }
+  if (action.type === REMOVE_ITEM) {
+    // console.log(action);
+    const newPeople = state.people.filter(
+      (person) => person.id !== action.payload.id
+    );
+
+    return {
+      ...state,
+      people: newPeople,
+    };
+  }
+  //   return state;
+  throw new Error(`No matching "${action.type}" - action type`);
+};
+
+const ReducerBasics = () => {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  // console.log(state);
+
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_ITEM, payload: { id } });
+  };
+
+  const clearList = () => {
+    dispatch({ type: CLEAR_LIST });
+  };
+
+  const resetList = () => {
+    dispatch({ type: RESET_LIST });
+  };
+
+  return (
+    <div>
+      {state.people.map((person) => {
+        const { id, name } = person;
+        return (
+          <div key={id}>
+            <h4>{name}</h4>
+            <button type="button" onClick={() => removeItem(id)}>
+              Remove
+            </button>
+          </div>
+        );
+      })}
+
+      {state.people.length < 1 ? (
+        <button
+          type="button"
+          className="btn"
+          onClick={resetList}
+          style={{ marginTop: '2rem' }}
+        >
+          Reset
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="btn"
+          onClick={clearList}
+          style={{ marginTop: '2rem' }}
+        >
+          Clear
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default ReducerBasics;
+```
+
+### Import/Export
+- Create new file - action.js
+  - Copy/Past all actions
+  - Export/Import actions
+- Create new file - reducer.js
+  - Copy/Paste reducer
+  - Import actions
+  - Import data
+  - Export/Import reducer
+
+## Performance
+### Lower State/Push The State Down
+```js
+import Starter from './tutorial/11-performance/starter/01-lower-state';
+```
+
+When Component Re-render:
+- When the component's state or props change React will re-render the component to reflect these changes.
+- When the parent element re-render, even if the component's state or props have not changed.
+- Lower state
+```js
+import { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button
+      className='btn'
+      onClick={() => setCount(count + 1)}
+      style={{ marginBotton: '1rem' }}
+    >
+      Count {count}
+    </button>
+  );
+};
+
+export default Counter;
+```
+
+### React Dev Tools
+Browser extension
+- [Install for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- [Install for Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
+- [Install for Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
+
+### Lower State Challenge
+```js
+import Starter from './tutorial/11-performance/starter/02-lower-state-challenge';
+```
+
+- Fix the re-rendering
+- Hint addPerson fix
+```js
+import { useState } from 'react';
+
+const Form = ({ addPerson }) => {
+  const [name, setName] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name) {
+      alert('Please provide name value');
+      return;
+    }
+
+    addPerson(name);
+    setName('');
+  };
+
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <div className="form-row">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          className="form-input"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <button type="submit" className="btn btn-block">
+        Submit
+      </button>
+    </form>
+  );
+};
+
+export default Form;
+```
+
+## React.memo()
+```js
+import Starter from './tutorial/11-performance/starter/03-hooks';
+```
+
+React.memo is a higher-order component (HOC) in React that allows you to memoize a component. This means that if the input props to the component have not changed, the memoized component will return the same result from the previous render, instead of re-rendering. This ca help improve performance by avoiding unnecessary render cycles.
+
+The React. memo function takes a functional component as its argument and returns a new component that has the same behavior, but with the added optimization o f checking if the props have changed. If the props have not changed, the momoized component will return the cached result form the previous render.
+
+Here's an example of using React.memo
+```js
+const MyComponent = React.memo(function MyComponent(prop) {
+  /* Render logic */
+})
+```
+
+React.memo(Component) - returns memoized component
+
+## Function "Gotcha"
+-  Setup remove person function
+```js
+const removePerson = (id) => {
+  const newPeople = people.filter((person) => person.id !== id);
+  setPeople(newPeople);
+};
+```
+
+- Pass it down to List and Person
+
+## UseCallback
+The useCallback hook is a hook in React that allows you to memoize a function. It takes two arguments: the first is the function you want to memoize, and the second is an array of dependencies. The hook will return a memoized version of the function that only changes if one of the values in the dependency array changes.
+
+By memoizing the function, you can avoid unnecessary re-renders and improve the performance of your React applicatio. The function will only be re-created if one of its dependencies changes, otherwise the same instance of the function will be returned. This can be useful in situations where you have an expensive function that you only want to recompute when its dependencies change.
+
+Here is an example of how you might use useCallback:
+```js
+import { useCallback, useState } from 'react';
+
+function MyComponent() {
+  const [data, setData] = useState([]);
+
+  const handleClick = useCallback(() => {
+    console.log(data);
+  }, [data]);
+
+  return (
+    <div>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+}
+```
+
+In this example, the handleClick function is memoized using useCallback and the data props is passed as a dependency. This means that the handleClick functions will only be re-created if the data props changes.
+
+### useCallback - Common Use Case
+```js
+import Final from './tutorial/02-useEffect/final/04-fetch-data';
+```
+
+```js
+import { useState, useEffect, useCallback } from 'react';
+
+const url = 'https://api.github.com/users';
+
+const FetchData = () => {
+  const [users, setUsers] = useState([]);
+
+  const fetchData = useCallback(() => {
+    try {
+      const response = await fetch(url);
+      const users = await response.json();
+      setUsers(users);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+  // Rest of the logic
+};
+```
+
+## useMemo
+The useMemo hook is a hook in React that allows you to memoize a value. It takes two arguments: the first is a function that returns the value you want to memoize, and the second is an array of dependencies. The hook will return the memoized value that will only change if one of the values in the dependency array changes.
+
+By memoizing a value you can avoid unnecessary calculations and improve the performance of your React application. The value will only be recalculated if one of its dependencies changes, otherwise the same instance of the value will be returned. This can be useful in situations where you have an expensive calculation that you only want to recompute when its dependencies change.
+
+Here is an example of how you might use useMemo:
+```js
+import { useMemo } from 'react';
+
+function MyComponent = () => {
+  const processedData = useMemo(() => {
+    reutnr data.map((item) => item.toUpperCase());
+  }, [data])
+
+  return (
+    <div>
+      {processedData.map((item) => (
+        <div key={item}>{item}</div>
+      ))}
+    </div>
+  );
+};
+```
+
+In this example, the processedData value is memoized using useMemo and the data prop is passed as a dependency. This means that the processedData value will only be recalculated if the data prop changes.
+- Create slowFunction file
+- Setup a function
+- Import in index.jsx and set it equal to a value
+```js
+const slowFunction = () => {
+  let value = 0;
+  for(let i = 0; i <= 1000000000; i++) {
+    value += i;
+  }
+
+  return value;
+};
+
+export default slowFunction;
+```
+
+## useTransition
+[JS Nuggets - Array.from](https://www.youtube.com/watch?v=zg1Bv4xubwo&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=11&t=666s)
+
+```js
+import Starter from './tutorial/11-performance/starter/04-react-18';
+```
+
+- useTransition is a React Hook that lets you update the state without blocking the UI.
+```js
+import { useState, useTransition } from 'react';
+
+const LatestReact = () => {
+  const [text, setText] = useState('');
+  const [items, setItems] = useState([]);
+  const [isPending, startTransition] = useTransition();
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+
+    // Slow down CPU
+    startTransition(() => {
+      const newItems = Array.from({ length: 5000 }, (_, index) => {
+        return (
+          <div key={index}>
+            <img src="/vite.svg" alt="" />
+          </div>
+        );
+      });
+      setItems(newItems);
+    });
+  };
+
+  return (
+    <section>
+      <form className="form">
+        <input
+          type="text"
+          className="form-input"
+          value={text}
+          onChange={handleChange}
+        />
+      </form>
+
+      <h4>Items Below</h4>
+      {isPending ? (
+        'Loading...'
+      ) : (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr 1fr',
+            marginTop: '2rem',
+          }}
+        >
+          {items}
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default LatestReact;
+```
+
+## Suspense API
+The Suspense APi is a feature in React that allows you to manage the loading state of your components. It provides a way to "suspend" rendering of a component until some data has been fetched, and display a fallback UI in the meantime. This makes it easier to handle asynchronous data loading and provide a smooth user experience in your React application.
+
+Here is an example of how you might use the Suspense API:
+```js
+import { lazy, Suspense } from 'react';
+
+const DataComponent = lazy(() => import ('./DataComponent'));
+
+function MyComponent() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DataComponent />
+    </Suspense>
+  );
+}
+```
+
+```js
+import { lazy, Suspense, useState, useTransition } from 'react';
+// import SlowComponent from './SlowComponent';
+const SlowComponent = lazy(() => import('./SlowComponent'));
+
+const LatestReact = () => {
+  const [text, setText] = useState('');
+  const [items, setItems] = useState([]);
+  const [isPending, startTransition] = useTransition();
+  const [show, setShow] = useState(false);
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+
+    startTransition(() => {
+      const newItems = Array.from({ length: 5000 }, (_, index) => {
+        return (
+          <div key={index}>
+            <img src="/vite.svg" alt="" />
+          </div>
+        );
+      });
+      setItems(newItems);
+    });
+  };
+
+  return (
+    <section>
+      <form className="form">
+        <input
+          type="text"
+          className="form-input"
+          value={text}
+          onChange={handleChange}
+        />
+      </form>
+
+      <h4>Items Below</h4>
+      {isPending ? (
+        'Loading...'
+      ) : (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr 1fr',
+            marginTop: '2rem',
+          }}
+        >
+          {items}
+        </div>
+      )}
+
+      <button type="button" className="btn" onClick={() => setShow(!show)}>
+        Toggle
+      </button>
+      {show && (
+        <Suspense fallback={<h4>Loading...</h4>}>
+          <SlowComponent />
+        </Suspense>
+      )}
+    </section>
+  );
+};
+
+export default LatestReact;
+```
+
+- Typical setup (wrap entire return is Suspense)
+```js
+return (
+  <Suspense fallback={<h4>Loading...</h4>}>
+    {/* Rest of the logic */}
+    <section>{show && <SlowComponent />}</section>
+  </Suspense>
+);
+```
