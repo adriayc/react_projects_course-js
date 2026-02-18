@@ -67,3 +67,6 @@ $ npm install packageName
 
 ## Axios
 Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very  extensible interface.
+
+## React Query
+[React Query](https://tanstack.com/query/latest) is a JavaScript library designed to simplify the complex task of data fetching and caching in React applications.
