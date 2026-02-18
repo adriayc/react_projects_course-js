@@ -64,3 +64,6 @@ $ npm install packageName
 
 ## Vite
 [Vite](https://vitejs.dev/) is a build tool that aims to provide a faster and leaner development experience for modern web projects.
+
+## Axios
+Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very  extensible interface.
